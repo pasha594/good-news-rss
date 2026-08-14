@@ -161,13 +161,14 @@ def main():
 
     first_seen = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     new_rows, new_ids = [], []
-    ok_feeds = empty_feeds = 0
+    ok_feeds = 0
+    empty_names = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=WORKERS) as ex:
         for name, articles in ex.map(fetch_feed, feeds):
             if articles:
                 ok_feeds += 1
             else:
-                empty_feeds += 1
+                empty_names.append(name)
             for a in articles:
                 aid = article_id(name, a)
                 if aid in seen:
@@ -186,7 +187,9 @@ def main():
 
     total = sum(1 for _ in ARTICLES.open()) if ARTICLES.exists() else 0
     print(f"+{len(new_rows)} new articles from {ok_feeds} feeds "
-          f"({empty_feeds} feeds returned nothing); {total} total stored")
+          f"({len(empty_names)} feeds returned nothing); {total} total stored")
+    if empty_names:
+        print("feeds returning nothing this run:", "; ".join(sorted(empty_names)))
 
 
 if __name__ == "__main__":
