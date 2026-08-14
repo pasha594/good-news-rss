@@ -1,0 +1,4 @@
+.guardian_key
+__pycache__/
+.claude/
+.DS_Store

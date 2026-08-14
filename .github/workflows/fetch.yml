@@ -1,0 +1,44 @@
+name: accumulate
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: accumulate
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install --quiet feedparser requests
+
+      - name: Fetch feeds and append new articles
+        env:
+          GUARDIAN_API_KEY: ${{ secrets.GUARDIAN_API_KEY }}
+        run: python accumulate.py
+
+      - name: Commit new data
+        run: |
+          git config user.name "feed-bot"
+          git config user.email "feed-bot@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No new articles this run."
+            exit 0
+          fi
+          git commit -m "accumulate: $(date -u +'%Y-%m-%d %H:%M') UTC"
+          git pull --rebase
+          git push

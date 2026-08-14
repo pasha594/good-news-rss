@@ -1,0 +1,956 @@
+[
+ {
+  "name": "The Standard.hk",
+  "urls": [
+   "https://www.thestandard.com.hk"
+  ]
+ },
+ {
+  "name": "MEMRI",
+  "urls": [
+   "https://www.memri.org/rss",
+   "https://www.memri.org"
+  ]
+ },
+ {
+  "name": "Frommer's",
+  "urls": [
+   "https://www.frommers.com"
+  ]
+ },
+ {
+  "name": "MTV Lebanon",
+  "urls": [
+   "https://www.mtv.com.lb"
+  ]
+ },
+ {
+  "name": "Iran PressTV",
+  "urls": [
+   "https://www.presstv.ir/rss",
+   "https://www.presstv.ir"
+  ]
+ },
+ {
+  "name": "EC News",
+  "urls": [
+   "https://ec.europa.eu/commission/presscorner/home/en"
+  ]
+ },
+ {
+  "name": "CDC Foundation",
+  "urls": [
+   "https://www.cdcfoundation.org"
+  ]
+ },
+ {
+  "name": "An-Nahar",
+  "urls": [
+   "https://en.annahar.com",
+   "https://www.annahar.com"
+  ]
+ },
+ {
+  "name": "Middle East Eye",
+  "urls": [
+   "https://www.middleeasteye.net/rss",
+   "https://www.middleeasteye.net"
+  ]
+ },
+ {
+  "name": "Carnegie Endwmnt",
+  "urls": [
+   "https://carnegieendowment.org"
+  ]
+ },
+ {
+  "name": "L’Orient‑Le Jour",
+  "urls": [
+   "https://today.lorientlejour.com/rss",
+   "https://today.lorientlejour.com"
+  ]
+ },
+ {
+  "name": "Fodor's",
+  "urls": [
+   "https://www.fodors.com"
+  ]
+ },
+ {
+  "name": "ArtReview",
+  "urls": [
+   "https://artreview.com/feed/",
+   "https://artreview.com"
+  ]
+ },
+ {
+  "name": "FairPlanet",
+  "urls": [
+   "https://www.fairplanet.org"
+  ]
+ },
+ {
+  "name": "Habitat4Humanity",
+  "urls": [
+   "https://www.habitat.org"
+  ]
+ },
+ {
+  "name": "Natl Endow Arts",
+  "urls": [
+   "https://www.arts.gov/rss.xml",
+   "https://www.arts.gov"
+  ]
+ },
+ {
+  "name": "IDA",
+  "urls": [
+   "https://www.internationaldisabilityalliance.org"
+  ]
+ },
+ {
+  "name": "Princeton",
+  "urls": [
+   "https://www.princeton.edu/feed",
+   "https://www.princeton.edu"
+  ]
+ },
+ {
+  "name": "UN ECA",
+  "urls": [
+   "https://www.uneca.org"
+  ]
+ },
+ {
+  "name": "UN ODA",
+  "urls": [
+   "https://disarmament.unoda.org"
+  ]
+ },
+ {
+  "name": "Pew Research",
+  "urls": [
+   "https://www.pewresearch.org/feed/",
+   "https://www.pewresearch.org"
+  ]
+ },
+ {
+  "name": "IFAD",
+  "urls": [
+   "https://www.ifad.org"
+  ]
+ },
+ {
+  "name": "UN CDF",
+  "urls": [
+   "https://www.uncdf.org"
+  ]
+ },
+ {
+  "name": "WTO",
+  "urls": [
+   "https://www.wto.org"
+  ]
+ },
+ {
+  "name": "Biz InsiderIndia",
+  "urls": [
+   "https://www.businessinsider.in"
+  ]
+ },
+ {
+  "name": "Bloomberg Pro",
+  "urls": [
+   "https://www.bloomberg.com/professional/insights/"
+  ]
+ },
+ {
+  "name": "UN DESA",
+  "urls": [
+   "https://www.un.org/en/desa"
+  ]
+ },
+ {
+  "name": "Phocuswire",
+  "urls": [
+   "https://www.phocuswire.com/rss",
+   "https://www.phocuswire.com"
+  ]
+ },
+ {
+  "name": "Esquire UK",
+  "urls": [
+   "https://www.esquire.co.uk"
+  ]
+ },
+ {
+  "name": "Biz of Fashion",
+  "urls": [
+   "https://www.businessoffashion.com"
+  ]
+ },
+ {
+  "name": "Milken Institute",
+  "urls": [
+   "https://milkeninstitute.org"
+  ]
+ },
+ {
+  "name": "Africa CDC",
+  "urls": [
+   "https://africacdc.org/feed/",
+   "https://africacdc.org"
+  ]
+ },
+ {
+  "name": "NASA",
+  "urls": [
+   "https://www.nasa.gov/rss/dyn/breaking_news.rss",
+   "https://www.nasa.gov"
+  ]
+ },
+ {
+  "name": "TED Magazine",
+  "urls": [
+   "https://ideas.ted.com/feed/",
+   "https://ideas.ted.com"
+  ]
+ },
+ {
+  "name": "Tiny Buddha",
+  "urls": [
+   "https://tinybuddha.com/feed/",
+   "https://tinybuddha.com"
+  ]
+ },
+ {
+  "name": "Life Gate",
+  "urls": [
+   "https://www.lifegate.com/feed",
+   "https://www.lifegate.com"
+  ]
+ },
+ {
+  "name": "WIPO",
+  "urls": [
+   "https://www.wipo.int"
+  ]
+ },
+ {
+  "name": "Oceana",
+  "urls": [
+   "https://oceana.org/feed/",
+   "https://oceana.org"
+  ]
+ },
+ {
+  "name": "Pulitzer Center",
+  "urls": [
+   "https://pulitzercenter.org"
+  ]
+ },
+ {
+  "name": "GLAAD",
+  "urls": [
+   "https://glaad.org/feed/",
+   "https://glaad.org"
+  ]
+ },
+ {
+  "name": "Mehr News",
+  "urls": [
+   "https://en.mehrnews.com/rss",
+   "https://en.mehrnews.com"
+  ]
+ },
+ {
+  "name": "Hurriyet",
+  "urls": [
+   "https://www.hurriyetdailynews.com/rss",
+   "https://www.hurriyetdailynews.com"
+  ]
+ },
+ {
+  "name": "Mercy Corps",
+  "urls": [
+   "https://www.mercycorps.org"
+  ]
+ },
+ {
+  "name": "Leadership Conf",
+  "urls": [
+   "https://civilrights.org/feed/",
+   "https://civilrights.org"
+  ]
+ },
+ {
+  "name": "Earth Day Networ",
+  "urls": [
+   "https://www.earthday.org/feed/",
+   "https://www.earthday.org"
+  ]
+ },
+ {
+  "name": "IAS",
+  "urls": [
+   "https://www.iasociety.org"
+  ]
+ },
+ {
+  "name": "Inside Phil",
+  "urls": [
+   "https://www.insidephilanthropy.com"
+  ]
+ },
+ {
+  "name": "Artforum",
+  "urls": [
+   "https://www.artforum.com"
+  ]
+ },
+ {
+  "name": "CGD",
+  "urls": [
+   "https://www.cgdev.org/rss",
+   "https://www.cgdev.org"
+  ]
+ },
+ {
+  "name": "WiesenthalCenter",
+  "urls": [
+   "https://www.wiesenthal.com"
+  ]
+ },
+ {
+  "name": "IMF",
+  "urls": [
+   "https://www.imf.org"
+  ]
+ },
+ {
+  "name": "NEH",
+  "urls": [
+   "https://www.neh.gov"
+  ]
+ },
+ {
+  "name": "IADB",
+  "urls": [
+   "https://www.iadb.org"
+  ]
+ },
+ {
+  "name": "MDAA",
+  "urls": [
+   "https://www.mda.org"
+  ]
+ },
+ {
+  "name": "MiddleEastPolicy",
+  "urls": [
+   "https://mepc.org/feed/",
+   "https://mepc.org"
+  ]
+ },
+ {
+  "name": "Tasnim",
+  "urls": [
+   "https://www.tasnimnews.com/en/rss/feed/0/8/0/all",
+   "https://www.tasnimnews.com/en"
+  ]
+ },
+ {
+  "name": "ICAO",
+  "urls": [
+   "https://www.icao.int"
+  ]
+ },
+ {
+  "name": "HRWF",
+  "urls": [
+   "https://hrwf.eu/feed/",
+   "https://hrwf.eu"
+  ]
+ },
+ {
+  "name": "HRC",
+  "urls": [
+   "https://www.hrc.org"
+  ]
+ },
+ {
+  "name": "Straits Times",
+  "urls": [
+   "https://www.straitstimes.com"
+  ]
+ },
+ {
+  "name": "JCPA",
+  "urls": [
+   "https://jcpa.org/feed/",
+   "https://jcpa.org"
+  ]
+ },
+ {
+  "name": "C2ES",
+  "urls": [
+   "https://www.c2es.org/feed/",
+   "https://www.c2es.org"
+  ]
+ },
+ {
+  "name": "Special Olympics",
+  "urls": [
+   "https://www.specialolympics.org"
+  ]
+ },
+ {
+  "name": "UN ECLAC",
+  "urls": [
+   "https://www.cepal.org/en"
+  ]
+ },
+ {
+  "name": "Tablet",
+  "urls": [
+   "https://www.tabletmag.com"
+  ]
+ },
+ {
+  "name": "UNCTAD",
+  "urls": [
+   "https://unctad.org"
+  ]
+ },
+ {
+  "name": "Khaleej Times",
+  "urls": [
+   "https://www.khaleejtimes.com/rss",
+   "https://www.khaleejtimes.com"
+  ]
+ },
+ {
+  "name": "RESET",
+  "urls": [
+   "https://en.reset.org/feed/",
+   "https://en.reset.org"
+  ]
+ },
+ {
+  "name": "Vogue Arabia",
+  "urls": [
+   "https://en.vogue.me/feed/",
+   "https://en.vogue.me"
+  ]
+ },
+ {
+  "name": "Flash Art",
+  "urls": [
+   "https://flash---art.com/feed/",
+   "https://flash---art.com"
+  ]
+ },
+ {
+  "name": "IEA",
+  "urls": [
+   "https://www.iea.org"
+  ]
+ },
+ {
+  "name": "UNEP FI",
+  "urls": [
+   "https://www.unepfi.org/feed/",
+   "https://www.unepfi.org"
+  ]
+ },
+ {
+  "name": "Alliance Mag",
+  "urls": [
+   "https://www.alliancemagazine.org/feed/",
+   "https://www.alliancemagazine.org"
+  ]
+ },
+ {
+  "name": "Nobel Foundation",
+  "urls": [
+   "https://www.nobelprize.org/feed/",
+   "https://www.nobelprize.org"
+  ]
+ },
+ {
+  "name": "Der Spiegel",
+  "urls": [
+   "https://www.spiegel.de/international/index.rss",
+   "https://www.spiegel.de/international"
+  ]
+ },
+ {
+  "name": "ICCT",
+  "urls": [
+   "https://theicct.org/feed/",
+   "https://theicct.org"
+  ]
+ },
+ {
+  "name": "UNIDO",
+  "urls": [
+   "https://www.unido.org"
+  ]
+ },
+ {
+  "name": "Candid",
+  "urls": [
+   "https://blog.candid.org/feed/",
+   "https://candid.org"
+  ]
+ },
+ {
+  "name": "CHRD",
+  "urls": [
+   "https://www.nchrd.org/feed/",
+   "https://www.nchrd.org"
+  ]
+ },
+ {
+  "name": "LSE Biz Review",
+  "urls": [
+   "https://blogs.lse.ac.uk/businessreview/feed/",
+   "https://blogs.lse.ac.uk/businessreview"
+  ]
+ },
+ {
+  "name": "AJWS",
+  "urls": [
+   "https://ajws.org/feed/",
+   "https://ajws.org"
+  ]
+ },
+ {
+  "name": "FIDH",
+  "urls": [
+   "https://www.fidh.org/en/rss.xml",
+   "https://www.fidh.org/en"
+  ]
+ },
+ {
+  "name": "Equality Now",
+  "urls": [
+   "https://equalitynow.org/feed/",
+   "https://equalitynow.org"
+  ]
+ },
+ {
+  "name": "Climate Central",
+  "urls": [
+   "https://www.climatecentral.org"
+  ]
+ },
+ {
+  "name": "Antisemitism.org",
+  "urls": [
+   "https://antisemitism.org/feed/",
+   "https://antisemitism.org"
+  ]
+ },
+ {
+  "name": "NUL",
+  "urls": [
+   "https://nul.org/feed/",
+   "https://nul.org"
+  ]
+ },
+ {
+  "name": "UN OCT",
+  "urls": [
+   "https://www.un.org/counterterrorism"
+  ]
+ },
+ {
+  "name": "NEA",
+  "urls": [
+   "https://www.nea.org"
+  ]
+ },
+ {
+  "name": "NHLC",
+  "urls": [
+   "https://homelesslaw.org/feed/",
+   "https://homelesslaw.org"
+  ]
+ },
+ {
+  "name": "RAN",
+  "urls": [
+   "https://www.ran.org/feed/",
+   "https://www.ran.org"
+  ]
+ },
+ {
+  "name": "NMQF",
+  "urls": [
+   "https://www.nmqf.org"
+  ]
+ },
+ {
+  "name": "Freedom House",
+  "urls": [
+   "https://freedomhouse.org"
+  ]
+ },
+ {
+  "name": "Carnegie Corp",
+  "urls": [
+   "https://www.carnegie.org"
+  ]
+ },
+ {
+  "name": "Women's Refugee",
+  "urls": [
+   "https://www.womensrefugeecommission.org/feed/",
+   "https://www.womensrefugeecommission.org"
+  ]
+ },
+ {
+  "name": "DREDF",
+  "urls": [
+   "https://dredf.org/feed/",
+   "https://dredf.org"
+  ]
+ },
+ {
+  "name": "Committee100",
+  "urls": [
+   "https://www.committee100.org"
+  ]
+ },
+ {
+  "name": "WWF Canada",
+  "urls": [
+   "https://wwf.ca/feed/",
+   "https://wwf.ca"
+  ]
+ },
+ {
+  "name": "Children & War",
+  "urls": [
+   "https://www.childrenandwar.org"
+  ]
+ },
+ {
+  "name": "IMF Blog",
+  "urls": [
+   "https://www.imf.org/en/Blogs"
+  ]
+ },
+ {
+  "name": "IISD",
+  "urls": [
+   "https://www.iisd.org"
+  ]
+ },
+ {
+  "name": "PNN",
+  "urls": [
+   "https://english.pnn.ps/feed/",
+   "https://english.pnn.ps"
+  ]
+ },
+ {
+  "name": "Harvard Pol Rvw",
+  "urls": [
+   "https://harvardpolitics.com/feed/",
+   "https://harvardpolitics.com"
+  ]
+ },
+ {
+  "name": "UN PRI",
+  "urls": [
+   "https://www.unpri.org"
+  ]
+ },
+ {
+  "name": "USHMM",
+  "urls": [
+   "https://www.ushmm.org"
+  ]
+ },
+ {
+  "name": "USAID",
+  "urls": [
+   "https://www.usaid.gov"
+  ]
+ },
+ {
+  "name": "Fair Trade",
+  "urls": [
+   "https://www.fairtrade.net"
+  ]
+ },
+ {
+  "name": "GayLesbianReview",
+  "urls": [
+   "https://glreview.org/feed/",
+   "https://glreview.org"
+  ]
+ },
+ {
+  "name": "UN ITAR",
+  "urls": [
+   "https://unitar.org"
+  ]
+ },
+ {
+  "name": "The Chronicle",
+  "urls": [
+   "https://www.philanthropy.com"
+  ]
+ },
+ {
+  "name": "ECCHR",
+  "urls": [
+   "https://www.ecchr.eu"
+  ]
+ },
+ {
+  "name": "FRAC",
+  "urls": [
+   "https://frac.org/feed/",
+   "https://frac.org"
+  ]
+ },
+ {
+  "name": "UN & Peoples",
+  "urls": [
+   "https://www.un.org/development/desa/indigenouspeoples"
+  ]
+ },
+ {
+  "name": "Race Forward",
+  "urls": [
+   "https://www.raceforward.org"
+  ]
+ },
+ {
+  "name": "BWC",
+  "urls": [
+   "https://disarmament.unoda.org/biological-weapons/"
+  ]
+ },
+ {
+  "name": "Liberty Hill",
+  "urls": [
+   "https://www.libertyhill.org"
+  ]
+ },
+ {
+  "name": "Hispanic Caucus",
+  "urls": [
+   "https://chc.house.gov"
+  ]
+ },
+ {
+  "name": "Asia Society",
+  "urls": [
+   "https://asiasociety.org/rss.xml",
+   "https://asiasociety.org"
+  ]
+ },
+ {
+  "name": "Vera",
+  "urls": [
+   "https://www.vera.org"
+  ]
+ },
+ {
+  "name": "Joint Center",
+  "urls": [
+   "https://jointcenter.org/feed/",
+   "https://jointcenter.org"
+  ]
+ },
+ {
+  "name": "NAHH",
+  "urls": [
+   "https://www.healthyamericas.org"
+  ]
+ },
+ {
+  "name": "Jewish Press",
+  "urls": [
+   "https://www.jewishpress.com/feed/",
+   "https://www.jewishpress.com"
+  ]
+ },
+ {
+  "name": "HiltonFoundation",
+  "urls": [
+   "https://www.hiltonfoundation.org/feed/",
+   "https://www.hiltonfoundation.org"
+  ]
+ },
+ {
+  "name": "CDP",
+  "urls": [
+   "https://www.cdp.net"
+  ]
+ },
+ {
+  "name": "IMO",
+  "urls": [
+   "https://www.imo.org"
+  ]
+ },
+ {
+  "name": "World Eco Forum",
+  "urls": [
+   "https://www.weforum.org"
+  ]
+ },
+ {
+  "name": "UN V.A. Children",
+  "urls": [
+   "https://violenceagainstchildren.un.org"
+  ]
+ },
+ {
+  "name": "FEBA",
+  "urls": [
+   "https://www.eurofoodbank.org/feed/",
+   "https://www.eurofoodbank.org"
+  ]
+ },
+ {
+  "name": "Columbia ISHR",
+  "urls": [
+   "https://www.humanrightscolumbia.org"
+  ]
+ },
+ {
+  "name": "CHCI",
+  "urls": [
+   "https://chci.org/feed/",
+   "https://chci.org"
+  ]
+ },
+ {
+  "name": "Intl Fin Corp",
+  "urls": [
+   "https://www.ifc.org"
+  ]
+ },
+ {
+  "name": "Middle East Inst",
+  "urls": [
+   "https://www.mei.edu/rss.xml",
+   "https://www.mei.edu"
+  ]
+ },
+ {
+  "name": "Hyperallergic",
+  "urls": [
+   "https://hyperallergic.com/feed/",
+   "https://hyperallergic.com"
+  ]
+ },
+ {
+  "name": "HarvardLawToday",
+  "urls": [
+   "https://hls.harvard.edu/today/feed/",
+   "https://hls.harvard.edu/today"
+  ]
+ },
+ {
+  "name": "Canary Media",
+  "urls": [
+   "https://www.canarymedia.com/rss.xml",
+   "https://www.canarymedia.com"
+  ]
+ },
+ {
+  "name": "ILGA",
+  "urls": [
+   "https://ilga.org/feed/",
+   "https://ilga.org"
+  ]
+ },
+ {
+  "name": "UN Water",
+  "urls": [
+   "https://www.unwater.org"
+  ]
+ },
+ {
+  "name": "UNODC",
+  "urls": [
+   "https://www.unodc.org"
+  ]
+ },
+ {
+  "name": "UN Peacekeeping",
+  "urls": [
+   "https://peacekeeping.un.org/en"
+  ]
+ },
+ {
+  "name": "CAPAC",
+  "urls": [
+   "https://capac.house.gov"
+  ]
+ },
+ {
+  "name": "Syria Direct",
+  "urls": [
+   "https://syriadirect.org/feed/",
+   "https://syriadirect.org"
+  ]
+ },
+ {
+  "name": "FOE.org",
+  "urls": [
+   "https://foe.org/feed/",
+   "https://foe.org"
+  ]
+ },
+ {
+  "name": "The Arc",
+  "urls": [
+   "https://thearc.org/feed/",
+   "https://thearc.org"
+  ]
+ },
+ {
+  "name": "Greenpeace UK",
+  "urls": [
+   "https://www.greenpeace.org.uk/feed/",
+   "https://www.greenpeace.org.uk"
+  ]
+ },
+ {
+  "name": "Bloomberg Philan",
+  "urls": [
+   "https://www.bloomberg.org/feed/",
+   "https://www.bloomberg.org"
+  ]
+ },
+ {
+  "name": "HumanRightsHouse",
+  "urls": [
+   "https://humanrightshouse.org/feed/",
+   "https://humanrightshouse.org"
+  ]
+ },
+ {
+  "name": "CDDEP",
+  "urls": [
+   "https://onehealthtrust.org/feed/",
+   "https://onehealthtrust.org"
+  ]
+ },
+ {
+  "name": "BBC Pidgin",
+  "urls": [
+   "https://feeds.bbci.co.uk/pidgin/rss.xml",
+   "https://www.bbc.com/pidgin"
+  ]
+ }
+]

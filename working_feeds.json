@@ -1,0 +1,1657 @@
+[
+ {
+  "name": "3BL Media",
+  "url": "https://3blmedia.com/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "ABC News",
+  "url": "https://abcnews.go.com/abcnews/topstories",
+  "premium": false
+ },
+ {
+  "name": "Action Against Hunger",
+  "url": "https://www.actionagainsthunger.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "AFAR",
+  "url": "https://www.afar.com/index.atom",
+  "premium": false
+ },
+ {
+  "name": "AfricaNews",
+  "url": "https://www.africanews.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "AJEL",
+  "url": "https://ajel.sa/feed",
+  "premium": false
+ },
+ {
+  "name": "Al Bawaba",
+  "url": "https://www.albawaba.com/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Al Jazeera",
+  "url": "https://www.aljazeera.com/xml/rss/all.xml",
+  "premium": true
+ },
+ {
+  "name": "Al Jazeera Videos",
+  "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCNye-wNBqNL5ZzHSJj3l8Bg",
+  "premium": false
+ },
+ {
+  "name": "allAfrica.com",
+  "url": "https://allafrica.com/tools/headlines/rdf/latest/headlines.rdf",
+  "premium": false
+ },
+ {
+  "name": "Alliance Mag",
+  "url": "https://www.alliancemagazine.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "AlMonitor",
+  "url": "https://www.al-monitor.com/rss",
+  "premium": false
+ },
+ {
+  "name": "American Friends of Magen David Adom",
+  "url": "https://afmda.org/news/feed/",
+  "premium": false
+ },
+ {
+  "name": "American Jewish Council",
+  "url": "https://ajc.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Ammon News",
+  "url": "https://en.ammonnews.net/rss.php?type=news&id=2",
+  "premium": false
+ },
+ {
+  "name": "Amnesty International",
+  "url": "https://www.amnesty.org/en/feed/",
+  "premium": false
+ },
+ {
+  "name": "Amnesty International Canada",
+  "url": "https://amnesty.ca/rss",
+  "premium": false
+ },
+ {
+  "name": "An-Nahar",
+  "url": "https://en.annahar.com/rss",
+  "premium": false
+ },
+ {
+  "name": "Anadolu Ajansi",
+  "url": "https://www.aa.com.tr/en/rss/default?cat=guncel",
+  "premium": false
+ },
+ {
+  "name": "Andscape",
+  "url": "https://andscape.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Anthropocene Magazine",
+  "url": "https://www.anthropocenemagazine.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Anti-Defamation League",
+  "url": "https://adl.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Antisemitism.org",
+  "url": "https://antisemitism.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Arab News",
+  "url": "https://www.arabnews.com/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Art in America",
+  "url": "https://www.artnews.com/c/art-in-america/feed/",
+  "premium": false
+ },
+ {
+  "name": "Artforum",
+  "url": "https://www.artforum.com/feed/rss/",
+  "premium": false
+ },
+ {
+  "name": "ArtNet.com",
+  "url": "https://news.artnet.com/feed",
+  "premium": false
+ },
+ {
+  "name": "ArtNews",
+  "url": "https://www.artnews.com/feed/",
+  "premium": true
+ },
+ {
+  "name": "ArtReview",
+  "url": "https://artreview.com/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Arutz Sheva",
+  "url": "https://www.israelnationalnews.com/Rss.aspx?act=.1",
+  "premium": false
+ },
+ {
+  "name": "Asharq Al-Awsat",
+  "url": "https://english.aawsat.com/feed",
+  "premium": false
+ },
+ {
+  "name": "Axios",
+  "url": "https://api.axios.com/feed/",
+  "premium": true
+ },
+ {
+  "name": "BBC News",
+  "url": "http://feeds.bbci.co.uk/news/rss.xml",
+  "premium": true
+ },
+ {
+  "name": "BBC Pidgin",
+  "url": "https://feeds.bbci.co.uk/pidgin/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Better World Campaign",
+  "url": "https://betterworldcampaign.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Biz of Fashion",
+  "url": "https://www.businessoffashion.com/arc/outboundfeeds/rss/",
+  "premium": false
+ },
+ {
+  "name": "Black News.com",
+  "url": "https://blacknews.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Business Insider Australia",
+  "url": "https://www.businessinsider.com/rss",
+  "premium": false
+ },
+ {
+  "name": "C2ES",
+  "url": "https://www.c2es.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Canary Media",
+  "url": "https://www.canarymedia.com/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "CAPAC",
+  "url": "https://capac.house.gov/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Carbon Pulse",
+  "url": "https://carbon-pulse.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "CBC News",
+  "url": "https://www.cbc.ca/webfeed/rss/rss-topstories",
+  "premium": true
+ },
+ {
+  "name": "CBS News",
+  "url": "https://www.cbsnews.com/latest/rss/main",
+  "premium": false
+ },
+ {
+  "name": "CBS Sports",
+  "url": "https://www.cbssports.com/rss/headlines/",
+  "premium": false
+ },
+ {
+  "name": "CDC Foundation",
+  "url": "https://www.cdcfoundation.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Channel News Asia",
+  "url": "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml",
+  "premium": false
+ },
+ {
+  "name": "CHCI",
+  "url": "https://chci.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "CHRD",
+  "url": "https://www.nchrd.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Christian Science Monitor",
+  "url": "https://rss.csmonitor.com/feeds/all",
+  "premium": false
+ },
+ {
+  "name": "CityAM",
+  "url": "https://www.cityam.com/feed/",
+  "premium": true
+ },
+ {
+  "name": "Civil Eats",
+  "url": "https://civileats.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "CleanTechnica",
+  "url": "https://cleantechnica.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Climate Central",
+  "url": "https://www.climatecentral.org/rss",
+  "premium": false
+ },
+ {
+  "name": "Climate Home News",
+  "url": "https://www.climatechangenews.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "CNN",
+  "url": "http://rss.cnn.com/rss/cnn_topstories.rss",
+  "premium": false
+ },
+ {
+  "name": "Columbia Earth Institute",
+  "url": "https://news.climate.columbia.edu/feed/",
+  "premium": false
+ },
+ {
+  "name": "Combat Antisemitism Movement",
+  "url": "https://combatantisemitism.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Committee100",
+  "url": "https://www.committee100.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Commonwealth Secretariat",
+  "url": "https://thecommonwealth.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Conde Nast Traveller",
+  "url": "https://www.cntraveller.com/feed/rss",
+  "premium": false
+ },
+ {
+  "name": "Conservation International",
+  "url": "https://www.conservation.org/feed.xml",
+  "premium": false
+ },
+ {
+  "name": "Cornell News",
+  "url": "https://news.cornell.edu/taxonomy/term/14242/feed",
+  "premium": false
+ },
+ {
+  "name": "Department of Commerce: National Oceanic & Atmospheric Administration",
+  "url": "https://www.noaa.gov/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Department of Justice (DoJ)",
+  "url": "https://www.justice.gov/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Department of Justice (DoJ): Office of Public Affairs",
+  "url": "https://www.justice.gov/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Der Spiegel",
+  "url": "https://www.spiegel.de/international/index.rss",
+  "premium": false
+ },
+ {
+  "name": "Deutsche Welle",
+  "url": "https://rss.dw.com/rdf/rss-en-all",
+  "premium": false
+ },
+ {
+  "name": "Dialogue Earth",
+  "url": "https://dialogue.earth/feed/",
+  "premium": false
+ },
+ {
+  "name": "Direct Relief",
+  "url": "https://www.directrelief.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Disability Insider",
+  "url": "https://disabilityinsider.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Disability Scoop",
+  "url": "https://www.disabilityscoop.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Discover",
+  "url": "https://www.discovermagazine.com/rss/all",
+  "premium": false
+ },
+ {
+  "name": "Doctors Without Borders",
+  "url": "https://www.doctorswithoutborders.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "DREDF",
+  "url": "https://dredf.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "E&E News",
+  "url": "https://www.eenews.net/articles/feed/",
+  "premium": false
+ },
+ {
+  "name": "Earth & Space Science News",
+  "url": "https://eos.org/feed",
+  "premium": false
+ },
+ {
+  "name": "Earth Day Networ",
+  "url": "https://www.earthday.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Earth Works",
+  "url": "https://earthworks.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Earth.org",
+  "url": "https://earth.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Eco-Business.com",
+  "url": "https://www.eco-business.com/feeds/news/",
+  "premium": false
+ },
+ {
+  "name": "Environmental News Network",
+  "url": "https://www.enn.com/?layout=ja_teline_v:taggedblog&amp;types[0]=1&amp;format=feed&amp;type=rss",
+  "premium": false
+ },
+ {
+  "name": "Environmental Working Group",
+  "url": "https://ewg.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Equality Now",
+  "url": "https://equalitynow.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "ESG Today",
+  "url": "https://www.esgtoday.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Esquire",
+  "url": "https://www.esquire.com/rss/all.xml",
+  "premium": false
+ },
+ {
+  "name": "Esquire UK",
+  "url": "https://www.esquire.com/uk/rss/default.xml",
+  "premium": false
+ },
+ {
+  "name": "EU Reporter",
+  "url": "https://www.eureporter.co/feed/",
+  "premium": false
+ },
+ {
+  "name": "EuroNews",
+  "url": "https://www.euronews.com/rss",
+  "premium": false
+ },
+ {
+  "name": "European Centre for Disease Prevention",
+  "url": "https://www.ecdc.europa.eu/en/taxonomy/term/323//feed",
+  "premium": false
+ },
+ {
+  "name": "European Investment Bank",
+  "url": "https://www.eib.org/about/jobs/index.rss",
+  "premium": false
+ },
+ {
+  "name": "European Union Agency for Fundamental Rights",
+  "url": "https://fra.europa.eu/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "FairPlanet",
+  "url": "https://www.fairplanet.org/feed.xml",
+  "premium": false
+ },
+ {
+  "name": "Fast Company",
+  "url": "https://www.fastcompany.com/latest/rss",
+  "premium": false
+ },
+ {
+  "name": "FEBA",
+  "url": "https://www.eurofoodbank.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "FIDH",
+  "url": "https://www.fidh.org/spip.php?page=backend",
+  "premium": false
+ },
+ {
+  "name": "Flash Art",
+  "url": "https://flash---art.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Fodor's",
+  "url": "https://www.fodors.com/feed",
+  "premium": false
+ },
+ {
+  "name": "Food Ingredients First",
+  "url": "https://resource-cns.cnsmedia.com/rss/fifnews.xml",
+  "premium": false
+ },
+ {
+  "name": "Food Navigator",
+  "url": "https://www.foodnavigator.com:443/arc/outboundfeeds/rss/",
+  "premium": false
+ },
+ {
+  "name": "Food Navigator USA",
+  "url": "https://www.foodnavigator.com/arc/outboundfeeds/rss/",
+  "premium": false
+ },
+ {
+  "name": "Food Navigator- Asia",
+  "url": "https://www.foodnavigator.com/arc/outboundfeeds/rss/",
+  "premium": false
+ },
+ {
+  "name": "Forbes",
+  "url": "https://www.forbes.com/most-popular/feed/",
+  "premium": true
+ },
+ {
+  "name": "Foreign Affairs",
+  "url": "https://www.foreignaffairs.com/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Fortune",
+  "url": "https://fortune.com/feed/",
+  "premium": true
+ },
+ {
+  "name": "Forward",
+  "url": "https://forward.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Fox News",
+  "url": "https://moxie.foxnews.com/google-publisher/latest.xml",
+  "premium": false
+ },
+ {
+  "name": "FRAC",
+  "url": "https://frac.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "France24 (EN)",
+  "url": "https://www.france24.com/en/rss",
+  "premium": false
+ },
+ {
+  "name": "Freedom House",
+  "url": "https://freedomhouse.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Gay Times",
+  "url": "https://www.gaytimes.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "GayLesbianReview",
+  "url": "https://glreview.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "GLAAD",
+  "url": "https://glaad.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Global Citizen",
+  "url": "https://www.globalcitizen.org:443/content/feed/",
+  "premium": false
+ },
+ {
+  "name": "Global TV",
+  "url": "https://globalnews.ca/feed/",
+  "premium": false
+ },
+ {
+  "name": "Globe and Mail",
+  "url": "https://www.theglobeandmail.com/arc/outboundfeeds/rss/category/canada/",
+  "premium": false
+ },
+ {
+  "name": "Globes",
+  "url": "https://www.globes.co.il/webservice/rss/rssfeeder.asmx/FeederNode?iID=1725",
+  "premium": false
+ },
+ {
+  "name": "Good Good Good",
+  "url": "https://www.goodgoodgood.co/articles/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Good News Network",
+  "url": "https://www.goodnewsnetwork.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Good360",
+  "url": "https://good360.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Greenpeace International",
+  "url": "https://www.greenpeace.org/international/feed/",
+  "premium": false
+ },
+ {
+  "name": "Greenpeace UK",
+  "url": "https://www.greenpeace.org.uk/feed/",
+  "premium": false
+ },
+ {
+  "name": "Grist Magazine",
+  "url": "https://grist.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Gulf News",
+  "url": "https://gulfnews.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Gulf Times",
+  "url": "https://www.gulf-times.com/rssFeed/9",
+  "premium": false
+ },
+ {
+  "name": "Haaretz",
+  "url": "https://www.haaretz.com/srv/haaretz-latest-headlines",
+  "premium": true
+ },
+ {
+  "name": "Habitat4Humanity",
+  "url": "https://www.habitat.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Harvard Pol Rvw",
+  "url": "https://harvardpolitics.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Harvard School of Public Health",
+  "url": "https://hsph.harvard.edu/feed/",
+  "premium": false
+ },
+ {
+  "name": "HarvardLawToday",
+  "url": "https://hls.harvard.edu/feed/",
+  "premium": false
+ },
+ {
+  "name": "Health Policy Watch",
+  "url": "https://healthpolicy-watch.news/feed/",
+  "premium": false
+ },
+ {
+  "name": "Heinrich Boll Foundation",
+  "url": "https://www.boell.de/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "HIAS",
+  "url": "https://hias.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Hispanic Caucus",
+  "url": "https://chc.house.gov/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "HRWF",
+  "url": "https://hrwf.eu/feed/",
+  "premium": false
+ },
+ {
+  "name": "Huffington Post (UK)",
+  "url": "https://www.huffingtonpost.co.uk/feeds/index.xml",
+  "premium": false
+ },
+ {
+  "name": "HumanRightsHouse",
+  "url": "https://humanrightshouse.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Hyperallergic",
+  "url": "https://hyperallergic.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "ICCT",
+  "url": "https://theicct.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "IDA",
+  "url": "https://www.internationaldisabilityalliance.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "ILGA",
+  "url": "https://ilga.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Impakter",
+  "url": "https://impakter.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Inter Press Service",
+  "url": "https://www.ipsnews.net/feed/",
+  "premium": false
+ },
+ {
+  "name": "International Atomic Energy Agency",
+  "url": "https://www.iaea.org/feeds/topnews",
+  "premium": false
+ },
+ {
+  "name": "International Business Times",
+  "url": "https://www.ibtimes.com/rss",
+  "premium": false
+ },
+ {
+  "name": "International Committee of the Red Cross",
+  "url": "https://www.icrc.org/en/rss/general",
+  "premium": false
+ },
+ {
+  "name": "International Consortium of Investigative Journalists",
+  "url": "https://www.icij.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "International Federation of Red Cross and Red Crescent Societies",
+  "url": "https://ifrc.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "International Institute of Race, Equality and Human Rights",
+  "url": "https://raceandequality.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "International Medical Corps",
+  "url": "https://internationalmedicalcorps.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "International Paralympic Committee",
+  "url": "https://www.paralympic.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "International Trade Centre",
+  "url": "https://intracen.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Iraqi News",
+  "url": "https://www.iraqinews.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Iraqi News Agency",
+  "url": "https://ina.iq/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Israel Hayom.en",
+  "url": "https://www.israelhayom.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Israel Today",
+  "url": "https://www.israeltoday.co.il/feed/",
+  "premium": false
+ },
+ {
+  "name": "ITU",
+  "url": "https://www.itu.int/hub/feed/",
+  "premium": false
+ },
+ {
+  "name": "Jerusalem Post",
+  "url": "https://www.jpost.com/rss/rssfeedsfrontpage.aspx",
+  "premium": false
+ },
+ {
+  "name": "Jewish Chronicle",
+  "url": "https://www.thejc.com/rss",
+  "premium": false
+ },
+ {
+  "name": "Jewish Exponent",
+  "url": "https://www.jewishexponent.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Jewish Insider",
+  "url": "https://jewishinsider.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Jewish News Syndicate",
+  "url": "https://www.jns.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Jewish News Weekly",
+  "url": "https://jweekly.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Jewish Press",
+  "url": "https://www.jewishpress.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "John Hopkins University",
+  "url": "https://hub.jhu.edu/feed/",
+  "premium": false
+ },
+ {
+  "name": "Joint Center",
+  "url": "https://jointcenter.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Khaleej Times",
+  "url": "https://www.khaleejtimes.com/api/v1/collections/top-section.rss",
+  "premium": false
+ },
+ {
+  "name": "Kuwait Times",
+  "url": "https://kuwaittimes.com/rssFeed/0",
+  "premium": false
+ },
+ {
+  "name": "Leadership Conf",
+  "url": "https://civilrights.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "LGBTQ Nation",
+  "url": "https://www.lgbtqnation.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Life Gate",
+  "url": "https://www.lifegate.com/feed",
+  "premium": false
+ },
+ {
+  "name": "LiveScience.com",
+  "url": "https://www.livescience.com/feeds/all",
+  "premium": false
+ },
+ {
+  "name": "Los Angeles Times",
+  "url": "https://www.latimes.com/rss2.0.xml",
+  "premium": true
+ },
+ {
+  "name": "LSE Biz Review",
+  "url": "https://blogs.lse.ac.uk/businessreview/feed/",
+  "premium": false
+ },
+ {
+  "name": "Mashable",
+  "url": "https://mashable.com/feeds/rss/all",
+  "premium": false
+ },
+ {
+  "name": "MDAA",
+  "url": "https://www.mda.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Media Line",
+  "url": "https://themedialine.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Mehr News",
+  "url": "https://en.mehrnews.com/rss",
+  "premium": false
+ },
+ {
+  "name": "Mercy Corps",
+  "url": "https://www.mercycorps.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Middle East Eye",
+  "url": "https://www.middleeasteye.net/rss",
+  "premium": false
+ },
+ {
+  "name": "Middle East Online",
+  "url": "https://middle-east-online.com/rss",
+  "premium": false
+ },
+ {
+  "name": "MiddleEastPolicy",
+  "url": "https://mepc.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Milken Institute",
+  "url": "https://milkeninstitute.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "MIT News",
+  "url": "https://news.mit.edu/rss/feed",
+  "premium": false
+ },
+ {
+  "name": "Mongabay",
+  "url": "https://news.mongabay.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "MS NOW",
+  "url": "https://www.ms.now/feed",
+  "premium": false
+ },
+ {
+  "name": "Ms. Magazine",
+  "url": "https://msmagazine.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "My Modern Met",
+  "url": "https://mymodernmet.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "NAACP Legal Defense Fund",
+  "url": "https://www.naacpldf.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Naharnet",
+  "url": "https://naharnet.com/tags/lebanon/en/feed.atom",
+  "premium": false
+ },
+ {
+  "name": "NAHH",
+  "url": "https://www.healthyamericas.org/blog-feed.xml",
+  "premium": false
+ },
+ {
+  "name": "NASA",
+  "url": "https://www.nasa.gov/rss/dyn/breaking_news.rss",
+  "premium": false
+ },
+ {
+  "name": "National Council on Disability (NCD)",
+  "url": "https://ncd.gov/feed.xml",
+  "premium": false
+ },
+ {
+  "name": "National Parks Traveler",
+  "url": "https://www.nationalparkstraveler.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "National Public Radio (NPR)",
+  "url": "https://feeds.npr.org/1001/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "National Science Foundation (NSF)",
+  "url": "https://www.nsf.gov/rss/rss_www_news.xml",
+  "premium": false
+ },
+ {
+  "name": "National Wildlife Federation",
+  "url": "https://blog.nwf.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Natl Endow Arts",
+  "url": "https://www.arts.gov/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Nature",
+  "url": "https://www.nature.com/nature.rss",
+  "premium": false
+ },
+ {
+  "name": "NBC News",
+  "url": "https://feeds.nbcnews.com/nbcnews/public/news",
+  "premium": false
+ },
+ {
+  "name": "NBC Sports",
+  "url": "https://www.nbcsports.com/index.atom",
+  "premium": false
+ },
+ {
+  "name": "New Humanitarian",
+  "url": "https://www.thenewhumanitarian.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "New Scientist",
+  "url": "https://www.newscientist.com/feed/home/",
+  "premium": false
+ },
+ {
+  "name": "New York Post",
+  "url": "https://nypost.com/feed/",
+  "premium": true
+ },
+ {
+  "name": "New York Times",
+  "url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+  "premium": true
+ },
+ {
+  "name": "New Yorker",
+  "url": "https://www.newyorker.com/feed/everything",
+  "premium": false
+ },
+ {
+  "name": "Newark Star-Ledger",
+  "url": "https://www.nj.com/arc/outboundfeeds/rss/?outputType=xml",
+  "premium": false
+ },
+ {
+  "name": "Newser",
+  "url": "http://rss.newser.com/rss/section/1.rss",
+  "premium": false
+ },
+ {
+  "name": "Newswise",
+  "url": "https://feeds.feedburner.com/NewswiseLatestNews",
+  "premium": false
+ },
+ {
+  "name": "Next City",
+  "url": "https://nextcity.org/feeds/features",
+  "premium": false
+ },
+ {
+  "name": "NHLC",
+  "url": "https://homelesslaw.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Nice News",
+  "url": "https://nicenews.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "NMQF",
+  "url": "https://www.nmqf.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Nobel Foundation",
+  "url": "https://www.nobelprize.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Nonprofit Quarterly",
+  "url": "https://nonprofitquarterly.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Oceana",
+  "url": "https://oceana.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Oman Daily Observer",
+  "url": "https://www.omanobserver.om/rssFeed/home-page",
+  "premium": false
+ },
+ {
+  "name": "Oman News Agency",
+  "url": "https://omannews.gov.om/rss.ona",
+  "premium": false
+ },
+ {
+  "name": "Optimist Daily",
+  "url": "https://www.optimistdaily.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Our World in Data",
+  "url": "https://ourworldindata.org/atom.xml",
+  "premium": false
+ },
+ {
+  "name": "Pew Research",
+  "url": "https://www.pewresearch.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Philadelphia Inquirer",
+  "url": "https://www.inquirer.com/arc/outboundfeeds/rss/?outputType=xml",
+  "premium": false
+ },
+ {
+  "name": "PhysOrg.com",
+  "url": "https://phys.org/rss-feed/",
+  "premium": false
+ },
+ {
+  "name": "PNN",
+  "url": "https://english.pnn.ps/feed/",
+  "premium": false
+ },
+ {
+  "name": "Popular Science",
+  "url": "https://www.popsci.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Positive News",
+  "url": "https://www.positive.news/feed/",
+  "premium": false
+ },
+ {
+  "name": "Princeton",
+  "url": "https://www.princeton.edu/feed",
+  "premium": false
+ },
+ {
+  "name": "Public Radio International",
+  "url": "https://theworld.org/rss",
+  "premium": false
+ },
+ {
+  "name": "Race Forward",
+  "url": "https://www.raceforward.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Radio France International.en",
+  "url": "https://www.rfi.fr/en/rss",
+  "premium": false
+ },
+ {
+  "name": "Radio Free Asia",
+  "url": "https://www.rfa.org/english/rss2.xml",
+  "premium": false
+ },
+ {
+  "name": "Radio Free Europe",
+  "url": "https://www.rferl.org/api/",
+  "premium": false
+ },
+ {
+  "name": "Rare.org",
+  "url": "https://rare.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Reasons to be Cheerful",
+  "url": "https://reasonstobecheerful.world/feed/",
+  "premium": false
+ },
+ {
+  "name": "ReliefWeb",
+  "url": "https://reliefweb.int/updates/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Roya News",
+  "url": "https://en.royanews.tv/rss",
+  "premium": false
+ },
+ {
+  "name": "sabah(en) - Daily Sabah",
+  "url": "https://www.dailysabah.com/rss/home-page",
+  "premium": false
+ },
+ {
+  "name": "Saudi Gazette",
+  "url": "https://saudigazette.com.sa/rssFeed/74",
+  "premium": true
+ },
+ {
+  "name": "Scaling Up Nutrition",
+  "url": "https://scalingupnutrition.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Science Daily",
+  "url": "https://www.sciencedaily.com/rss/all.xml",
+  "premium": false
+ },
+ {
+  "name": "ScienceNews",
+  "url": "https://www.sciencenews.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Scientific American",
+  "url": "http://rss.sciam.com/ScientificAmerican-Global",
+  "premium": false
+ },
+ {
+  "name": "SciTechDaily",
+  "url": "https://scitechdaily.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Seattle Times",
+  "url": "https://www.seattletimes.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Semafor",
+  "url": "https://www.semafor.com/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Shafaq News",
+  "url": "https://shafaq.com/en?rss=1",
+  "premium": false
+ },
+ {
+  "name": "Skift",
+  "url": "https://skift.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Sky News",
+  "url": "https://feeds.skynews.com/feeds/rss/home.xml",
+  "premium": false
+ },
+ {
+  "name": "Space News",
+  "url": "https://spacenews.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Space.com",
+  "url": "https://www.space.com/feeds/all",
+  "premium": false
+ },
+ {
+  "name": "Special Olympics",
+  "url": "https://www.specialolympics.org/index.rss",
+  "premium": false
+ },
+ {
+  "name": "Sports Illustrated",
+  "url": "https://www.si.com/feed",
+  "premium": true
+ },
+ {
+  "name": "STAT",
+  "url": "https://www.statnews.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Straits Times",
+  "url": "https://www.straitstimes.com/news/singapore/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Sunny Skyz",
+  "url": "https://www.sunnyskyz.com/rss_tebow.php",
+  "premium": false
+ },
+ {
+  "name": "Sydney Morning Herald",
+  "url": "https://www.smh.com.au/rss/feed.xml",
+  "premium": true
+ },
+ {
+  "name": "Syndigate - Boston.com",
+  "url": "https://www.boston.com/feed/",
+  "premium": true
+ },
+ {
+  "name": "Syria Direct",
+  "url": "https://syriadirect.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Syrian Arab News Agency (EN)",
+  "url": "https://sana.sy/en/?feed=rss2",
+  "premium": false
+ },
+ {
+  "name": "TechCrunch",
+  "url": "https://techcrunch.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "TED Magazine",
+  "url": "https://ideas.ted.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Tehran Times",
+  "url": "https://www.tehrantimes.com/rss",
+  "premium": false
+ },
+ {
+  "name": "The 19th",
+  "url": "https://19thnews.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "The Algemeiner",
+  "url": "https://www.algemeiner.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "The Arc",
+  "url": "https://thearc.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "The Carbon Brief",
+  "url": "https://www.carbonbrief.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "The Chronicle",
+  "url": "https://www.philanthropy.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "The Conversation",
+  "url": "https://theconversation.com/articles.atom",
+  "premium": false
+ },
+ {
+  "name": "The Conversation AU",
+  "url": "https://theconversation.com/au/articles.atom",
+  "premium": false
+ },
+ {
+  "name": "The Conversation US",
+  "url": "https://theconversation.com/us/articles.atom",
+  "premium": false
+ },
+ {
+  "name": "The Diplomat",
+  "url": "https://thediplomat.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "The Global Fund",
+  "url": "https://www.theglobalfund.org/data/rss-feeds/latest/",
+  "premium": false
+ },
+ {
+  "name": "The Guardian",
+  "url": "Guardian Content API",
+  "premium": true
+ },
+ {
+  "name": "The Hechinger Report",
+  "url": "https://hechingerreport.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "The Hill",
+  "url": "https://thehill.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "The Independent",
+  "url": "https://www.independent.co.uk/rss",
+  "premium": true
+ },
+ {
+  "name": "The National",
+  "url": "https://www.thenationalnews.com/arc/outboundfeeds/rss/?outputType=xml",
+  "premium": false
+ },
+ {
+  "name": "The Standard",
+  "url": "https://www.standard.co.uk/rss",
+  "premium": false
+ },
+ {
+  "name": "Time Magazine",
+  "url": "https://time.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Times of India",
+  "url": "https://timesofindia.indiatimes.com/rssfeedmostrecent.cms",
+  "premium": true
+ },
+ {
+  "name": "Times of India - Times Now",
+  "url": "https://www.timesnownews.com/feeds/gns-en-latest.xml",
+  "premium": true
+ },
+ {
+  "name": "Times of Israel",
+  "url": "https://www.timesofisrael.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Times of Oman",
+  "url": "https://timesofoman.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Tiny Buddha",
+  "url": "https://tinybuddha.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Toronto Star",
+  "url": "https://www.thestar.com/search/?f=rss&t=article&l=25&s=start_time&sd=desc",
+  "premium": false
+ },
+ {
+  "name": "Triple Pundit: People, Planet, Profit",
+  "url": "https://triplepundit.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "TRT World",
+  "url": "https://www.trtworld.com/feed/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "UN & Peoples",
+  "url": "https://www.un.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "UN Chronicle",
+  "url": "https://un.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "UN Crime and Justice Research Institute",
+  "url": "https://unicri.it/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "UN DESA",
+  "url": "https://www.un.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "UN ECA",
+  "url": "http://www.uneca.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "UN Habitat",
+  "url": "https://unhabitat.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "UN OCT",
+  "url": "https://www.un.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "UN Office for Partnerships",
+  "url": "https://un.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "UN Office for the Coordination of Humanitarian Affairs",
+  "url": "https://unocha.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "UN Volunteers",
+  "url": "https://unv.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "UN Water",
+  "url": "https://www.unwater.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "UN Women",
+  "url": "https://unwomen.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "UNAIDS",
+  "url": "https://unaids.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "UNEP FI",
+  "url": "https://www.unepfi.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "UNFPA",
+  "url": "https://unfpa.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "Union of Concerned Scientists",
+  "url": "https://blog.ucsusa.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "United Nations",
+  "url": "https://news.un.org/feed/subscribe/en/news/all/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "United Nations Convention to Combat Desertification",
+  "url": "https://unccd.int/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "United Nations Environment Programme",
+  "url": "https://unep.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "United Nations Institute for Disarmament Research",
+  "url": "https://unidir.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "University of Pennsylvania",
+  "url": "https://penntoday.upenn.edu/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "UNODC",
+  "url": "https://www.unodc.org/unodc/feed/stories.xml",
+  "premium": false
+ },
+ {
+  "name": "Upworthy",
+  "url": "https://www.upworthy.com/feeds/feed.rss",
+  "premium": false
+ },
+ {
+  "name": "Vogue",
+  "url": "https://www.vogue.com/feed/rss",
+  "premium": false
+ },
+ {
+  "name": "Vogue Arabia",
+  "url": "https://www.voguearabia.com/feed/rss",
+  "premium": false
+ },
+ {
+  "name": "Vogue.uk",
+  "url": "https://www.vogue.co.uk/feed/rss",
+  "premium": false
+ },
+ {
+  "name": "WABC New York City",
+  "url": "https://abc7ny.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Wanderlust",
+  "url": "https://www.wanderlustmagazine.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Washington Blade",
+  "url": "https://www.washingtonblade.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Washington Post",
+  "url": "https://feeds.washingtonpost.com/rss/national",
+  "premium": true
+ },
+ {
+  "name": "Water World",
+  "url": "https://www.waterworld.com:443/__rss/website-scheduled-content.xml?input=%7B%22sectionAlias%22%3A%22home%22%7D",
+  "premium": false
+ },
+ {
+  "name": "Winnipeg Free Press",
+  "url": "https://www.winnipegfreepress.com/rss?path=/breakingnews",
+  "premium": false
+ },
+ {
+  "name": "Women's Agenda",
+  "url": "https://womensagenda.com.au/feed/",
+  "premium": false
+ },
+ {
+  "name": "Women's Refugee",
+  "url": "https://www.womensrefugeecommission.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "World Business Council for Sustainable Development (WBCSD)",
+  "url": "https://wbcsd.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "World Conservation Union (IUCN)",
+  "url": "https://iucn.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "World Health Organization",
+  "url": "https://www.who.int/rss-feeds/news-english.xml",
+  "premium": false
+ },
+ {
+  "name": "World Israel News",
+  "url": "https://worldisraelnews.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "World Jewish Congress",
+  "url": "https://worldjewishcongress.org/rss",
+  "premium": false
+ },
+ {
+  "name": "WWF Canada",
+  "url": "https://wwf.ca/feed/",
+  "premium": false
+ },
+ {
+  "name": "Yale University",
+  "url": "https://news.yale.edu/news-rss",
+  "premium": false
+ },
+ {
+  "name": "Yeni Safak.en",
+  "url": "https://www.yenisafak.com/en/rss",
+  "premium": false
+ },
+ {
+  "name": "Ynet News - Israel",
+  "url": "https://www.ynetnews.com/Integration/StoryRss3082.xml",
+  "premium": false
+ },
+ {
+  "name": "YourStory",
+  "url": "https://yourstory.com/feed",
+  "premium": false
+ }
+]
