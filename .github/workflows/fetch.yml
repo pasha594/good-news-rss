@@ -30,11 +30,14 @@ jobs:
           GUARDIAN_API_KEY: ${{ secrets.GUARDIAN_API_KEY }}
         run: python accumulate.py
 
+      - name: Rebuild live site
+        run: python build_site.py
+
       - name: Commit new data
         run: |
           git config user.name "feed-bot"
           git config user.email "feed-bot@users.noreply.github.com"
-          git add data/
+          git add data/ docs/
           if git diff --cached --quiet; then
             echo "No new articles this run."
             exit 0

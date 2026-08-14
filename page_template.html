@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Good News Feeds</title>
+<style>
+  :root {
+    --bg: #f4f7f5; --panel: #ffffff; --text: #1c2420; --muted: #5c6b63;
+    --border: #dde5e0; --accent: #157a46; --accent-soft: #e3f2e9;
+    --link: #0f62b7; --row-alt: #fafcfb; --hover: #eef5f1;
+    --badge-bg: #d9ead3; --badge-text: #1e5c33; --badge-border: #b7d6ac;
+    --input-bg: #ffffff; --shadow: 0 8px 24px rgba(20, 40, 30, .12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #101513; --panel: #171d1a; --text: #e4eae6; --muted: #93a29a;
+      --border: #2a332e; --accent: #4cc98a; --accent-soft: #1d3328;
+      --link: #6cb2ff; --row-alt: #1b211e; --hover: #212a25;
+      --badge-bg: #1e3a2a; --badge-text: #8fd8ae; --badge-border: #2e5540;
+      --input-bg: #121815; --shadow: 0 8px 24px rgba(0, 0, 0, .5);
+    }
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { height: 100%; }
+  body {
+    font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--text);
+    display: flex; flex-direction: column;
+  }
+  header { padding: 14px 20px 10px; flex: none; }
+  .titlebar { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  h1 { font-size: 20px; letter-spacing: -.2px; }
+  h1 .leaf { color: var(--accent); }
+  .stats { color: var(--muted); font-size: 13px; }
+  .stats b { color: var(--text); }
+  .meta { margin-top: 4px; font-size: 12px; color: var(--muted);
+          display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .meta details { display: inline; }
+  .meta summary { cursor: pointer; color: var(--accent); }
+  .meta ul { margin: 6px 0 4px 18px; max-height: 180px; overflow: auto; }
+  .meta li span { color: var(--muted); }
+  #clearBtn {
+    border: 1px solid var(--border); background: var(--panel); color: var(--muted);
+    border-radius: 6px; padding: 2px 10px; font-size: 12px; cursor: pointer; display: none;
+  }
+  #clearBtn.active { display: inline-block; color: var(--accent); border-color: var(--accent); }
+
+  .table-wrap { flex: 1; overflow: auto; padding: 0 20px 20px; }
+  table { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 900px;
+          background: var(--panel); border: 1px solid var(--border); border-radius: 10px; }
+  thead th { position: sticky; background: var(--panel); z-index: 3; text-align: left; }
+  thead tr.labels th {
+    top: 0; padding: 10px 12px 6px; font-size: 12px; text-transform: uppercase;
+    letter-spacing: .06em; color: var(--muted); user-select: none;
+  }
+  thead tr.labels th.sortable { cursor: pointer; }
+  thead tr.labels th.sortable:hover { color: var(--accent); }
+  thead tr.labels th .arrow { font-size: 10px; margin-left: 4px; }
+  thead tr.filters th { top: 33px; padding: 0 12px 10px; border-bottom: 1px solid var(--border); }
+  tr.filters th > input, tr.filters th > select, #srcBtn {
+    width: 100%; padding: 6px 9px; font-size: 13px; color: var(--text);
+    background: var(--input-bg); border: 1px solid var(--border); border-radius: 7px;
+  }
+  tr.filters th > input:focus, tr.filters th > select:focus,
+  .dd-head input:focus { outline: 2px solid var(--accent-soft); border-color: var(--accent); }
+  .dd-item input { flex: none; width: auto; }
+  #srcBtn { text-align: left; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #srcBtn.filtered { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+
+  .dd { position: relative; }
+  .dd-panel {
+    display: none; position: absolute; top: calc(100% + 6px); left: 0; z-index: 50;
+    width: 340px; max-height: 420px; background: var(--panel);
+    border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow);
+    flex-direction: column;
+  }
+  .dd-panel.open { display: flex; }
+  .dd-head { padding: 10px 10px 8px; border-bottom: 1px solid var(--border); }
+  .dd-head input { width: 100%; padding: 6px 9px; font-size: 13px;
+    border: 1px solid var(--border); border-radius: 7px; background: var(--input-bg); color: var(--text); }
+  .dd-links { display: flex; gap: 12px; margin-top: 8px; font-size: 12px; }
+  .dd-links a { color: var(--accent); cursor: pointer; font-weight: 600; }
+  .dd-list { overflow: auto; padding: 6px 4px; }
+  .dd-item { display: flex; align-items: center; gap: 8px; padding: 5px 10px;
+             border-radius: 6px; cursor: pointer; font-size: 13px; }
+  .dd-item:hover { background: var(--hover); }
+  .dd-item .nm { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .dd-item .cnt { margin-left: auto; padding-left: 8px; color: var(--muted); font-size: 12px;
+                  font-variant-numeric: tabular-nums; }
+  .badge {
+    display: inline-block; font-size: 9.5px; font-weight: 700; letter-spacing: .05em;
+    background: var(--badge-bg); color: var(--badge-text); border: 1px solid var(--badge-border);
+    padding: 1px 6px; border-radius: 999px; vertical-align: 1px;
+  }
+  tbody td { padding: 9px 12px; border-top: 1px solid var(--border); vertical-align: top; }
+  tbody tr:nth-child(even) { background: var(--row-alt); }
+  tbody tr:hover { background: var(--hover); }
+  td.src { white-space: nowrap; font-weight: 600; font-size: 13px; }
+  td.src .badge { margin-left: 6px; }
+  td.hl a { color: var(--link); text-decoration: none; font-weight: 600; }
+  td.hl a:hover { text-decoration: underline; }
+  td.hl span.nolink { font-weight: 600; }
+  td.desc { color: var(--muted); font-size: 13px; }
+  td.date { white-space: nowrap; color: var(--muted); font-size: 12.5px;
+            font-variant-numeric: tabular-nums; }
+  #empty { padding: 40px; text-align: center; color: var(--muted); display: none; }
+</style>
+</head>
+<body>
+<header>
+  <div class="titlebar">
+    <h1><span class="leaf">&#10087;</span> Good News Feeds</h1>
+    <span class="stats"><b id="shownCount"></b> shown of <b>__N_ARTICLES__</b> articles
+      &middot; <b>__N_SOURCES__</b> sources</span>
+    <button id="clearBtn">Clear filters &times;</button>
+  </div>
+  <div class="meta">
+    <span>Fetched <span id="genAt"></span></span>
+    <span>__REFRESH_NOTE__</span>
+    <details><summary>__N_FAILED__ sources returned nothing</summary>
+      <ul>__FAIL_LIST__</ul>
+    </details>
+  </div>
+</header>
+
+<div class="table-wrap">
+  <table>
+    <colgroup>
+      <col style="width:210px"><col style="width:32%"><col><col style="width:150px">
+    </colgroup>
+    <thead>
+      <tr class="labels">
+        <th class="sortable" data-k="s">Source<span class="arrow"></span></th>
+        <th class="sortable" data-k="h">Headline<span class="arrow"></span></th>
+        <th>Description</th>
+        <th class="sortable" data-k="t">Date<span class="arrow"></span></th>
+      </tr>
+      <tr class="filters">
+        <th>
+          <div class="dd">
+            <button id="srcBtn">All sources</button>
+            <div class="dd-panel" id="srcPanel">
+              <div class="dd-head">
+                <input id="srcSearch" type="search" placeholder="Search sources...">
+                <div class="dd-links">
+                  <a id="srcAll">All</a><a id="srcNone">None</a>
+                  <a id="srcPremium">Premium only</a>
+                </div>
+              </div>
+              <div class="dd-list" id="srcList"></div>
+            </div>
+          </div>
+        </th>
+        <th><input id="hlFilter" type="search" placeholder="Filter headlines..."></th>
+        <th><input id="descFilter" type="search" placeholder="Filter descriptions..."></th>
+        <th>
+          <select id="dateFilter">
+            <option value="all">All time</option>
+            <option value="86400">Last 24 hours</option>
+            <option value="259200">Last 3 days</option>
+            <option value="604800">Last 7 days</option>
+            <option value="2592000">Last 30 days</option>
+          </select>
+        </th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <div id="empty">No articles match the current filters.</div>
+  <div id="sentinel"></div>
+</div>
+
+<script id="data" type="application/json">__PAYLOAD__</script>
+<script>
+"use strict";
+const DATA = JSON.parse(document.getElementById("data").textContent);
+const SRC = DATA.sources;                  // [{n, p, c}]
+const ART = DATA.articles;                 // [srcIdx, title, link, desc, epoch]
+const lowerTitle = ART.map(a => a[1].toLowerCase());
+const lowerDesc = ART.map(a => a[3].toLowerCase());
+const fmt = new Intl.DateTimeFormat(undefined, { dateStyle: "medium", timeStyle: "short" });
+document.getElementById("genAt").textContent = fmt.format(new Date(DATA.generated));
+
+const state = { src: null, hq: "", dq: "", dp: "all", sortK: "t", sortDir: -1 };
+let matched = [];      // indices into ART after filtering+sorting
+let rendered = 0;
+const CHUNK = 400;
+
+const tbody = document.getElementById("tbody");
+const esc = s => s.replace(/[&<>"']/g, m =>
+  ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
+
+function badge(si) { return SRC[si].p ? ' <span class="badge">PREMIUM</span>' : ""; }
+
+function rowHtml(i) {
+  const a = ART[i];
+  const d = a[4] ? fmt.format(new Date(a[4] * 1000)) : "—";
+  const hl = a[2]
+    ? '<a href="' + esc(a[2]) + '" target="_blank" rel="noopener">' + esc(a[1]) + "</a>"
+    : '<span class="nolink">' + esc(a[1]) + "</span>";
+  return "<tr><td class='src'>" + esc(SRC[a[0]].n) + badge(a[0]) + "</td>" +
+         "<td class='hl'>" + hl + "</td><td class='desc'>" + esc(a[3]) + "</td>" +
+         "<td class='date'>" + d + "</td></tr>";
+}
+
+function renderChunk() {
+  if (rendered >= matched.length) return;
+  const end = Math.min(rendered + CHUNK, matched.length);
+  let html = "";
+  for (let i = rendered; i < end; i++) html += rowHtml(matched[i]);
+  tbody.insertAdjacentHTML("beforeend", html);
+  rendered = end;
+}
+
+function applyFilters() {
+  const now = Date.now() / 1000;
+  const cut = state.dp === "all" ? null : now - Number(state.dp);
+  const srcSel = state.src;
+  const hq = state.hq, dq = state.dq;
+  matched = [];
+  for (let i = 0; i < ART.length; i++) {
+    const a = ART[i];
+    if (srcSel && !srcSel.has(a[0])) continue;
+    if (cut !== null && (!a[4] || a[4] < cut)) continue;
+    if (hq && !lowerTitle[i].includes(hq)) continue;
+    if (dq && !lowerDesc[i].includes(dq)) continue;
+    matched.push(i);
+  }
+  sortMatched();
+  tbody.innerHTML = "";
+  rendered = 0;
+  renderChunk();
+  document.getElementById("shownCount").textContent = matched.length.toLocaleString();
+  document.getElementById("empty").style.display = matched.length ? "none" : "block";
+  updateClearBtn();
+}
+
+function sortMatched() {
+  const k = state.sortK, dir = state.sortDir;
+  if (k === "t") {
+    matched.sort((x, y) => {
+      const a = ART[x][4], b = ART[y][4];
+      if (!a && !b) return 0;
+      if (!a) return 1;              // undated always last
+      if (!b) return -1;
+      return dir * (a - b);
+    });
+  } else if (k === "s") {
+    matched.sort((x, y) => dir * SRC[ART[x][0]].n.localeCompare(SRC[ART[y][0]].n) ||
+                           ART[y][4] - ART[x][4]);
+  } else {
+    matched.sort((x, y) => dir * ART[x][1].localeCompare(ART[y][1]));
+  }
+  document.querySelectorAll("tr.labels th.sortable").forEach(th => {
+    th.querySelector(".arrow").textContent =
+      th.dataset.k === k ? (dir === 1 ? "▲" : "▼") : "";
+  });
+}
+
+document.querySelectorAll("tr.labels th.sortable").forEach(th => {
+  th.addEventListener("click", () => {
+    if (state.sortK === th.dataset.k) state.sortDir *= -1;
+    else { state.sortK = th.dataset.k; state.sortDir = th.dataset.k === "t" ? -1 : 1; }
+    applyFilters();
+  });
+});
+
+// ---- source dropdown ----
+const srcBtn = document.getElementById("srcBtn");
+const srcPanel = document.getElementById("srcPanel");
+const srcList = document.getElementById("srcList");
+const srcOrder = SRC.map((s, i) => i).sort((a, b) => SRC[a].n.localeCompare(SRC[b].n));
+
+function buildSrcList(query) {
+  const q = (query || "").toLowerCase();
+  let html = "";
+  for (const i of srcOrder) {
+    const s = SRC[i];
+    if (q && !s.n.toLowerCase().includes(q)) continue;
+    const checked = !state.src || state.src.has(i) ? " checked" : "";
+    html += '<label class="dd-item"><input type="checkbox" data-i="' + i + '"' + checked +
+            '><span class="nm">' + esc(s.n) +
+            (s.p ? ' <span class="badge">PREMIUM</span>' : "") +
+            '</span><span class="cnt">' + s.c.toLocaleString() + "</span></label>";
+  }
+  srcList.innerHTML = html;
+}
+
+function updateSrcBtn() {
+  if (!state.src) { srcBtn.textContent = "All sources (" + SRC.length + ")"; srcBtn.classList.remove("filtered"); }
+  else {
+    srcBtn.textContent = state.src.size + " of " + SRC.length + " sources";
+    srcBtn.classList.add("filtered");
+  }
+}
+
+srcBtn.addEventListener("click", e => {
+  e.stopPropagation();
+  const open = srcPanel.classList.toggle("open");
+  if (open) { buildSrcList(document.getElementById("srcSearch").value); }
+});
+document.addEventListener("click", e => {
+  if (!srcPanel.contains(e.target) && e.target !== srcBtn) srcPanel.classList.remove("open");
+});
+srcList.addEventListener("change", e => {
+  const cb = e.target;
+  if (!cb.dataset.i) return;
+  let set = state.src;
+  if (!set) { set = new Set(SRC.map((s, i) => i)); }   // was "all"
+  const i = Number(cb.dataset.i);
+  if (cb.checked) set.add(i); else set.delete(i);
+  state.src = set.size === SRC.length ? null : set;
+  updateSrcBtn(); applyFilters();
+});
+document.getElementById("srcSearch").addEventListener("input", e => buildSrcList(e.target.value));
+document.getElementById("srcAll").addEventListener("click", () => {
+  state.src = null; buildSrcList(srcSearch.value); updateSrcBtn(); applyFilters();
+});
+document.getElementById("srcNone").addEventListener("click", () => {
+  state.src = new Set(); buildSrcList(srcSearch.value); updateSrcBtn(); applyFilters();
+});
+document.getElementById("srcPremium").addEventListener("click", () => {
+  state.src = new Set(SRC.map((s, i) => i).filter(i => SRC[i].p));
+  buildSrcList(srcSearch.value); updateSrcBtn(); applyFilters();
+});
+
+// ---- text + date filters ----
+let debounceTimer;
+function debounced(fn) { clearTimeout(debounceTimer); debounceTimer = setTimeout(fn, 150); }
+document.getElementById("hlFilter").addEventListener("input", e =>
+  debounced(() => { state.hq = e.target.value.toLowerCase().trim(); applyFilters(); }));
+document.getElementById("descFilter").addEventListener("input", e =>
+  debounced(() => { state.dq = e.target.value.toLowerCase().trim(); applyFilters(); }));
+document.getElementById("dateFilter").addEventListener("change", e => {
+  state.dp = e.target.value; applyFilters();
+});
+
+// ---- clear ----
+const clearBtn = document.getElementById("clearBtn");
+function anyFilter() {
+  return state.src !== null || state.hq || state.dq || state.dp !== "all";
+}
+function updateClearBtn() { clearBtn.classList.toggle("active", !!anyFilter()); }
+clearBtn.addEventListener("click", () => {
+  state.src = null; state.hq = ""; state.dq = ""; state.dp = "all";
+  document.getElementById("hlFilter").value = "";
+  document.getElementById("descFilter").value = "";
+  document.getElementById("dateFilter").value = "all";
+  document.getElementById("srcSearch").value = "";
+  updateSrcBtn(); applyFilters();
+});
+
+// ---- infinite scroll ----
+const wrap = document.querySelector(".table-wrap");
+new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) renderChunk();
+}, { root: wrap, rootMargin: "600px" })
+  .observe(document.getElementById("sentinel"));
+wrap.addEventListener("scroll", () => {
+  if (wrap.scrollTop + wrap.clientHeight > wrap.scrollHeight - 1200) renderChunk();
+}, { passive: true });
+
+updateSrcBtn();
+applyFilters();
+</script>
+</body>
+</html>
