@@ -20,6 +20,11 @@
   "premium": false
  },
  {
+  "name": "Africa CDC",
+  "url": "https://africacdc.org/news-item/feed/",
+  "premium": false
+ },
+ {
   "name": "AfricaNews",
   "url": "https://www.africanews.com/feed/",
   "premium": false
@@ -185,8 +190,23 @@
   "premium": false
  },
  {
+  "name": "Bloomberg",
+  "url": "https://feeds.bloomberg.com/markets/news.rss",
+  "premium": false
+ },
+ {
+  "name": "Brookings Institution",
+  "url": "https://www.brookings.edu/feed/?post_type=article",
+  "premium": false
+ },
+ {
   "name": "Business Insider Australia",
   "url": "https://www.businessinsider.com/rss",
+  "premium": false
+ },
+ {
+  "name": "BusinessGreen",
+  "url": "https://www.businessgreen.com/feeds/rss",
   "premium": false
  },
  {
@@ -210,6 +230,16 @@
   "premium": false
  },
  {
+  "name": "CARE International",
+  "url": "https://www.care.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Carnegie Corp",
+  "url": "https://carnegie.org/feed/?post_type=articles",
+  "premium": false
+ },
+ {
   "name": "CBC News",
   "url": "https://www.cbc.ca/webfeed/rss/rss-topstories",
   "premium": true
@@ -230,6 +260,11 @@
   "premium": false
  },
  {
+  "name": "Centers for Disease Control",
+  "url": "https://tools.cdc.gov/api/v2/resources/media/132608.rss",
+  "premium": false
+ },
+ {
   "name": "Channel News Asia",
   "url": "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml",
   "premium": false
@@ -237,6 +272,11 @@
  {
   "name": "CHCI",
   "url": "https://chci.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Children & War",
+  "url": "https://www.childrenandwar.org/news?format=rss",
   "premium": false
  },
  {
@@ -312,6 +352,11 @@
  {
   "name": "Cornell News",
   "url": "https://news.cornell.edu/taxonomy/term/14242/feed",
+  "premium": false
+ },
+ {
+  "name": "Daily Express UK",
+  "url": "https://feeds.feedburner.com/daily-express-uk-news",
   "premium": false
  },
  {
@@ -400,8 +445,18 @@
   "premium": false
  },
  {
+  "name": "EC News",
+  "url": "https://ec.europa.eu/commission/presscorner/api/rss",
+  "premium": false
+ },
+ {
   "name": "Eco-Business.com",
   "url": "https://www.eco-business.com/feeds/news/",
+  "premium": false
+ },
+ {
+  "name": "Environmental Defense Fund EDF",
+  "url": "https://blogs.edf.org/climate411/feed/",
   "premium": false
  },
  {
@@ -450,8 +505,18 @@
   "premium": false
  },
  {
+  "name": "European Environment Agency",
+  "url": "https://www.eea.europa.eu/en/newsroom/rss-feeds/eeas-press-releases-rss/rss.xml",
+  "premium": false
+ },
+ {
   "name": "European Investment Bank",
   "url": "https://www.eib.org/about/jobs/index.rss",
+  "premium": false
+ },
+ {
+  "name": "European Union",
+  "url": "https://ec.europa.eu/commission/presscorner/api/rss?search=&language=en",
   "premium": false
  },
  {
@@ -460,8 +525,18 @@
   "premium": false
  },
  {
+  "name": "Facing History and Ourselves",
+  "url": "https://facingtoday.facinghistory.org/rss.xml",
+  "premium": false
+ },
+ {
   "name": "FairPlanet",
   "url": "https://www.fairplanet.org/feed.xml",
+  "premium": false
+ },
+ {
+  "name": "FAO of the United Nations",
+  "url": "https://www.fao.org/feeds/fao-newsroom-rss",
   "premium": false
  },
  {
@@ -515,6 +590,11 @@
   "premium": true
  },
  {
+  "name": "Forbes Traveler",
+  "url": "https://www.forbes.com/travel/feed2/",
+  "premium": false
+ },
+ {
   "name": "Foreign Affairs",
   "url": "https://www.foreignaffairs.com/rss.xml",
   "premium": false
@@ -527,6 +607,11 @@
  {
   "name": "Forward",
   "url": "https://forward.com/feed/",
+  "premium": false
+ },
+ {
+  "name": "Fos Feminista",
+  "url": "https://fosfeminista.org/feed/?post_type=article",
   "premium": false
  },
  {
@@ -572,6 +657,11 @@
  {
   "name": "Global TV",
   "url": "https://globalnews.ca/feed/",
+  "premium": false
+ },
+ {
+  "name": "Global Voices",
+  "url": "https://globalvoices.org/feed/",
   "premium": false
  },
  {
@@ -665,6 +755,11 @@
   "premium": false
  },
  {
+  "name": "HiltonFoundation",
+  "url": "https://www.hiltonfoundation.org/?post_type=news&feed=rss2",
+  "premium": false
+ },
+ {
   "name": "Hispanic Caucus",
   "url": "https://chc.house.gov/rss.xml",
   "premium": false
@@ -675,6 +770,11 @@
   "premium": false
  },
  {
+  "name": "Huffington Post",
+  "url": "https://www.huffpost.com/section/world-news/feed",
+  "premium": false
+ },
+ {
   "name": "Huffington Post (UK)",
   "url": "https://www.huffingtonpost.co.uk/feeds/index.xml",
   "premium": false
@@ -682,6 +782,11 @@
  {
   "name": "HumanRightsHouse",
   "url": "https://humanrightshouse.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "Hurriyet",
+  "url": "https://www.hurriyetdailynews.com/rss/turkey",
   "premium": false
  },
  {
@@ -760,6 +865,11 @@
   "premium": false
  },
  {
+  "name": "Iran PressTV",
+  "url": "https://www.presstv.co.uk/rss.xml",
+  "premium": false
+ },
+ {
   "name": "Iraqi News",
   "url": "https://www.iraqinews.com/feed/",
   "premium": false
@@ -782,6 +892,11 @@
  {
   "name": "ITU",
   "url": "https://www.itu.int/hub/feed/",
+  "premium": false
+ },
+ {
+  "name": "JCPA",
+  "url": "https://jcfa.org/feed/",
   "premium": false
  },
  {
@@ -835,6 +950,11 @@
   "premium": false
  },
  {
+  "name": "Kurdistan 24.en",
+  "url": "https://www.kurdistan24.net/en/rss.xml",
+  "premium": false
+ },
+ {
   "name": "Kuwait Times",
   "url": "https://kuwaittimes.com/rssFeed/0",
   "premium": false
@@ -857,6 +977,11 @@
  {
   "name": "LiveScience.com",
   "url": "https://www.livescience.com/feeds/all",
+  "premium": false
+ },
+ {
+  "name": "London School of Economics",
+  "url": "https://blogs.lse.ac.uk/europpblog/feed/",
   "premium": false
  },
  {
@@ -965,6 +1090,11 @@
   "premium": false
  },
  {
+  "name": "National Institutes of Health",
+  "url": "https://grants.nih.gov/grants/guide/newsfeed/fundingopps.xml",
+  "premium": false
+ },
+ {
   "name": "National Parks Traveler",
   "url": "https://www.nationalparkstraveler.org/rss.xml",
   "premium": false
@@ -995,6 +1125,11 @@
   "premium": false
  },
  {
+  "name": "Nature Conservancy",
+  "url": "https://blog.nature.org/feed/",
+  "premium": false
+ },
+ {
   "name": "NBC News",
   "url": "https://feeds.nbcnews.com/nbcnews/public/news",
   "premium": false
@@ -1002,6 +1137,11 @@
  {
   "name": "NBC Sports",
   "url": "https://www.nbcsports.com/index.atom",
+  "premium": false
+ },
+ {
+  "name": "NEH",
+  "url": "https://www.neh.gov/rss.xml",
   "premium": false
  },
  {
@@ -1140,6 +1280,11 @@
   "premium": false
  },
  {
+  "name": "Qatar News Agency",
+  "url": "https://qna.org.qa/en/Pages/RSS-Feeds/General",
+  "premium": false
+ },
+ {
   "name": "Race Forward",
   "url": "https://www.raceforward.org/rss.xml",
   "premium": false
@@ -1157,6 +1302,11 @@
  {
   "name": "Radio Free Europe",
   "url": "https://www.rferl.org/api/",
+  "premium": false
+ },
+ {
+  "name": "RAN",
+  "url": "https://www.ran.org/press-releases/feed/",
   "premium": false
  },
  {
@@ -1237,6 +1387,11 @@
  {
   "name": "Sky News",
   "url": "https://feeds.skynews.com/feeds/rss/home.xml",
+  "premium": false
+ },
+ {
+  "name": "Southern Poverty Law Center",
+  "url": "https://www.splcenter.org/resources/stories/feed/",
   "premium": false
  },
  {
@@ -1395,6 +1550,11 @@
   "premium": false
  },
  {
+  "name": "Time Out",
+  "url": "https://www.timeout.com/feed.rss",
+  "premium": false
+ },
+ {
   "name": "Times of India",
   "url": "https://timesofindia.indiatimes.com/rssfeedmostrecent.cms",
   "premium": true
@@ -1420,6 +1580,11 @@
   "premium": false
  },
  {
+  "name": "Today",
+  "url": "https://feeds.today.com/today/public/news",
+  "premium": false
+ },
+ {
   "name": "Toronto Star",
   "url": "https://www.thestar.com/search/?f=rss&t=article&l=25&s=start_time&sd=desc",
   "premium": false
@@ -1440,6 +1605,11 @@
   "premium": false
  },
  {
+  "name": "UN CDF",
+  "url": "https://podcast.uncdf.org/rssfeed",
+  "premium": false
+ },
+ {
   "name": "UN Chronicle",
   "url": "https://un.org/rss.xml",
   "premium": false
@@ -1452,6 +1622,11 @@
  {
   "name": "UN DESA",
   "url": "https://www.un.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "UN Development Coordination Office",
+  "url": "https://unsdg.un.org/rss.xml",
   "premium": false
  },
  {
@@ -1477,6 +1652,11 @@
  {
   "name": "UN Office for the Coordination of Humanitarian Affairs",
   "url": "https://unocha.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "UN Peacekeeping",
+  "url": "https://news.un.org/feed/subscribe/en/news/topic/peace-and-security/feed/rss.xml",
   "premium": false
  },
  {
@@ -1515,6 +1695,11 @@
   "premium": false
  },
  {
+  "name": "United Nation Human Rights",
+  "url": "https://www.ohchr.org/en/rss.xml",
+  "premium": false
+ },
+ {
   "name": "United Nations",
   "url": "https://news.un.org/feed/subscribe/en/news/all/rss.xml",
   "premium": false
@@ -1525,6 +1710,11 @@
   "premium": false
  },
  {
+  "name": "United Nations Educational, Scientific and Cultural Organization",
+  "url": "https://whc.unesco.org/en/news/rss/",
+  "premium": false
+ },
+ {
   "name": "United Nations Environment Programme",
   "url": "https://unep.org/rss.xml",
   "premium": false
@@ -1532,6 +1722,16 @@
  {
   "name": "United Nations Institute for Disarmament Research",
   "url": "https://unidir.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "United Nations Office for Disaster Risk Reduction",
+  "url": "https://www.undrr.org/rss.xml",
+  "premium": false
+ },
+ {
+  "name": "United Nations Refugee Agency",
+  "url": "https://zakat.unhcr.org/blog/en/feed",
   "premium": false
  },
  {
@@ -1590,8 +1790,18 @@
   "premium": false
  },
  {
+  "name": "WiesenthalCenter",
+  "url": "https://www.wiesenthal.org/news/rss.xml",
+  "premium": false
+ },
+ {
   "name": "Winnipeg Free Press",
   "url": "https://www.winnipegfreepress.com/rss?path=/breakingnews",
+  "premium": false
+ },
+ {
+  "name": "WIPO",
+  "url": "https://www.wipo.int/pressroom/en/rss.xml",
   "premium": false
  },
  {
@@ -1605,8 +1815,18 @@
   "premium": false
  },
  {
+  "name": "World Bank",
+  "url": "https://openknowledge.worldbank.org/server/opensearch/search?query=*&format=rss",
+  "premium": false
+ },
+ {
   "name": "World Business Council for Sustainable Development (WBCSD)",
   "url": "https://wbcsd.org/feed/",
+  "premium": false
+ },
+ {
+  "name": "World Central Kitchen",
+  "url": "https://wck.org/feed/?post_type=press_release",
   "premium": false
  },
  {
@@ -1627,6 +1847,21 @@
  {
   "name": "World Jewish Congress",
   "url": "https://worldjewishcongress.org/rss",
+  "premium": false
+ },
+ {
+  "name": "World Land Trust",
+  "url": "https://www.worldlandtrust.org/feed/?post_type=update",
+  "premium": false
+ },
+ {
+  "name": "World Wildlife Foundation",
+  "url": "http://feeds.feedburner.com/WWFStories",
+  "premium": false
+ },
+ {
+  "name": "WTO",
+  "url": "https://www.wto.org/library/rss/latest_news_e.xml",
   "premium": false
  },
  {

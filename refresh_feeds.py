@@ -272,17 +272,20 @@ COMMON_PATTERNS = ["/feed/", "/rss", "/rss.xml", "/feed.xml", "/atom.xml",
 
 def curl_fetch(url):
     """Fallback fetch via curl: different TLS stack, passes some bot-walls and
-    servers our LibreSSL-built requests can't handshake with."""
-    try:
-        p = subprocess.run(
-            ["curl", "-sL", "--compressed", "-m", "20", "-A", UA,
-             "-H", "Accept: application/rss+xml, application/atom+xml, "
-                   "application/xml, text/xml, */*", url],
-            capture_output=True, timeout=25)
-        if p.returncode == 0 and p.stdout:
-            return p.stdout
-    except Exception:
-        pass
+    servers our LibreSSL-built requests can't handshake with. Tries a browser
+    UA first, then curl's default UA (some servers, e.g. ESPN, reject a Chrome
+    UA coming from a non-browser client but accept plain clients)."""
+    for ua_args in (["-A", UA], []):
+        try:
+            p = subprocess.run(
+                ["curl", "-sL", "--compressed", "-m", "20", *ua_args,
+                 "-H", "Accept: application/rss+xml, application/atom+xml, "
+                       "application/xml, text/xml, */*", url],
+                capture_output=True, timeout=25)
+            if p.returncode == 0 and p.stdout and len(p.stdout) > 100:
+                return p.stdout
+        except Exception:
+            pass
     return None
 
 

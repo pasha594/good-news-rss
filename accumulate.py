@@ -84,14 +84,15 @@ def http_get(url):
             return r.content
     except Exception:
         pass
-    try:
-        p = subprocess.run(
-            ["curl", "-sL", "--compressed", "-m", "20", "-A", UA, url],
-            capture_output=True, timeout=25)
-        if p.returncode == 0 and p.stdout:
-            return p.stdout
-    except Exception:
-        pass
+    for ua_args in (["-A", UA], []):  # browser UA, then curl default (ESPN et al.)
+        try:
+            p = subprocess.run(
+                ["curl", "-sL", "--compressed", "-m", "20", *ua_args, url],
+                capture_output=True, timeout=25)
+            if p.returncode == 0 and p.stdout and len(p.stdout) > 100:
+                return p.stdout
+        except Exception:
+            pass
     return None
 
 

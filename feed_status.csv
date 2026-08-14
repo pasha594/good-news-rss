@@ -3,7 +3,7 @@ source,rss_url,premium,returned,article_count
 ABC News,https://abcnews.go.com/abcnews/topstories,no,yes,25
 Action Against Hunger,https://www.actionagainsthunger.org/feed/,no,yes,10
 AFAR,https://www.afar.com/index.atom,no,yes,12
-Africa CDC,,no,no,0
+Africa CDC,https://africacdc.org/news-item/feed/,no,yes,10
 AfricaNews,https://www.africanews.com/feed/,no,yes,50
 AJEL,https://ajel.sa/feed,no,yes,50
 AJWS,,no,no,0
@@ -40,28 +40,28 @@ Asharq Al-Awsat,https://english.aawsat.com/feed,no,yes,200
 Asia Society,,no,no,0
 Axios,https://api.axios.com/feed/,yes,yes,100
 Bahrain News Agency,,no,no,0
-BBC News,http://feeds.bbci.co.uk/news/rss.xml,yes,yes,31
+BBC News,http://feeds.bbci.co.uk/news/rss.xml,yes,yes,32
 BBC Pidgin,https://feeds.bbci.co.uk/pidgin/rss.xml,no,yes,25
 Better World Campaign,https://betterworldcampaign.org/feed/,no,yes,10
 Bill & Melinda Gates Foundation,,no,no,0
 Biz InsiderIndia,,no,no,0
 Biz of Fashion,https://www.businessoffashion.com/arc/outboundfeeds/rss/,no,yes,100
 Black News.com,https://blacknews.com/feed/,no,yes,47
-Bloomberg,,no,no,0
+Bloomberg,https://feeds.bloomberg.com/markets/news.rss,no,yes,20
 Bloomberg Philan,,no,no,0
 Bloomberg Pro,,no,no,0
-Brookings Institution,,no,no,0
+Brookings Institution,https://www.brookings.edu/feed/?post_type=article,no,yes,10
 Business & Human Rights Resource Centre,,no,no,0
 Business Insider Australia,https://www.businessinsider.com/rss,no,yes,20
-BusinessGreen,,no,no,0
+BusinessGreen,https://www.businessgreen.com/feeds/rss,no,yes,40
 BWC,,no,no,0
 C2ES,https://www.c2es.org/feed/,no,yes,10
 Canary Media,https://www.canarymedia.com/rss.xml,no,yes,100
 Candid,,no,no,0
 CAPAC,https://capac.house.gov/rss.xml,no,yes,10
 Carbon Pulse,https://carbon-pulse.com/feed/,no,yes,10
-CARE International,,no,no,0
-Carnegie Corp,,no,no,0
+CARE International,https://www.care.org/feed/,no,yes,10
+Carnegie Corp,https://carnegie.org/feed/?post_type=articles,no,yes,10
 Carnegie Endwmnt,,no,no,0
 CBC News,https://www.cbc.ca/webfeed/rss/rss-topstories,yes,yes,18
 CBS News,https://www.cbsnews.com/latest/rss/main,no,yes,30
@@ -70,12 +70,12 @@ CDC Foundation,https://www.cdcfoundation.org/rss.xml,no,yes,10
 CDDEP,,no,no,0
 CDP,,no,no,0
 Center for American Progress,,no,no,0
-Centers for Disease Control,,no,no,0
+Centers for Disease Control,https://tools.cdc.gov/api/v2/resources/media/132608.rss,no,yes,200
 CGD,,no,no,0
 Channel News Asia,https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml,no,yes,20
 CHCI,https://chci.org/feed/,no,yes,10
 Chicago Tribune,,no,no,0
-Children & War,,no,no,0
+Children & War,https://www.childrenandwar.org/news?format=rss,no,yes,20
 CHRD,https://www.nchrd.org/feed/,no,yes,10
 Christian Science Monitor,https://rss.csmonitor.com/feeds/all,no,yes,10
 CityAM,https://www.cityam.com/feed/,yes,yes,30
@@ -95,7 +95,7 @@ Conservation International,https://www.conservation.org/feed.xml,no,yes,200
 Cornell News,https://news.cornell.edu/taxonomy/term/14242/feed,no,yes,50
 Council of Europe,,no,no,0
 CRIF,,no,no,0
-Daily Express UK,,no,no,0
+Daily Express UK,https://feeds.feedburner.com/daily-express-uk-news,no,yes,10
 Dallas Morning News,,no,no,0
 Department of Commerce: National Oceanic & Atmospheric Administration,https://www.noaa.gov/rss.xml,no,yes,10
 Department of Justice (DoJ),https://www.justice.gov/rss.xml,no,yes,10
@@ -116,12 +116,12 @@ Earth & Space Science News,https://eos.org/feed,no,yes,15
 Earth Day Networ,https://www.earthday.org/feed/,no,yes,10
 Earth Works,https://earthworks.org/feed/,no,yes,10
 Earth.org,https://earth.org/feed/,no,yes,10
-EC News,,no,no,0
+EC News,https://ec.europa.eu/commission/presscorner/api/rss,no,yes,10
 ECCHR,,no,no,0
 Eco-Business.com,https://www.eco-business.com/feeds/news/,no,yes,20
 Emirates News Agency,,no,no,0
 Enab Baladi,,no,no,0
-Environmental Defense Fund EDF,,no,no,0
+Environmental Defense Fund EDF,https://blogs.edf.org/climate411/feed/,no,yes,10
 Environmental Leader,,no,no,0
 Environmental News Network,https://www.enn.com/?layout=ja_teline_v:taggedblog&amp;types[0]=1&amp;format=feed&amp;type=rss,no,yes,50
 Environmental Working Group,https://ewg.org/rss.xml,no,yes,10
@@ -135,17 +135,17 @@ EurekAlert!,,no,no,0
 EuroNews,https://www.euronews.com/rss,no,yes,50
 European Bank for Reconstruction and Redevelopment,,no,no,0
 European Centre for Disease Prevention,https://www.ecdc.europa.eu/en/taxonomy/term/323//feed,no,yes,10
-European Environment Agency,,no,no,0
+European Environment Agency,https://www.eea.europa.eu/en/newsroom/rss-feeds/eeas-press-releases-rss/rss.xml,no,yes,25
 European Investment Bank,https://www.eib.org/about/jobs/index.rss,no,yes,15
 European Jewish Press,,no,no,0
-European Union,,no,no,0
+European Union,https://ec.europa.eu/commission/presscorner/api/rss?search=&language=en,no,yes,10
 European Union Agency for Fundamental Rights,https://fra.europa.eu/rss.xml,no,yes,10
-Facing History and Ourselves,,no,no,0
+Facing History and Ourselves,https://facingtoday.facinghistory.org/rss.xml,no,yes,10
 Fair Trade,,no,no,0
 FairPlanet,https://www.fairplanet.org/feed.xml,no,yes,25
-FAO of the United Nations,,no,no,0
+FAO of the United Nations,https://www.fao.org/feeds/fao-newsroom-rss,no,yes,11
 Fars News Agency,,no,no,0
-Fast Company,https://www.fastcompany.com/latest/rss,no,yes,20
+Fast Company,https://www.fastcompany.com/latest/rss,no,yes,19
 FEBA,https://www.eurofoodbank.org/feed/,no,yes,10
 Federal Emergency Management Agency (FEMA),,no,no,0
 FIDH,https://www.fidh.org/spip.php?page=backend,no,yes,10
@@ -157,14 +157,14 @@ Food Navigator,https://www.foodnavigator.com:443/arc/outboundfeeds/rss/,no,yes,2
 Food Navigator USA,https://www.foodnavigator.com/arc/outboundfeeds/rss/,no,yes,20
 Food Navigator- Asia,https://www.foodnavigator.com/arc/outboundfeeds/rss/,no,yes,20
 Forbes,https://www.forbes.com/most-popular/feed/,yes,yes,11
-Forbes Traveler,,no,no,0
+Forbes Traveler,https://www.forbes.com/travel/feed2/,no,yes,25
 Foreign Affairs,https://www.foreignaffairs.com/rss.xml,no,yes,20
 Fortune,https://fortune.com/feed/,yes,yes,10
 Forward,https://forward.com/feed/,no,yes,20
-Fos Feminista,,no,no,0
+Fos Feminista,https://fosfeminista.org/feed/?post_type=article,no,yes,10
 Fox News,https://moxie.foxnews.com/google-publisher/latest.xml,no,yes,25
 FRAC,https://frac.org/feed/,no,yes,5
-France24 (EN),https://www.france24.com/en/rss,no,yes,22
+France24 (EN),https://www.france24.com/en/rss,no,yes,23
 Freedom House,https://freedomhouse.org/rss.xml,no,yes,10
 Frommer's,,no,no,0
 Gay Times,https://www.gaytimes.com/feed/,no,yes,15
@@ -172,7 +172,7 @@ GayLesbianReview,https://glreview.org/feed/,no,yes,10
 GLAAD,https://glaad.org/feed/,no,yes,200
 Global Citizen,https://www.globalcitizen.org:443/content/feed/,no,yes,50
 Global TV,https://globalnews.ca/feed/,no,yes,10
-Global Voices,,no,no,0
+Global Voices,https://globalvoices.org/feed/,no,yes,15
 Globe and Mail,https://www.theglobeandmail.com/arc/outboundfeeds/rss/category/canada/,no,yes,100
 Globes,https://www.globes.co.il/webservice/rss/rssfeeder.asmx/FeederNode?iID=1725,no,yes,93
 Good Good Good,https://www.goodgoodgood.co/articles/rss.xml,no,yes,100
@@ -185,7 +185,7 @@ Greenpeace International,https://www.greenpeace.org/international/feed/,no,yes,1
 Greenpeace UK,https://www.greenpeace.org.uk/feed/,no,yes,10
 Grist Magazine,https://grist.org/feed/,no,yes,20
 Gulf Daily News,,no,no,0
-Gulf News,https://gulfnews.com/feed/,no,yes,12
+Gulf News,https://gulfnews.com/feed/,no,yes,7
 Gulf Times,https://www.gulf-times.com/rssFeed/9,no,yes,50
 Haaretz,https://www.haaretz.com/srv/haaretz-latest-headlines,yes,yes,100
 Habitat4Humanity,https://www.habitat.org/rss.xml,no,yes,10
@@ -195,15 +195,15 @@ HarvardLawToday,https://hls.harvard.edu/feed/,no,yes,50
 Health Policy Watch,https://healthpolicy-watch.news/feed/,no,yes,10
 Heinrich Boll Foundation,https://www.boell.de/rss.xml,no,yes,10
 HIAS,https://hias.org/feed/,no,yes,10
-HiltonFoundation,,no,no,0
+HiltonFoundation,https://www.hiltonfoundation.org/?post_type=news&feed=rss2,no,yes,10
 Hispanic Caucus,https://chc.house.gov/rss.xml,no,yes,10
 HRC,,no,no,0
 HRWF,https://hrwf.eu/feed/,no,yes,10
-Huffington Post,,no,no,0
+Huffington Post,https://www.huffpost.com/section/world-news/feed,no,yes,5
 Huffington Post (UK),https://www.huffingtonpost.co.uk/feeds/index.xml,no,yes,49
 Human Rights First,,no,no,0
 HumanRightsHouse,https://humanrightshouse.org/feed/,no,yes,10
-Hurriyet,,no,no,0
+Hurriyet,https://www.hurriyetdailynews.com/rss/turkey,no,yes,100
 Hyperallergic,https://hyperallergic.com/feed/,no,yes,15
 i24 News,,no,no,0
 IADB,,no,no,0
@@ -238,13 +238,13 @@ International Paralympic Committee,https://www.paralympic.org/rss.xml,no,yes,10
 International Rescue Committee,,no,no,0
 International Trade Centre,https://intracen.org/rss.xml,no,yes,10
 Intl Fin Corp,,no,no,0
-Iran PressTV,,no,no,0
+Iran PressTV,https://www.presstv.co.uk/rss.xml,no,yes,88
 Iraqi News,https://www.iraqinews.com/feed/,no,yes,10
 Iraqi News Agency,https://ina.iq/rss.xml,no,yes,13
 Israel Hayom.en,https://www.israelhayom.com/feed/,no,yes,10
 Israel Today,https://www.israeltoday.co.il/feed/,no,yes,8
 ITU,https://www.itu.int/hub/feed/,no,yes,12
-JCPA,,no,no,0
+JCPA,https://jcfa.org/feed/,no,yes,10
 Jerusalem Post,https://www.jpost.com/rss/rssfeedsfrontpage.aspx,no,yes,26
 Jewish Chronicle,https://www.thejc.com/rss,no,yes,100
 Jewish Exponent,https://www.jewishexponent.com/feed/,no,yes,10
@@ -257,7 +257,7 @@ Joint Center,https://jointcenter.org/feed/,no,yes,10
 Jordan Times,,no,no,0
 JordanNewsAgency (Petra),,no,no,0
 Khaleej Times,https://www.khaleejtimes.com/api/v1/collections/top-section.rss,no,yes,17
-Kurdistan 24.en,,no,no,0
+Kurdistan 24.en,https://www.kurdistan24.net/en/rss.xml,no,yes,67
 Kuwait News Agency (EN),,no,no,0
 Kuwait Times,https://kuwaittimes.com/rssFeed/0,no,yes,50
 Leadership Conf,https://civilrights.org/feed/,no,yes,10
@@ -265,9 +265,9 @@ LGBTQ Nation,https://www.lgbtqnation.com/feed/,no,yes,15
 Liberty Hill,,no,no,0
 Life Gate,https://www.lifegate.com/feed,no,yes,30
 LiveScience.com,https://www.livescience.com/feeds/all,no,yes,50
-London School of Economics,,no,no,0
+London School of Economics,https://blogs.lse.ac.uk/europpblog/feed/,no,yes,10
 Lonely Planet,,no,no,0
-Los Angeles Times,https://www.latimes.com/rss2.0.xml,yes,yes,57
+Los Angeles Times,https://www.latimes.com/rss2.0.xml,yes,yes,55
 LSE Biz Review,https://blogs.lse.ac.uk/businessreview/feed/,no,yes,10
 L’Orient‑Le Jour,,no,no,0
 Mashable,https://mashable.com/feeds/rss/all,no,yes,100
@@ -297,7 +297,7 @@ NASA,https://www.nasa.gov/rss/dyn/breaking_news.rss,no,yes,10
 National Council on Disability (NCD),https://ncd.gov/feed.xml,no,yes,10
 National Geographic,,no,no,0
 National Institute for Health and Care Excellence,,no,no,0
-National Institutes of Health,,no,no,0
+National Institutes of Health,https://grants.nih.gov/grants/guide/newsfeed/fundingopps.xml,no,yes,4
 National Parks Traveler,https://www.nationalparkstraveler.org/rss.xml,no,yes,10
 National Public Radio (NPR),https://feeds.npr.org/1001/rss.xml,no,yes,10
 National Science Foundation (NSF),https://www.nsf.gov/rss/rss_www_news.xml,no,yes,15
@@ -305,16 +305,16 @@ National Wildlife Federation,https://blog.nwf.org/feed/,no,yes,10
 Natl Endow Arts,https://www.arts.gov/rss.xml,no,yes,10
 NATO,,no,no,0
 Nature,https://www.nature.com/nature.rss,no,yes,75
-Nature Conservancy,,no,no,0
-NBC News,https://feeds.nbcnews.com/nbcnews/public/news,no,yes,19
+Nature Conservancy,https://blog.nature.org/feed/,no,yes,10
+NBC News,https://feeds.nbcnews.com/nbcnews/public/news,no,yes,17
 NBC Olympics,,no,no,0
 NBC Sports,https://www.nbcsports.com/index.atom,no,yes,4
 NEA,,no,no,0
-NEH,,no,no,0
+NEH,https://www.neh.gov/rss.xml,no,yes,10
 New Humanitarian,https://www.thenewhumanitarian.org/feed/,no,yes,10
 New Scientist,https://www.newscientist.com/feed/home/,no,yes,10
 New York Post,https://nypost.com/feed/,yes,yes,20
-New York Times,https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml,yes,yes,19
+New York Times,https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml,yes,yes,16
 New Yorker,https://www.newyorker.com/feed/everything,no,yes,50
 Newark Star-Ledger,https://www.nj.com/arc/outboundfeeds/rss/?outputType=xml,no,yes,50
 news.com.au,,no,no,0
@@ -345,19 +345,19 @@ Philadelphia Inquirer,https://www.inquirer.com/arc/outboundfeeds/rss/?outputType
 Phocuswire,,no,no,0
 PhysOrg.com,https://phys.org/rss-feed/,no,yes,30
 PNN,https://english.pnn.ps/feed/,no,yes,20
-Popular Science,https://www.popsci.com/feed/,no,yes,73
+Popular Science,https://www.popsci.com/feed/,no,yes,72
 Positive News,https://www.positive.news/feed/,no,yes,10
 Princeton,https://www.princeton.edu/feed,no,yes,30
 Public Broadcasting Service,,no,no,0
 Public Radio International,https://theworld.org/rss,no,yes,10
 Pulitzer Center,,no,no,0
-Qatar News Agency,,no,no,0
+Qatar News Agency,https://qna.org.qa/en/Pages/RSS-Feeds/General,no,yes,50
 Qatar Peninsula,,no,no,0
 Race Forward,https://www.raceforward.org/rss.xml,no,yes,10
 Radio France International.en,https://www.rfi.fr/en/rss,no,yes,22
 Radio Free Asia,https://www.rfa.org/english/rss2.xml,no,yes,30
 Radio Free Europe,https://www.rferl.org/api/,no,yes,20
-RAN,,no,no,0
+RAN,https://www.ran.org/press-releases/feed/,no,yes,10
 Rare.org,https://rare.org/feed/,no,yes,2
 Reasons to be Cheerful,https://reasonstobecheerful.world/feed/,no,yes,10
 Red Cross Blog,,no,no,0
@@ -375,19 +375,19 @@ Science Daily,https://www.sciencedaily.com/rss/all.xml,no,yes,60
 ScienceNews,https://www.sciencenews.org/feed/,no,yes,20
 Scientific American,http://rss.sciam.com/ScientificAmerican-Global,no,yes,50
 SciTechDaily,https://scitechdaily.com/feed/,no,yes,24
-Seattle Times,https://www.seattletimes.com/feed/,no,yes,34
+Seattle Times,https://www.seattletimes.com/feed/,no,yes,32
 Semafor,https://www.semafor.com/rss.xml,no,yes,200
 Shafaq News,https://shafaq.com/en?rss=1,no,yes,25
 Sierra Club,,no,no,0
 Skift,https://skift.com/feed/,no,yes,10
 Sky News,https://feeds.skynews.com/feeds/rss/home.xml,no,yes,6
-Southern Poverty Law Center,,no,no,0
+Southern Poverty Law Center,https://www.splcenter.org/resources/stories/feed/,no,yes,10
 Space News,https://spacenews.com/feed/,no,yes,24
 Space.com,https://www.space.com/feeds/all,no,yes,50
 Special Olympics,https://www.specialolympics.org/index.rss,no,yes,5
-Sports Illustrated,https://www.si.com/feed,yes,yes,82
+Sports Illustrated,https://www.si.com/feed,yes,yes,88
 STAT,https://www.statnews.com/feed/,no,yes,20
-Straits Times,https://www.straitstimes.com/news/singapore/rss.xml,no,yes,49
+Straits Times,https://www.straitstimes.com/news/singapore/rss.xml,no,yes,50
 Sunny Skyz,https://www.sunnyskyz.com/rss_tebow.php,no,yes,40
 Sydney Morning Herald,https://www.smh.com.au/rss/feed.xml,yes,yes,20
 Syndigate - Boston.com,https://www.boston.com/feed/,yes,yes,10
@@ -424,25 +424,25 @@ The Standard,https://www.standard.co.uk/rss,no,yes,100
 The Standard.hk,,no,no,0
 The Times,,yes,no,0
 Time Magazine,https://time.com/feed/,no,yes,25
-Time Out,,no,no,0
+Time Out,https://www.timeout.com/feed.rss,no,yes,100
 Times of India,https://timesofindia.indiatimes.com/rssfeedmostrecent.cms,yes,yes,50
 Times of India - Times Now,https://www.timesnownews.com/feeds/gns-en-latest.xml,yes,yes,100
 Times of Israel,https://www.timesofisrael.com/feed/,no,yes,13
 Times of Oman,https://timesofoman.com/feed/,no,yes,30
 Tiny Buddha,https://tinybuddha.com/feed/,no,yes,10
-Today,,no,no,0
+Today,https://feeds.today.com/today/public/news,no,yes,25
 Toronto Star,https://www.thestar.com/search/?f=rss&t=article&l=25&s=start_time&sd=desc,no,yes,25
 Travel and Leisure,,no,no,0
 TravelPulse,,no,no,0
 "Triple Pundit: People, Planet, Profit",https://triplepundit.com/feed/,no,yes,10
 TRT World,https://www.trtworld.com/feed/rss.xml,no,yes,100
 UN & Peoples,https://www.un.org/rss.xml,no,yes,10
-UN CDF,,no,no,0
+UN CDF,https://podcast.uncdf.org/rssfeed,no,yes,108
 UN Children and Armed Conflict,,no,no,0
 UN Chronicle,https://un.org/rss.xml,no,yes,10
 UN Crime and Justice Research Institute,https://unicri.it/rss.xml,no,yes,10
 UN DESA,https://www.un.org/rss.xml,no,yes,10
-UN Development Coordination Office,,no,no,0
+UN Development Coordination Office,https://unsdg.un.org/rss.xml,no,yes,10
 UN ECA,http://www.uneca.org/rss.xml,no,yes,10
 UN ECLAC,,no,no,0
 UN Economic and Social Commission for Western Asia,,no,no,0
@@ -453,7 +453,7 @@ UN OCT,https://www.un.org/rss.xml,no,yes,10
 UN ODA,,no,no,0
 UN Office for Partnerships,https://un.org/rss.xml,no,yes,10
 UN Office for the Coordination of Humanitarian Affairs,https://unocha.org/rss.xml,no,yes,10
-UN Peacekeeping,,no,no,0
+UN Peacekeeping,https://news.un.org/feed/subscribe/en/news/topic/peace-and-security/feed/rss.xml,no,yes,30
 UN PRI,,no,no,0
 UN V.A. Children,,no,no,0
 UN Volunteers,https://unv.org/rss.xml,no,yes,10
@@ -465,16 +465,16 @@ UNEP FI,https://www.unepfi.org/feed/,no,yes,10
 UNFPA,https://unfpa.org/rss.xml,no,yes,10
 UNIDO,,no,no,0
 Union of Concerned Scientists,https://blog.ucsusa.org/feed/,no,yes,24
-United Nation Human Rights,,no,no,0
+United Nation Human Rights,https://www.ohchr.org/en/rss.xml,no,yes,10
 United Nations,https://news.un.org/feed/subscribe/en/news/all/rss.xml,no,yes,30
 United Nations Children's Fund (UNICEF),,no,no,0
 United Nations Convention to Combat Desertification,https://unccd.int/rss.xml,no,yes,10
 United Nations Development Program,,no,no,0
-"United Nations Educational, Scientific and Cultural Organization",,no,no,0
+"United Nations Educational, Scientific and Cultural Organization",https://whc.unesco.org/en/news/rss/,no,yes,10
 United Nations Environment Programme,https://unep.org/rss.xml,no,yes,10
 United Nations Institute for Disarmament Research,https://unidir.org/feed/,no,yes,24
-United Nations Office for Disaster Risk Reduction,,no,no,0
-United Nations Refugee Agency,,no,no,0
+United Nations Office for Disaster Risk Reduction,https://www.undrr.org/rss.xml,no,yes,40
+United Nations Refugee Agency,https://zakat.unhcr.org/blog/en/feed,no,yes,10
 United Nations System Staff College (UNSSC),,no,no,0
 United Nations University (UNU),,no,no,0
 University of Pennsylvania,https://penntoday.upenn.edu/rss.xml,no,yes,10
@@ -495,24 +495,24 @@ Wanderlust,https://www.wanderlustmagazine.com/feed/,no,yes,25
 Washington Blade,https://www.washingtonblade.com/feed/,no,yes,10
 Washington Post,https://feeds.washingtonpost.com/rss/national,yes,yes,6
 Water World,https://www.waterworld.com:443/__rss/website-scheduled-content.xml?input=%7B%22sectionAlias%22%3A%22home%22%7D,no,yes,25
-WiesenthalCenter,,no,no,0
+WiesenthalCenter,https://www.wiesenthal.org/news/rss.xml,no,yes,10
 Winnipeg Free Press,https://www.winnipegfreepress.com/rss?path=/breakingnews,no,yes,10
-WIPO,,no,no,0
+WIPO,https://www.wipo.int/pressroom/en/rss.xml,no,yes,10
 Women's Agenda,https://womensagenda.com.au/feed/,no,yes,12
 Women's Refugee,https://www.womensrefugeecommission.org/feed/,no,yes,10
-World Bank,,no,no,0
+World Bank,https://openknowledge.worldbank.org/server/opensearch/search?query=*&format=rss,no,yes,10
 World Business Council for Sustainable Development (WBCSD),https://wbcsd.org/feed/,no,yes,10
-World Central Kitchen,,no,no,0
+World Central Kitchen,https://wck.org/feed/?post_type=press_release,no,yes,10
 World Conservation Union (IUCN),https://iucn.org/rss.xml,no,yes,4
 World Eco Forum,,no,no,0
 World Food Programme,,no,no,0
 World Health Organization,https://www.who.int/rss-feeds/news-english.xml,no,yes,25
 World Israel News,https://worldisraelnews.com/feed/,no,yes,16
 World Jewish Congress,https://worldjewishcongress.org/rss,no,yes,30
-World Land Trust,,no,no,0
+World Land Trust,https://www.worldlandtrust.org/feed/?post_type=update,no,yes,10
 World Meteorological Organization,,no,no,0
-World Wildlife Foundation,,no,no,0
-WTO,,no,no,0
+World Wildlife Foundation,http://feeds.feedburner.com/WWFStories,no,yes,20
+WTO,https://www.wto.org/library/rss/latest_news_e.xml,no,yes,10
 WWF Canada,https://wwf.ca/feed/,no,yes,10
 Yale University,https://news.yale.edu/news-rss,no,yes,10
 Yeni Safak.en,https://www.yenisafak.com/en/rss,no,yes,60

@@ -1,0 +1,164 @@
+{
+ "Nature Conservancy": [
+  "https://blog.nature.org/feed/"
+ ],
+ "European Union": [
+  "https://ec.europa.eu/commission/presscorner/api/rss?search=&language=en"
+ ],
+ "European Environment Agency": [
+  "https://www.eea.europa.eu/en/newsroom/rss-feeds/eeas-press-releases-rss/rss.xml"
+ ],
+ "WIPO": [
+  "https://www.wipo.int/pressroom/en/rss.xml"
+ ],
+ "ESPN": [
+  "https://www.espn.com/espn/rss/news"
+ ],
+ "UN CDF": [
+  "https://podcast.uncdf.org/rssfeed"
+ ],
+ "WTO": [
+  "https://www.wto.org/library/rss/latest_news_e.xml"
+ ],
+ "Forbes Traveler": [
+  "https://www.forbes.com/travel/feed2/"
+ ],
+ "Business & Human Rights Resource Centre": [
+  "https://www.business-humanrights.org/en/feeds/latest-news/3/"
+ ],
+ "National Institutes of Health": [
+  "https://grants.nih.gov/grants/guide/newsfeed/fundingopps.xml"
+ ],
+ "Centers for Disease Control": [
+  "https://tools.cdc.gov/api/v2/resources/media/132608.rss"
+ ],
+ "Hurriyet": [
+  "https://www.hurriyetdailynews.com/rss/turkey"
+ ],
+ "Southern Poverty Law Center": [
+  "https://www.splcenter.org/resources/stories/feed/"
+ ],
+ "Facing History and Ourselves": [
+  "https://facingtoday.facinghistory.org/rss.xml"
+ ],
+ "World Bank": [
+  "https://openknowledge.worldbank.org/server/opensearch/search?query=*&format=rss"
+ ],
+ "London School of Economics": [
+  "https://blogs.lse.ac.uk/europpblog/feed/"
+ ],
+ "Public Broadcasting Service": [
+  "https://www.pbs.org/newshour/feeds/rss/headlines"
+ ],
+ "Brookings Institution": [
+  "https://www.brookings.edu/feed/?post_type=article"
+ ],
+ "CARE International": [
+  "https://www.care.org/feed/"
+ ],
+ "JCPA": [
+  "https://jcfa.org/feed/"
+ ],
+ "WiesenthalCenter": [
+  "https://www.wiesenthal.org/news/rss.xml"
+ ],
+ "Africa CDC": [
+  "https://africacdc.org/news-item/feed/"
+ ],
+ "World Wildlife Foundation": [
+  "http://feeds.feedburner.com/WWFStories"
+ ],
+ "UN Development Coordination Office": [
+  "https://unsdg.un.org/rss.xml"
+ ],
+ "Daily Express UK": [
+  "https://feeds.feedburner.com/daily-express-uk-news"
+ ],
+ "Federal Emergency Management Agency (FEMA)": [
+  "https://www.fema.gov/feeds/news.rss"
+ ],
+ "RAN": [
+  "https://www.ran.org/press-releases/feed/"
+ ],
+ "UN Peacekeeping": [
+  "https://news.un.org/feed/subscribe/en/news/topic/peace-and-security/feed/rss.xml"
+ ],
+ "HiltonFoundation": [
+  "https://www.hiltonfoundation.org/?post_type=news&feed=rss2"
+ ],
+ "United Nations Refugee Agency": [
+  "https://zakat.unhcr.org/blog/en/feed"
+ ],
+ "Kurdistan 24.en": [
+  "https://www.kurdistan24.net/en/rss.xml"
+ ],
+ "Huffington Post": [
+  "https://www.huffpost.com/section/world-news/feed"
+ ],
+ "United Nations Office for Disaster Risk Reduction": [
+  "https://www.undrr.org/rss.xml"
+ ],
+ "World Central Kitchen": [
+  "https://wck.org/feed/?post_type=press_release"
+ ],
+ "Qatar News Agency": [
+  "https://qna.org.qa/en/Pages/RSS-Feeds/General"
+ ],
+ "Fos Feminista": [
+  "https://fosfeminista.org/feed/?post_type=article"
+ ],
+ "NEH": [
+  "https://www.neh.gov/rss.xml"
+ ],
+ "Global Voices": [
+  "https://globalvoices.org/feed/"
+ ],
+ "UN Economic and Social Commission for Western Asia": [
+  "https://www.unescwa.org/rss.xml"
+ ],
+ "EC News": [
+  "https://ec.europa.eu/commission/presscorner/api/rss"
+ ],
+ "BusinessGreen": [
+  "https://www.businessgreen.com/feeds/rss"
+ ],
+ "Iran PressTV": [
+  "https://www.presstv.co.uk/rss.xml"
+ ],
+ "Today": [
+  "https://feeds.today.com/today/public/news"
+ ],
+ "FAO of the United Nations": [
+  "https://www.fao.org/feeds/fao-newsroom-rss"
+ ],
+ "Carnegie Corp": [
+  "https://carnegie.org/feed/?post_type=articles"
+ ],
+ "United Nation Human Rights": [
+  "https://www.ohchr.org/en/rss.xml"
+ ],
+ "World Land Trust": [
+  "https://www.worldlandtrust.org/feed/?post_type=update"
+ ],
+ "Bloomberg": [
+  "https://feeds.bloomberg.com/markets/news.rss"
+ ],
+ "Miami Herald": [
+  "https://feeds.mcclatchy.com/miamiherald/stories"
+ ],
+ "Time Out": [
+  "https://www.timeout.com/feed.rss"
+ ],
+ "Environmental Defense Fund EDF": [
+  "https://blogs.edf.org/climate411/feed/"
+ ],
+ "United Nations Educational, Scientific and Cultural Organization": [
+  "https://whc.unesco.org/en/news/rss/"
+ ],
+ "Children & War": [
+  "https://www.childrenandwar.org/news?format=rss"
+ ],
+ "RESET": [
+  "https://en.reset.org/feed/"
+ ]
+}
