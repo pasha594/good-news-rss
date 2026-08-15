@@ -34,14 +34,30 @@ jobs:
         run: python build_site.py
 
       - name: Commit new data
+        env:
+          GUARDIAN_API_KEY: ${{ secrets.GUARDIAN_API_KEY }}
         run: |
           git config user.name "feed-bot"
           git config user.email "feed-bot@users.noreply.github.com"
-          git add data/ docs/
-          if git diff --cached --quiet; then
-            echo "No new articles this run."
-            exit 0
-          fi
-          git commit -m "accumulate: $(date -u +'%Y-%m-%d %H:%M') UTC"
-          git pull --rebase
-          git push
+          # accumulate.py is idempotent, so on any push failure (remote moved,
+          # transient server error) we reset to the remote state, re-accumulate
+          # on top of it, and try again.
+          for attempt in 1 2 3; do
+            git add data/ docs/
+            if git diff --cached --quiet; then
+              echo "No new articles this run."
+              exit 0
+            fi
+            git commit -m "accumulate: $(date -u +'%Y-%m-%d %H:%M') UTC"
+            if git push; then
+              exit 0
+            fi
+            echo "Push failed (attempt $attempt); resetting to remote and retrying."
+            git rebase --abort 2>/dev/null || true
+            git fetch origin main
+            git reset --hard origin/main
+            python accumulate.py
+            python build_site.py
+          done
+          echo "Giving up after 3 attempts."
+          exit 1
