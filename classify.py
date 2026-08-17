@@ -21,6 +21,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import requests
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent
 ARTICLES = ROOT / "data" / "articles.jsonl"
@@ -28,7 +29,9 @@ TAGS = ROOT / "data" / "tags.jsonl"
 
 MODEL = "gemini-3.5-flash-lite"
 BATCH = 50
-MAX_REQUESTS_PER_RUN = 15      # 15 * 48 runs/day = 720 requests/day, inside free RPD
+MAX_REQUESTS_PER_RUN = int(os.environ.get("CLASSIFY_MAX_REQUESTS", "15"))
+# default 15 * 48 runs/day = 720 requests/day, inside free RPD; the env var
+# override exists for one-off local backfills
 SLEEP_BETWEEN = 4              # seconds; stays inside free RPM
 DESC_CLIP = 220
 
@@ -37,15 +40,41 @@ CATS = ["world", "politics", "business", "science", "health", "environment",
         "education", "community", "conflict", "disaster"]
 
 PROMPT = (
-    "You are tagging news articles for a good-news dashboard.\n"
+    "You score news articles for a public good-news dashboard that displays"
+    " HEADLINES to visitors who come to be uplifted. They read only the"
+    " headline, so judge the headline as a STANDALONE artifact first.\n"
     "For EACH numbered article below, return one JSON object with:\n"
     '  "i": the article number\n'
-    '  "good": integer 0-10 - how much this is genuinely uplifting, positive,'
-    " good news. 0 = tragic/grim/negative, 5 = neutral or mixed, 8+ = clearly"
-    " uplifting (progress, rescues, breakthroughs, kindness, recovery,"
-    " conservation wins). Judge the substance, not the tone: a peaceful"
-    " resolution of something bad IS good news; a cheerful ad or stock rally"
-    " is not particularly good news.\n"
+    '  "good": integer 0-10. 8-10 = clearly uplifting and display-worthy;'
+    " 7 = solidly uplifting with minor reservations; 4-6 = neutral, mixed, or"
+    " positive-but-flawed; 0-3 = negative, conflict-framed, or excluded.\n"
+    "Give 7+ ONLY if ALL four gates pass:\n"
+    "GATE 1 - THE HEADLINE STANDS ALONE: no negative anchor word, even when"
+    " the story resolves well. Failing patterns: 'wins payout after"
+    " [wrong]', 'X amid [violence/concerns/crisis]', '[recovers/rebuilds]"
+    " after [disaster/attack]', 'couldn't afford X', 'trial/investigation"
+    " opens', 'spied on/harassed/targeted'. Test: would the bare headline"
+    " put a 5th-grade museum visitor in a worse mood? Then it fails.\n"
+    "GATE 2 - ACTIVE-CONFLICT EXCLUSION: score 0-2 for any story FRAMED by"
+    " these conflicts, no matter how humanitarian or uplifting the angle:"
+    " Israel/Palestine/Gaza/West Bank/Lebanon/Syria; Russia-Ukraine war"
+    " coverage; Sudan, Myanmar, Yemen, eastern DRC, Tigray; acute"
+    " India-Pakistan strike cycles. This includes aid into those regions"
+    " ('therapy for Gaza children') and partisan outlets covering their own"
+    " side's conflict. Non-war cultural, scientific, or sports stories from"
+    " those countries are NOT excluded.\n"
+    "GATE 3 - UPLIFTING SUBSTANCE: settled wins - progress, rescues,"
+    " breakthroughs, kindness, restitution, reunions, apologies, conservation"
+    " wins, celebratory culture. NOT uplifting: trials or task forces"
+    " responding to rising problems, rebuilding amid ongoing struggle,"
+    " commemoration centered on horror, cheerful ads/promo/fluff with no"
+    " impact (a wiener-mobile parade), stock rallies.\n"
+    "GATE 4 - SOURCE QUALITY: each line starts with [source | domain]."
+    " Aggregator/scraper domains, promotional or affiliate content, and"
+    " fringe sources (conspiracy, pseudoscience) cap the score at 4 even"
+    " when the underlying story is real.\n"
+    "When in doubt score LOWER - a false positive erodes trust in the"
+    " dashboard more than a false negative.\n"
     f'  "cats": 1-3 categories from exactly this list: {", ".join(CATS)}\n'
     "Return ONLY a JSON array with one object per article, no other text.\n\n"
 )
@@ -68,7 +97,11 @@ def classify_batch(key, batch):
     lines = []
     for n, (_aid, row) in enumerate(batch, 1):
         desc = (row.get("description") or "")[:DESC_CLIP]
-        lines.append(f"{n}. {row['title']} | {desc}")
+        try:
+            domain = urlparse(row.get("link") or "").netloc or "?"
+        except ValueError:
+            domain = "?"
+        lines.append(f"{n}. [{row['source']} | {domain}] {row['title']} | {desc}")
     body = {
         "contents": [{"parts": [{"text": PROMPT + "\n".join(lines)}]}],
         "generationConfig": {"temperature": 0.1,
@@ -94,7 +127,7 @@ def classify_batch(key, batch):
             continue
         if 0 <= idx < len(batch):
             out.append({"id": batch[idx][0], "good": good, "cats": cats,
-                        "model": MODEL, "at": now})
+                        "model": MODEL, "v": 2, "at": now})
     return out
 
 
