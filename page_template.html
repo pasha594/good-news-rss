@@ -45,6 +45,14 @@
     border-radius: 6px; padding: 2px 10px; font-size: 12px; cursor: pointer; display: none;
   }
   #clearBtn.active { display: inline-block; color: var(--accent); border-color: var(--accent); }
+  #goodBtn {
+    border: 1px solid var(--border); background: var(--panel); color: var(--muted);
+    border-radius: 6px; padding: 2px 10px; font-size: 12px; cursor: pointer;
+  }
+  #goodBtn.active {
+    color: var(--badge-text); background: var(--accent-soft);
+    border-color: var(--accent); font-weight: 600;
+  }
 
   .table-wrap { flex: 1; overflow: auto; padding: 0 20px 20px; }
   table { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 900px;
@@ -121,6 +129,7 @@
     <h1><span class="leaf">&#10087;</span> __PAGE_TITLE__</h1>
     <span class="stats"><b id="shownCount"></b> shown of <b>__N_ARTICLES__</b> articles
       &middot; <b>__N_SOURCES__</b> sources</span>
+    <button id="goodBtn">&#10087; Good news only</button>
     <button id="clearBtn">Clear filters &times;</button>
   </div>
   <div class="meta">
@@ -192,7 +201,8 @@ const lowerDesc = ART.map(a =>
 const fmt = new Intl.DateTimeFormat(undefined, { dateStyle: "medium", timeStyle: "short" });
 document.getElementById("genAt").textContent = fmt.format(new Date(DATA.generated));
 
-const state = { src: null, hq: "", dq: "", dp: "all", sortK: "t", sortDir: -1 };
+const state = { src: null, hq: "", dq: "", dp: "all", good: false, sortK: "t", sortDir: -1 };
+const GOOD_MIN = 7;
 let matched = [];      // indices into ART after filtering+sorting
 let rendered = 0;
 const CHUNK = 400;
@@ -236,6 +246,7 @@ function applyFilters() {
   for (let i = 0; i < ART.length; i++) {
     const a = ART[i];
     if (srcSel && !srcSel.has(a[0])) continue;
+    if (state.good && !(a.length > 6 && a[6] >= GOOD_MIN)) continue;
     if (cut !== null && (!a[4] || a[4] < cut)) continue;
     if (hq && !lowerTitle[i].includes(hq)) continue;
     if (dq && !lowerDesc[i].includes(dq)) continue;
@@ -350,14 +361,23 @@ document.getElementById("dateFilter").addEventListener("change", e => {
   state.dp = e.target.value; applyFilters();
 });
 
+// ---- good news toggle ----
+const goodBtn = document.getElementById("goodBtn");
+goodBtn.addEventListener("click", () => {
+  state.good = !state.good;
+  goodBtn.classList.toggle("active", state.good);
+  applyFilters();
+});
+
 // ---- clear ----
 const clearBtn = document.getElementById("clearBtn");
 function anyFilter() {
-  return state.src !== null || state.hq || state.dq || state.dp !== "all";
+  return state.src !== null || state.hq || state.dq || state.dp !== "all" || state.good;
 }
 function updateClearBtn() { clearBtn.classList.toggle("active", !!anyFilter()); }
 clearBtn.addEventListener("click", () => {
-  state.src = null; state.hq = ""; state.dq = ""; state.dp = "all";
+  state.src = null; state.hq = ""; state.dq = ""; state.dp = "all"; state.good = false;
+  goodBtn.classList.remove("active");
   document.getElementById("hlFilter").value = "";
   document.getElementById("descFilter").value = "";
   document.getElementById("dateFilter").value = "all";
