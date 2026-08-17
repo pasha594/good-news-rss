@@ -21,7 +21,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 MAX_AGE_DAYS = 7
 MAX_ARTICLES = 25000
-GOOD_THRESHOLD = 7
+SLIDER_DEFAULT = 7    # default position of the min-score slider
+DASHBOARD_FLOOR = 5   # dashboard embeds articles down to this score
 
 
 def parse_iso(s):
@@ -74,7 +75,8 @@ def fail_list():
     return n, items
 
 
-def build_page(rows, out_name, title, refresh_note, nav_link, n_failed, fails):
+def build_page(rows, out_name, title, refresh_note, nav_link, n_failed, fails,
+               good_on=False, slider_min=0):
     counts, premium = {}, {}
     for r in rows:
         counts[r["source"]] = counts.get(r["source"], 0) + 1
@@ -95,6 +97,9 @@ def build_page(rows, out_name, title, refresh_note, nav_link, n_failed, fails):
     page = ((ROOT / "page_template.html").read_text(encoding="utf-8")
             .replace("__PAGE_TITLE__", title)
             .replace("__NAV_LINK__", nav_link)
+            .replace("__GOOD_DEFAULT_ON__", "true" if good_on else "false")
+            .replace("__GOOD_DEFAULT_MIN__", str(SLIDER_DEFAULT))
+            .replace("__SLIDER_MIN__", str(slider_min))
             .replace("__REFRESH_NOTE__", refresh_note)
             .replace("__PAYLOAD__", payload)
             .replace("__N_SOURCES__", str(len(sources)))
@@ -133,18 +138,18 @@ def main():
         rows, "index.html", "Good News Feeds",
         f"Auto-updates every 30 minutes &middot; last {MAX_AGE_DAYS} days shown",
         '<a class="nav" href="good-news.html">&rarr; Good News dashboard</a>',
-        n_failed, fails)
+        n_failed, fails, good_on=False, slider_min=0)
 
-    good = [r for r in rows if r.get("_good", -1) >= GOOD_THRESHOLD]
+    good = [r for r in rows if r.get("_good", -1) >= DASHBOARD_FLOOR]
     build_page(
         good, "good-news.html", "Good News Dashboard",
-        f"Uplifting stories only (score &ge; {GOOD_THRESHOLD}/10, tagged by AI) "
-        f"&middot; auto-updates every 30 minutes",
+        "Uplifting stories, tagged by AI &mdash; drag the slider to set the "
+        "minimum score &middot; auto-updates every 30 minutes",
         '<a class="nav" href="index.html">&rarr; all articles</a>',
-        n_failed, fails)
+        n_failed, fails, good_on=True, slider_min=DASHBOARD_FLOOR)
 
     print(f"tags matched onto page rows: {n_tagged}/{len(rows)}; "
-          f"good-news subset: {len(good)}")
+          f"dashboard subset (>= {DASHBOARD_FLOOR}): {len(good)}")
 
 
 if __name__ == "__main__":

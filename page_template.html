@@ -53,6 +53,11 @@
     color: var(--badge-text); background: var(--accent-soft);
     border-color: var(--accent); font-weight: 600;
   }
+  #goodCtl { display: inline-flex; align-items: center; gap: 6px; }
+  #goodCtl input[type="range"] { width: 96px; accent-color: var(--accent); cursor: pointer; }
+  #goodCtl.off { opacity: .45; }
+  #goodMinVal { font-size: 12px; font-weight: 700; color: var(--badge-text);
+                min-width: 44px; font-variant-numeric: tabular-nums; }
 
   .table-wrap { flex: 1; overflow: auto; padding: 0 20px 20px; }
   table { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 900px;
@@ -130,6 +135,10 @@
     <span class="stats"><b id="shownCount"></b> shown of <b>__N_ARTICLES__</b> articles
       &middot; <b>__N_SOURCES__</b> sources</span>
     <button id="goodBtn">&#10087; Good news only</button>
+    <span id="goodCtl">
+      <input type="range" id="goodSlider" min="__SLIDER_MIN__" max="10" step="1">
+      <span id="goodMinVal"></span>
+    </span>
     <button id="clearBtn">Clear filters &times;</button>
   </div>
   <div class="meta">
@@ -201,8 +210,10 @@ const lowerDesc = ART.map(a =>
 const fmt = new Intl.DateTimeFormat(undefined, { dateStyle: "medium", timeStyle: "short" });
 document.getElementById("genAt").textContent = fmt.format(new Date(DATA.generated));
 
-const state = { src: null, hq: "", dq: "", dp: "all", good: false, sortK: "t", sortDir: -1 };
-const GOOD_MIN = 7;
+const GOOD_DEFAULT_ON = __GOOD_DEFAULT_ON__;
+const GOOD_DEFAULT_MIN = __GOOD_DEFAULT_MIN__;
+let goodMin = GOOD_DEFAULT_MIN;
+const state = { src: null, hq: "", dq: "", dp: "all", good: GOOD_DEFAULT_ON, sortK: "t", sortDir: -1 };
 let matched = [];      // indices into ART after filtering+sorting
 let rendered = 0;
 const CHUNK = 400;
@@ -246,7 +257,7 @@ function applyFilters() {
   for (let i = 0; i < ART.length; i++) {
     const a = ART[i];
     if (srcSel && !srcSel.has(a[0])) continue;
-    if (state.good && !(a.length > 6 && a[6] >= GOOD_MIN)) continue;
+    if (state.good && !(a.length > 6 && a[6] >= goodMin)) continue;
     if (cut !== null && (!a[4] || a[4] < cut)) continue;
     if (hq && !lowerTitle[i].includes(hq)) continue;
     if (dq && !lowerDesc[i].includes(dq)) continue;
@@ -361,23 +372,41 @@ document.getElementById("dateFilter").addEventListener("change", e => {
   state.dp = e.target.value; applyFilters();
 });
 
-// ---- good news toggle ----
+// ---- good news toggle + threshold slider ----
 const goodBtn = document.getElementById("goodBtn");
+const goodCtl = document.getElementById("goodCtl");
+const goodSlider = document.getElementById("goodSlider");
+const goodMinVal = document.getElementById("goodMinVal");
+function syncGoodUI() {
+  goodBtn.classList.toggle("active", state.good);
+  goodCtl.classList.toggle("off", !state.good);
+  goodSlider.value = goodMin;
+  goodMinVal.textContent = "≥ " + goodMin + "/10";
+}
 goodBtn.addEventListener("click", () => {
   state.good = !state.good;
-  goodBtn.classList.toggle("active", state.good);
+  syncGoodUI();
   applyFilters();
 });
+goodSlider.addEventListener("input", () => {
+  goodMin = Number(goodSlider.value);
+  if (!state.good) state.good = true;
+  syncGoodUI();
+  applyFilters();
+});
+syncGoodUI();
 
 // ---- clear ----
 const clearBtn = document.getElementById("clearBtn");
 function anyFilter() {
-  return state.src !== null || state.hq || state.dq || state.dp !== "all" || state.good;
+  return state.src !== null || state.hq || state.dq || state.dp !== "all" ||
+         state.good !== GOOD_DEFAULT_ON || goodMin !== GOOD_DEFAULT_MIN;
 }
 function updateClearBtn() { clearBtn.classList.toggle("active", !!anyFilter()); }
 clearBtn.addEventListener("click", () => {
-  state.src = null; state.hq = ""; state.dq = ""; state.dp = "all"; state.good = false;
-  goodBtn.classList.remove("active");
+  state.src = null; state.hq = ""; state.dq = ""; state.dp = "all";
+  state.good = GOOD_DEFAULT_ON; goodMin = GOOD_DEFAULT_MIN;
+  syncGoodUI();
   document.getElementById("hlFilter").value = "";
   document.getElementById("descFilter").value = "";
   document.getElementById("dateFilter").value = "all";

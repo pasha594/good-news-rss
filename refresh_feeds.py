@@ -457,6 +457,9 @@ def build_html(data):
     page = (TEMPLATE
             .replace("__PAGE_TITLE__", "Good News Feeds")
             .replace("__NAV_LINK__", "")
+            .replace("__GOOD_DEFAULT_ON__", "false")
+            .replace("__GOOD_DEFAULT_MIN__", "7")
+            .replace("__SLIDER_MIN__", "0")
             .replace("__REFRESH_NOTE__",
                      "Refresh: <code>python3 refresh_feeds.py</code>")
             .replace("__PAYLOAD__", payload)
