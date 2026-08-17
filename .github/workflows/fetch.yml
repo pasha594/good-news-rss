@@ -30,12 +30,18 @@ jobs:
           GUARDIAN_API_KEY: ${{ secrets.GUARDIAN_API_KEY }}
         run: python accumulate.py
 
+      - name: Classify new articles
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python classify.py
+
       - name: Rebuild live site
         run: python build_site.py
 
       - name: Commit new data
         env:
           GUARDIAN_API_KEY: ${{ secrets.GUARDIAN_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           git config user.name "feed-bot"
           git config user.email "feed-bot@users.noreply.github.com"
@@ -57,6 +63,7 @@ jobs:
             git fetch origin main
             git reset --hard origin/main
             python accumulate.py
+            python classify.py
             python build_site.py
           done
           echo "Giving up after 3 attempts."

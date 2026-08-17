@@ -455,6 +455,8 @@ def build_html(data):
         for r in failed)
 
     page = (TEMPLATE
+            .replace("__PAGE_TITLE__", "Good News Feeds")
+            .replace("__NAV_LINK__", "")
             .replace("__REFRESH_NOTE__",
                      "Refresh: <code>python3 refresh_feeds.py</code>")
             .replace("__PAYLOAD__", payload)
