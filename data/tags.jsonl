@@ -748,3 +748,753 @@
 {"id": "308e4358eb4a9807362a850d403146adcfe8b81a", "good": 2, "cats": ["disaster", "environment"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:34:54Z"}
 {"id": "2776b6f88eeb5b899484c2fdcf1be70795af17b8", "good": 3, "cats": ["environment", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:34:54Z"}
 {"id": "44a3f4aa27d101f0edefc63c951bfe5436972fc4", "good": 3, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:34:54Z"}
+{"id": "0da679c40cee1cf5d3a83d85a4f38f78411cffbd", "good": 8, "cats": ["animals", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "040e7c2512112febde46eeaf597997a7008e6328", "good": 8, "cats": ["health", "animals"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "94dd112e292c51c44d2206ca87debb4c1a0f55d9", "good": 6, "cats": ["human-interest", "arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "7b51d02519163b4700b70ee8c2be7c9625b96d78", "good": 1, "cats": ["health", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "4a564b38efb91cb9b704287d6ad305b563f904ba", "good": 7, "cats": ["business", "environment"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "511d27ddb2c4ff2f2b39f6d01e5c04f6ef12dceb", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "6e326dfd11b93346446e0f9d0179d4f1760de7d8", "good": 7, "cats": ["education", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "553c2e2759401baec6af40aa73371e62f50abbdd", "good": 6, "cats": ["world", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "31271698495c0bfb12f830dcf0ddec713327e9ba", "good": 2, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "d821b35dc0d51beab2952023b244256b98602777", "good": 6, "cats": ["world", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "2c991c6b4202bb953d1942d29be89916fe3c817c", "good": 1, "cats": ["conflict", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "d280454cd25e8be3a7eaff97f34448c9592a5d18", "good": 2, "cats": ["conflict", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "6fb37255e6affa6a76817942f30825827d32382a", "good": 3, "cats": ["conflict", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "1a5bab73bd83bffaec9d6fd744ab742eaa780c8b", "good": 6, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "82b96b8d861f95f3f78d87adaddb9415dd7cb9ef", "good": 5, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "08f3ce0f1bcbda4da77b4a59e036124db5f6d26d", "good": 8, "cats": ["world", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "ae4571257874ba554a2ea11ef1e90d264f145525", "good": 4, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "e50bf9ae00bf8d82f0b50935b99b4f6d37118141", "good": 4, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "fed8504dcd26cfc13d88ca94ae0ca1f1eb314be8", "good": 9, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "2a4755375078b8aedec36dabb32e2c4d0a5a647d", "good": 5, "cats": ["business", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "0f34a9285a890fa97e5a2f888c489db53446dd29", "good": 5, "cats": ["business", "science"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "0983f29413413288e41a601ac449f20f81137a8e", "good": 5, "cats": ["business", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "9000d504235e3149d899e9c2d37e6822e2000b7e", "good": 4, "cats": ["business", "education"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "dcf2cc0f40a0ea2bd5ac7ea0ebd2baf735d8061d", "good": 5, "cats": ["human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "b3cd979ec19b9ebdb2a3ccf2c0d8668b29cbe88b", "good": 0, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "c9068de54c08e35d524e150f0ee4de21c652edcf", "good": 5, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "a2773c510f7415764465e3ac980d695e51025001", "good": 3, "cats": ["sports", "health"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "98f93d7acfe3c556393888aa0d175a07c30cfada", "good": 5, "cats": ["sports", "education"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "4e6e159a3b0877b9ab22a4873dc0245be680ef79", "good": 6, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "0adc636bf88da03dd817968ad57fe884de6fc95c", "good": 6, "cats": ["world", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "0b21b3b19b140b069f80602064f1a052bc12efd3", "good": 6, "cats": ["world", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "18fe174d004f4ae27cbecb0e655132e8cf832e55", "good": 1, "cats": ["human-interest", "health"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "7c9b621e047f9864b4d20d7734ac860c9a9e6206", "good": 3, "cats": ["politics", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "d0677901de90622dae90592fb3b90fd47244cb4d", "good": 2, "cats": ["technology", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "210456ef85ff977113537acb6c14e6460195069f", "good": 3, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "17fa3d66604ca67b23684c1005369f19cbb5acaa", "good": 7, "cats": ["technology", "sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "5eb19e70365d46f6ff3d6b9f1ca5eae719c03adf", "good": 6, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "d46cf8ab213c88b07e6a35ce27dd6ded61682e0e", "good": 2, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "253c492f3776e57e8cda1155a7d3edff5e604ada", "good": 1, "cats": ["conflict", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "bdad0dc202d9ac3eb46360442795b1606ca638fa", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "f746be1f2960762d4c3b11937b67bb82292a7e63", "good": 5, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "d33c96d30c3365213430191be01f8f502e3e23b6", "good": 0, "cats": ["health", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "194360f24602890f013ae5fba65567d785c8a74c", "good": 1, "cats": ["disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "4a10327687c0b9f788089c5a06f07274d626368b", "good": 4, "cats": ["politics", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "1246f78a1a1691ffd18581f89c63078933b07594", "good": 2, "cats": ["health", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "7d901eeecdae1b171c96605afcbb4babcc8beb4f", "good": 8, "cats": ["science", "environment"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "c38999dba3cf972b876ff1ced1a8a0f799f7e1ea", "good": 6, "cats": ["environment", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "8da55ce2509e1d8f77cb4d084353c232c8ffbeea", "good": 6, "cats": ["animals", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "c7570c55cf998bee90aec37990e11e8e3740a864", "good": 7, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "0d88a954690a21b905c174e2f3696912fa12d0e6", "good": 1, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:09Z"}
+{"id": "350cfa5d466ed77923d469bb77207583ef64d478", "good": 4, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "dcfca10cd12f702740c28455eeeea0deda7094f6", "good": 6, "cats": ["world", "environment", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "633b59bea6ded63fc17e4b8310cde79dd5677a39", "good": 1, "cats": ["education", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "b74fcc9f14dd88b3a16e9004295347a1613f912c", "good": 4, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "13a18d9daf92269a209c63b8445e77595c48b92f", "good": 6, "cats": ["business", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "23881d78863298e6955cc891598451d12866d672", "good": 1, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "cfc2d3fe8352089168ee9f0e42efc65c58bd6116", "good": 5, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "385f43779863ae01ff35f6c04fd88d2f025bb444", "good": 5, "cats": ["business", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "2088b15c9da3e3bee90c92c4d646eda26829c1fc", "good": 5, "cats": ["business", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "eac5b13951485ca000af0aef02827505f97b1dc3", "good": 5, "cats": ["business", "arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "1b51d61bae00e21fd586c4555a45a26e48f39cdf", "good": 5, "cats": ["technology", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "08b44bf104c2f5b4f93937b052fecadaa27b557f", "good": 5, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "a9ee518622850dc27e5efbe0658ba608769144cf", "good": 1, "cats": ["health", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "0679f0caf0652a641f9c3aa421aebea0622fef6c", "good": 6, "cats": ["science"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "61405a46be4ce1a63159dbbb2ad4ddd53d1f2a25", "good": 6, "cats": ["science"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "e691bb82dc7142d2cad0c9732dd91aa5a0376f33", "good": 7, "cats": ["science", "environment"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "21cd1adfc35f15c0682141c5c96bfdaf6bfbeb56", "good": 5, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "a2e1e76eb59174c3beec3c0fac26572fa4e3af84", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "65cfb75fe87e53b9b86585f7cde3623b5cfafdcc", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "c2dcfcc04bd05c6a71dc1fe5ddeded1c4b6bb743", "good": 5, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "92c84ef54f0ddf86f3df2b81c2e4092b386fe582", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "6fe415b34a3ff1549f6afb38c351e348a9a9fcc9", "good": 7, "cats": ["business", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "257a45ab53ece8ce696db62f77f4dadfad2fca90", "good": 4, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "d2cd8774d3d37076437ad9554b95101a2d3d3064", "good": 0, "cats": ["conflict", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "6ca7fa5ecc06d82b10a4450d08f9854a35caeb8b", "good": 5, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "e3f4ff191598c006b896d5373e9bffbe021e60cc", "good": 5, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "7cda5d2916f621298fd4b9dbd2971840476624ec", "good": 0, "cats": ["disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "a5b038bc84d111bc87b7ac1235cac60d49a35ae5", "good": 0, "cats": ["arts", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "f25b7cc17a121f9215b3f88cab757a7943cd6f1a", "good": 2, "cats": ["arts", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "a403f0baf717539bc7dbdd618bc5bd768754192a", "good": 2, "cats": ["business", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "40d013fd18b4263583258be52af16f38e7c2a0a1", "good": 7, "cats": ["education", "community", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "5c220ad7e3d8fc688431c7a4a21256b4a4280980", "good": 2, "cats": ["sports", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "2c38e3079702b4cd73aab9b25b13aad0ee7b8249", "good": 1, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "1f18f8e11cb2be58bcd05cbe8e547efb0a30bba7", "good": 5, "cats": ["world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "aee9ffd5867361c03b1889dbe2f2a124c025fea5", "good": 2, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "6f9a056cf94424dc9fe4c588ac7c150f0c7a17e4", "good": 5, "cats": ["world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "d66fb593007af7964a2f77a6f18becf56c9e990c", "good": 5, "cats": ["world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "da64f821af1101ee03f0d8c003a19ac74e3a3cf7", "good": 5, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "5f589143375cecd833f8f4f39b7448f71226ece2", "good": 5, "cats": ["world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "3680748791352fdd60dc9911eb0a412da44ec604", "good": 5, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "cb3c181776a6f3df3e8f4160d7b908a2f7d53310", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "c71a76168b3ef90f89452eb055bf963d37a4db55", "good": 4, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "084dbcc89246e8e3cd9662b7277c808217731e35", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "4deefb4e929f9c774ec2c4c8766694c62a4c2cf1", "good": 5, "cats": ["business", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "7d9958e6617c86ca6cd8c4373cf9a41762bfc0dd", "good": 1, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "3ebf8bc9a9ff442b9879add761e13a402826f04f", "good": 0, "cats": ["conflict", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "a7c8a3331e9073a7d955d0b4cb7918928ae3fc54", "good": 2, "cats": ["environment", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "a0bd1b852d8d63b4748ea737fc5275fa556d2160", "good": 9, "cats": ["environment", "animals"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "de1bd82235c85a3d569f0d0f26352f78623207c6", "good": 8, "cats": ["science", "environment", "animals"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "64094d98665c72bccfc9bc3060518c2fca1e6357", "good": 4, "cats": ["business", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:16Z"}
+{"id": "220c33a702a27e2f7815f6d2cec13d910dd47626", "good": 6, "cats": ["human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "49aaf112a9c6a8b504fb6aa3aa7ba75f1fe63ca1", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "a0e3b2eac983b4488709498fb30dcfc8a9667407", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "ac969c9962b668b676ef834321ae9c6eb7d35796", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "fc60609458fba9d06cc9a4f164ff69749879c5d6", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "04804222f7c041e68968419496d5b574bd508539", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "c38e0ecd3056a8305d127cec10909f8231146532", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "580f4d702647a2af88b11512b60aa9a36e3340bf", "good": 2, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "4a3b8cdd589b0d53cdfacc85010b14f7dd2ee8e7", "good": 3, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "a7679ec30d05cc07808311ad6b5261b24a81d5c9", "good": 3, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "7d0a75d4f0f40af97de148510ff73cd828ee6518", "good": 2, "cats": ["arts", "sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "92729b44c0caed71d879c8c62d77ee40f5d0347a", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "6b5a33936fb85f95c6a2a9052c864a72e537a2ca", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "3e531678d4a0979ff4fa989e10f8d85f1bba0640", "good": 7, "cats": ["sports", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "4a4af60e88da6ff98dafac972d58b5f47089a0ac", "good": 0, "cats": ["disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "361acacb50b3600cf305fa2e690bd7174f78f7bb", "good": 5, "cats": ["business", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "f10313d208d4a4c172410c2b681b799abb06eb6a", "good": 7, "cats": ["world", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "8c469d3badf5dc697803d486e2e84b410f04b1b1", "good": 6, "cats": ["world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "771907cf0e82c8af677680bdaf5ff1967705083a", "good": 5, "cats": ["world", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "632bf7c1680fd9fc5c80f457911f9f71c9d5101f", "good": 4, "cats": ["world", "conflict", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "4f6572e6948409b6aafddf8ca6c798ebad27408c", "good": 5, "cats": ["health"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "a062dab2b5216edef9516c97f7154b496241e307", "good": 4, "cats": ["health", "science"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "3cda1f93d26931a95b78d56913d4f299c90ce578", "good": 5, "cats": ["arts", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "05a1a99506e0959f50bc1e2a5568241310892618", "good": 4, "cats": ["environment", "science"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "7c803e4cc9b87ef0982e3136ac3a4c64c227fcd2", "good": 3, "cats": ["education", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "8791ddea71d703776a4a2cb47670c4ec6d3510b4", "good": 5, "cats": ["arts", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "5eabdad9d1d38869904ae9932caea37c4855f0bf", "good": 6, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "bc7a20bf8850515a2f9e323258f936a9fe5404f5", "good": 6, "cats": ["science"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "838d1d5581009bc004433d8a3e2b2185daef4a22", "good": 2, "cats": ["environment", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "f18ad62615e5a1b308a915eb9ca491b1c88fc476", "good": 6, "cats": ["world", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "2bfee17340d6c5875b608ef1479e71f7eb3fb0fc", "good": 2, "cats": ["health"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "8587a26c33e46e0e0e1484772ffe81a1484aae8e", "good": 6, "cats": ["human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "3853cffa76e0f60d57a21e04b06f00bd1c290da8", "good": 4, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "24ad83a1e1ea17ec6d090e5084898ceeca64ccc0", "good": 5, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "2f8c51a05b57059431962899af0c1042438e77d8", "good": 6, "cats": ["animals"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "9e20a489e610012d9d762f32c12cc8d261fc27ca", "good": 3, "cats": ["politics", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "aa70d9206758a0da0af07420c2e0cc1f294fe257", "good": 3, "cats": ["technology", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "e8f85d9de3321580acc4e0854d19f6b137ddaa31", "good": 2, "cats": ["human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "a3dba6b16aabbcb1106e90588b1e05bc809c02b7", "good": 4, "cats": ["sports", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "5748221b6f0c94349f11cd89e4a0205c27d1d4a8", "good": 3, "cats": ["environment", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "8b3bab73672ac860463a2eef6e8ceba2d403516a", "good": 6, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "d08cf4dfac288a63acaa4960d51072744868b798", "good": 2, "cats": ["world", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "0c46d0dd6611889797794147a1c3e9c534703c5c", "good": 3, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "1b6e441ecc710bb95aa18841c946f9e4f62194b6", "good": 2, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "b9ca1112977fd541675f000cda0f6a45ab9baf92", "good": 4, "cats": ["environment"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "89cb1c665eac97e3c11650e020d6e9c5a5d9a4d2", "good": 6, "cats": ["sports", "arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "852956c64c4477918a7182e8ae28afc043cb7e79", "good": 0, "cats": ["disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "39362f60d1ebe10ff118e071a3be1323fce07f09", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "e04c618687936e74287b4c1fca1ed8ce5bc78fde", "good": 4, "cats": ["environment", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "129fec697325a974c7baf7d77164ebfdb8f952d7", "good": 4, "cats": ["health"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:25Z"}
+{"id": "882f2b9e110ed7d95406f86469cf6530eed3659b", "good": 4, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "e6e15536b495e6f548bc46918acae709670b4f92", "good": 6, "cats": ["technology", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "dd2a04054e54df31065e7afb218caf2c7a0ffe28", "good": 5, "cats": ["technology", "arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "ccaec6563846e355eb59db4c60becf939ddbf823", "good": 2, "cats": ["animals", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "d90143187d98a9fdc1019b106a52ea9789602515", "good": 3, "cats": ["business", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "ee75dbe64772de7dee3ee7fd1d6f69b53c8ba8be", "good": 6, "cats": ["technology", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "9dd035f7984b87a52c5dc04bd7c5bc427d1574f5", "good": 3, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "c7c1024df2cf24ee8b2c977e3ef65e811e51d055", "good": 5, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "0d78c33f4913c6603002ff7bd75845f3ab4ca113", "good": 5, "cats": ["human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "75b2783200ae1ac310bd5e9776c193e2650be989", "good": 7, "cats": ["human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "c1919d8188893cbd86a46c9dce2789a88ab7c8e6", "good": 3, "cats": ["environment", "science"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "c47a3b3a1781e021825691dc8ac5b0e564f2c5bc", "good": 4, "cats": ["animals", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "59e9bf4032c57af0f9e70d5799d092ca25eb56a7", "good": 6, "cats": ["arts", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "358f801bbfcc46af3d10337ba75805a964ea1774", "good": 8, "cats": ["environment", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "66742dea5a2915b4fa3448977b6e4f8387f679dc", "good": 5, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "592f2a428cd26bdfb4da870db191451720eebcce", "good": 6, "cats": ["business", "health"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "c0df9584c4a0fcc6f675b1c824170fa8583609db", "good": 4, "cats": ["politics", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "afd9fcd808452587c88f5071e69c353d027c8826", "good": 1, "cats": ["conflict", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "307b1198ab61408711f48a5fb028e2c9269441e8", "good": 2, "cats": ["conflict", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "01181cc967cd882ddde0b3bd9fde0aba639ebf3c", "good": 4, "cats": ["community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "4f41d2322420feeaa711a9bf0d5ab314c3e3b2c0", "good": 8, "cats": ["environment"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "39c3edf7a03dbe843a8748603fc795ad2f926842", "good": 4, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "bcf410b418125fc4780c72619624e9ec2d7d0b43", "good": 3, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "877bcb1f28dee0368ac5d8fd1b7b46fabe5f9717", "good": 5, "cats": ["human-interest", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "15bca0f2c932404873873750d6d21bb58ae62809", "good": 5, "cats": ["business", "environment"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "423f76ec54ef743904b83f920b655330dd528715", "good": 6, "cats": ["business", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "f161e0ad5350bbc59b9bf9d14528e0bbc72a8ad1", "good": 7, "cats": ["environment", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "9760a0dbcea8b05f61b1de16da9137953d078356", "good": 3, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "869caf342d9985141fe3cf9933bcaa51aa59c335", "good": 9, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "04000bab749afe0fc814e300f1c8eb3d55ae1d3f", "good": 7, "cats": ["technology", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "bb862c0d53fbdb0cf6c1afdf0f13b1b1a37c53de", "good": 3, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "65f9f08c597ba13d7bd80e649074ffded99b3925", "good": 5, "cats": ["community", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "ef8e57fe247f8d6818e14b1121a0e6b4f5fa35d8", "good": 5, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "691401e51c679841be9ed6b803f62accb2533838", "good": 4, "cats": ["environment"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "11269325b2f941865ac989ac7aeb08fb821e8acc", "good": 5, "cats": ["community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "3901ecae03314154013d9383edda19b9f049287d", "good": 8, "cats": ["animals", "environment"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "fd2b87825165b9c1b0396cff66c9140bb42aca26", "good": 6, "cats": ["health", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "dc7a4d47d6872bedd98364a5ea58e52e081e5c6f", "good": 7, "cats": ["education", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "c9b4795a5acc846c44bbbc7c89083bc23afe663d", "good": 5, "cats": ["human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "46d5cad86a152c2dcc95f22d5d3f8500d55788f9", "good": 6, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "97cb0606e431aa620087559859d24126530fb882", "good": 1, "cats": ["conflict", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "9a3679bf3f8ce438a8b5aaf1318703fbc1e3266d", "good": 9, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "e0c0fa5344763f3d49af9261fedacbdf9d4b2728", "good": 7, "cats": ["arts", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "4d3c0eaf00aa38faeda5996b3a3143cedacf4977", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "1a1a9410799241116b19ab5e7191b896eaa1fab8", "good": 4, "cats": ["politics", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "3daa743618747b1f5956b892931d3e9e9eb0060d", "good": 8, "cats": ["human-interest", "arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "62595342521b4a82a00854b330449bab61d78bf5", "good": 5, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "6a4f74bc28645fbed0eeebd572ed606f786a31e9", "good": 9, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "40591e7d20039edd27fc3871ad1b3525985e9d4c", "good": 6, "cats": ["business", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "bda258e10b6e5b26d7a52d3eaf34b67073d39bfa", "good": 5, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:33Z"}
+{"id": "a98cb8ff44f7fd154dd95edc83084412d32114e7", "good": 3, "cats": ["sports", "health"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "ba00e30e18efe02eac1613b17a31fac523838e87", "good": 1, "cats": ["business", "environment"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "492e051a49c4c9929599715aa2a2a2f6aefddab0", "good": 8, "cats": ["health", "science"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "302b826be1aae151c8627a10ef3d6126cce3abd1", "good": 0, "cats": ["conflict", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "4f156b990ac605faa2413b5870c45d1b86034f0b", "good": 1, "cats": ["health", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "02721d416ef0528d1fb74652c64882b7d8cf76d3", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "51cba6aedd0ec27a3624a95532fb8030b4fb23f9", "good": 0, "cats": ["politics", "conflict", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "1d3e91277d58e0e9551545a232ddefffeb47985e", "good": 4, "cats": ["health", "politics", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "25ca9f26348d19ce103eac2bab2a5a0fd53c481e", "good": 5, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "ab04be0a37912435c1f1ba705cb2871b7c5e040b", "good": 3, "cats": ["sports", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "f2f75b62d9666ceb645166cbef98f282b1de9606", "good": 3, "cats": ["politics", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "772ee917ffea1853e11981497cfcf97734d4a4ce", "good": 3, "cats": ["technology", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "6198efdd3a9c520980669cf15b6336712beaee10", "good": 1, "cats": ["disaster", "environment"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "02ad2446891427cf91e82a78ae46b75d807eb18e", "good": 0, "cats": ["disaster", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "d1e451addb8b2f1caf49e9942051c1b45e761050", "good": 4, "cats": ["human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "34a032f203e97cab7e46a458e85126a04a4f3a7d", "good": 5, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "2a9d9e9046dc7d550af080b50fe4cdcf4bcabdae", "good": 0, "cats": ["disaster", "environment"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "938ca47f9572efc13edd5addb8da7de6393d6720", "good": 6, "cats": ["business", "arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "b5df6ccb46e77b77699a0b741c3e01b32b0d8b50", "good": 7, "cats": ["arts", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "45c47b7a2dc6ff1dd549ebc84e035c7dcd0f1fc8", "good": 5, "cats": ["politics", "arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "ea108d313d17a3a69d72d463406cdd8863ebbf60", "good": 0, "cats": ["arts", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "c4f44e027a83d0d3560d2f2301126c268a6bd3dc", "good": 2, "cats": ["community", "environment"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "8471d2466623f82e6bac293a0dfff63aeb6fe2a2", "good": 7, "cats": ["community", "education", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "63795a336649480f0a607aea9a4d9d12a284e8c4", "good": 0, "cats": ["politics", "conflict", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "11b9a5743e9ca50981bd464161332bca1b18bb2c", "good": 2, "cats": ["arts", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "3da7ae24529a6536510fb301af0f4cbde1f36fa5", "good": 6, "cats": ["business", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "b9f886fbb158478e7cd7d20a48e7ec6d52ac9077", "good": 4, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "5d24cfdfc3adaeaef54eb66c08e1664188eeb894", "good": 6, "cats": ["arts", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "72f1f1ef4a45f797ce7f4052c09967061bcf7008", "good": 5, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "26122f8167e474680dba2428016788d3e6cc32df", "good": 4, "cats": ["sports", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "9e9a26d39a603d2de0bb8ae13338977a0e9961b1", "good": 6, "cats": ["arts", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "0910901d589bfdbdb838e781355cbf9c84f6733a", "good": 4, "cats": ["arts", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "78e55ebb627dd71e92bca2473bcbcf8678b21c94", "good": 1, "cats": ["conflict", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "13e570f079e8b3cc69026a74d395d55747a89048", "good": 6, "cats": ["education", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "c2b7e01cac02f0260f2a8b7e63a13dc9a2670f8a", "good": 8, "cats": ["environment", "community", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "6aac7f73dca045adb285d888db4f05687543d4fc", "good": 6, "cats": ["business", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "c4b8453deb597f9db7035d2ec225f30fd1077227", "good": 6, "cats": ["sports", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "53f49d8ee2290db9c01bb6ebb2677f82e003b8d5", "good": 4, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "4613f742df8008d53a73778975313048ec9c4080", "good": 7, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "296d78503f97aa8472333e017d713cff50f61350", "good": 6, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "5586947ac2377a095640466e2ec09a4e2a95a41a", "good": 3, "cats": ["disaster", "environment"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "93069f96e2c32fd8405a38fee032287cb9ecaa51", "good": 2, "cats": ["environment", "animals"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "8e28d9a031c4c364a204f2fdf7fab1499d1e9a43", "good": 5, "cats": ["politics", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "50657c4517ff7b1c687956427818b5efa72b856a", "good": 4, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "7f6c83927b7d9c32a9b5cb183452ce2930ea920e", "good": 1, "cats": ["human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "4d4c1610b880615f937a794735ec7fbeaeee2a17", "good": 8, "cats": ["health", "education"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "54406c97d4c24b885894fd537bb88fe769e34b56", "good": 5, "cats": ["human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "aa146d5eb3cf03b45d10e3de2058016eee235699", "good": 3, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "95912ed01ee97f21ab9735c3c794219b36ea926c", "good": 6, "cats": ["arts", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "4eb300ba2d0ef1be4889b08dbb4609251b28c3c0", "good": 5, "cats": ["politics", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:42Z"}
+{"id": "377c107a16270cd6805ccb578d1ef8f7e68983a6", "good": 2, "cats": ["world", "politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "ed17847ded28fa972477ca217a7db5a3c3ec5031", "good": 5, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "372cedb23e0048fb952ab6b6bbe8f8e207945276", "good": 3, "cats": ["arts", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "6dcaa99f6789440a2dc3a9d0abeb02c2cf535505", "good": 5, "cats": ["arts", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "6d86411af3ba117b3dc8fa97c31009bc4e5adf60", "good": 4, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "f0345b257aa52ab337e1c0188dae9a1f2c8f70ba", "good": 2, "cats": ["world", "politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "522dbeab387cc6ad864bf13d8847e992ffa78550", "good": 6, "cats": ["arts", "human-interest", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "7eeef0dffbc5c4913b72d2a99c8e0abc5af51672", "good": 4, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "97d4601c2496c605938fc0146d0d5410cdf49d51", "good": 5, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "142e39911b180a85f76e16b10a1122f32b6ed851", "good": 1, "cats": ["human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "ce6f5b91cb50af9676aceee0417041be016ed6fa", "good": 6, "cats": ["arts", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "a9c578549b4af73a4b5a9cfd940b61907fabd217", "good": 1, "cats": ["sports", "health"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "f4b42783684d8e854def7b56831d125dc45e2067", "good": 1, "cats": ["disaster", "environment"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "e8f267d2375e0ea2ca2e0e18219b851f5a8a2b81", "good": 5, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "61df53e8c96a586de9f25f257f48748717f5f9e5", "good": 7, "cats": ["arts", "health"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "14fac1ac6fc3eec2b1713dd94abf8d64b22ebe69", "good": 6, "cats": ["world", "politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "275ae2f5d37a2b1948143c738e51f0f6303b4108", "good": 1, "cats": ["health", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "e38c373341e9be1fcb7be081fac4d2ba545e20bb", "good": 7, "cats": ["education", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "4004fe1b0c00be9f9c8fef90838ca60027282d0c", "good": 7, "cats": ["education", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "6ca2ce3046023c56b6c02c1117047a8c22a83105", "good": 7, "cats": ["education", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "2dd682bf2a106aec551b417dac735aec655564a7", "good": 7, "cats": ["education", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "2d53092767db335069b88d19b8bb36310b7eb1c0", "good": 5, "cats": ["world", "politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "b7ac3db2defa514462ba8c6a9a435d2ebbe214ce", "good": 6, "cats": ["business", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "94ae771ac5712abdea133c6e13dc39e79550c2dc", "good": 4, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "09d0727eb8871c7024629f26579ad99459d8ae04", "good": 6, "cats": ["business", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "0ec98996dd579d9ff0521739904bae058ca540da", "good": 4, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "4f92eec6b48a8e6fc3985afd65d574f6da9d03df", "good": 6, "cats": ["business", "arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "7ec284b92435a61662e88bdcbd2e1ea40db505c7", "good": 6, "cats": ["world", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "27a17c0978c2e3ff2c19ee82ff90f50a70cc3f74", "good": 3, "cats": ["world", "politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "89699513db36907f61475073edb48b95aff0eff6", "good": 2, "cats": ["world", "politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "12f960ea89f75633f0b147f7fdd1a6fa2b8ba553", "good": 7, "cats": ["education", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "c2b0cb5b87cb4c0315519bac1d3fa2956915c738", "good": 8, "cats": ["human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "040c278690109757b4f0c95255d67229d136409f", "good": 0, "cats": ["world", "politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "2a6851dbc50c0b31865abfb6f4955f3e5e9ba6fb", "good": 0, "cats": ["world", "politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "8ac1bc16d9d89ee1327196b60be0fb386ab14f46", "good": 0, "cats": ["world", "politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "87af5f92a4e4af12aff8aecdc77dc01b649f5e3c", "good": 1, "cats": ["world", "politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "5b65265b5f82d229c27b0aedcfe496f5ca92019c", "good": 3, "cats": ["world", "politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "07dd3a76836018c98e776bed8f68536d8ff47a0c", "good": 1, "cats": ["world", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "20037ac6077484ea2f6528824eb2f81cc5b27f65", "good": 5, "cats": ["world", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "741962b997b45346699af1711e2e739004bdec19", "good": 5, "cats": ["sports", "health"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "f1a4a85430b433b34a151ebf5e7773980739ecba", "good": 5, "cats": ["world", "politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "50049bc4774ed93eef1cbffcbe672844959e263e", "good": 8, "cats": ["sports", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "1398cbb1217d23cd3913d800e22e608991fb0cc7", "good": 8, "cats": ["sports", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "91069759317406b1e8f37ee3a442092d28754c15", "good": 4, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "bfabb4951e1abcf6a57764b609eccc064b136df3", "good": 2, "cats": ["world", "politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "1ddba80cd4661851b866bbeb19c143bac7ec4d07", "good": 1, "cats": ["world", "politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "838a0c9167b15f29f37352fc220edc3d83431943", "good": 8, "cats": ["human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "deb197db84c0f9b9a8391fd6a7b263efa2af8227", "good": 6, "cats": ["sports", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "f3aad0504ed717ffd37dd04773fccc61cc48f125", "good": 4, "cats": ["business", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "aeff35f89a7f828dc3c3c2aba0b174642d43a134", "good": 7, "cats": ["business", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:51Z"}
+{"id": "b57f2f00e71cb0bf2f39ea86faba130eec135baa", "good": 0, "cats": ["politics", "conflict", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "6b4569463637d07d7cb0ec745b0e642b156bb217", "good": 4, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "40f77a1a8e3e5919e8fbf01aeabd561f7230a4d9", "good": 6, "cats": ["arts", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "cb845b964c5586d4a032cf841c65437f08b051ce", "good": 0, "cats": ["conflict", "world", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "776f070686ae8d704d417343d09a03dea1bf0a70", "good": 0, "cats": ["conflict", "world", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "3738ca1fe4419226860027b907abe8b6b16501a3", "good": 3, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "cd65f6fd0be2fc6ebf73bb3d60c1b3aea8c7a451", "good": 2, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "0576d69c116a8227f8d4aadf0eb8e38fdf1f70c1", "good": 8, "cats": ["politics", "conflict", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "5fcbe0edb1b4d2592ee450933cb98121a3743a9f", "good": 1, "cats": ["disaster", "human-interest", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "641cd41cb3d55a1fe4508f20090b06313dd1d700", "good": 7, "cats": ["human-interest", "arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "80a69da5e37be40d20ce50351356a90310a0d137", "good": 4, "cats": ["technology", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "39fc7e83d3efec43d13358dad980e3416a50af42", "good": 8, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "affc5c0f3be92117e29e57bef691b4d2f142d2d5", "good": 1, "cats": ["conflict", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "fb39070aeb027bd034a9c99944763798bcdc872c", "good": 5, "cats": ["politics", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "ec92379759c2bfa27495b9149e38641db1c88a2f", "good": 3, "cats": ["politics", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "2950a209d26a81d5da653fb9f263bdc2ee115352", "good": 3, "cats": ["business", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "5cefe8a34407aeae3c10b3d6c0723fb2a3b6010b", "good": 4, "cats": ["community", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "92e147d4d913ab0b6b2325cdd3facd94fd5bbf7a", "good": 4, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "dd583dedb822f4f429cf6e36ccabd0021f7a413f", "good": 3, "cats": ["education", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "64b93727485e2d24a3943c78a8c32f1d1c2dd4a8", "good": 9, "cats": ["human-interest", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "e33c9c7defbca4da673038af1385c6aa97b4ff82", "good": 3, "cats": ["education", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "bbcab52b9e8efd3a948870de54c9cec0667a3e30", "good": 5, "cats": ["community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "1d7f03199f624e68e60f47fd8e0ea5cbb63d4329", "good": 2, "cats": ["conflict", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "722d5aad73cee94db7db35a0904353aa05757f5f", "good": 3, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "a3595c8cb636ca34d664b43d8c904f63f6468d85", "good": 8, "cats": ["health", "science"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "70e215a466187d360ed6c49b7006638ab74dcc64", "good": 5, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "31fecddc6504ea46ee7b4e3aff3e9efbf0262680", "good": 7, "cats": ["human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "405e9eddf05f05e6fcda7b6c5045f4a9c28f7101", "good": 1, "cats": ["conflict", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "a786f20a8b1f3905ca376e347ebfe32e33d94ab1", "good": 6, "cats": ["politics", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "110fb3f0ed5769b7d574f479110dabf701771d71", "good": 2, "cats": ["conflict", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "e22481bed7db67f0a3e3d79fab2e56e7835e1ce1", "good": 6, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "de8ba0c607ee708273fcaeaea9609339a0a68720", "good": 4, "cats": ["business", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "899b21dee9b67bb3a84b3fa27f592a12693213b7", "good": 4, "cats": ["business", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "4c9f2b230705a13ecccca1e0845d181d11f16cbd", "good": 5, "cats": ["business", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "6432dcb0a21e236faa9643ec82706528ad0cd5cb", "good": 3, "cats": ["technology", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "6da8f9aa4d5bb4c0c39dea46c6a6f3179e59cf76", "good": 5, "cats": ["arts", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "1d3fc3f21fb1cea99858662d95184278bf8da68f", "good": 5, "cats": ["arts", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "07efccd6e0b2b7bcb729307459d90162dabfcf46", "good": 5, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "892367b01245c1b94caff17d658f437df1bcd158", "good": 6, "cats": ["environment", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "408dbb840e7a0ec6b0beb372277b1a97ed1fd5b0", "good": 7, "cats": ["environment", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "1cfffe31ecc3efbb4b9a565e218144becad43a14", "good": 4, "cats": ["business", "environment"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "7ffd74030d741d3766418e623b1a65a098db75a3", "good": 3, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "14838cf461cbe987a84308097ceb87dfea8194c8", "good": 4, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "c791fad4dad67c11ed31f8c25014e6cee968fae0", "good": 3, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "51da7e6cefbde8efc53270ffb76497ff3e1827f6", "good": 4, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "498f39045be01432082088692f888173453907a1", "good": 4, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "fe2de37edc6634d6755ffc07a5b4c43edaf6ca60", "good": 2, "cats": ["conflict", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "25599f8097c4fe15c38eb4d85876fcdfb3f614d7", "good": 2, "cats": [], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "d43591668762eae8382e181d7bc00351e43dea0b", "good": 3, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "ef182dff69b42474d36b13cc2724278ca8674f42", "good": 4, "cats": ["business", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:36:59Z"}
+{"id": "f7267576328b9d5b08aec7c32653467a45265e4f", "good": 2, "cats": ["politics", "conflict", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "ede62b6d2e4bc346192519389c86c004094138cd", "good": 3, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "4394e3d83e6346c8873f6a05f65d248282edd677", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "e3e255e8b70b8126d603b7ee401ccf046df910f8", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "6574d0d2cfd4984e6741637b68cf7754486a42d4", "good": 7, "cats": ["sports", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "1dc43e4324afdaef88ba76f098a88a930409862f", "good": 4, "cats": ["sports", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "feb5af8d58e05e6887be96503174f7daf8e5d945", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "d3d0e05b8b99a687348c6c429cd4c9e526de7c53", "good": 6, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "bba7e62feec7653ce4d904fdb9d8664a40772579", "good": 6, "cats": ["technology", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "ef69523673e26c38024cc782b658eeb08e245ead", "good": 5, "cats": ["science", "environment", "sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "0573eb863e68a367e2eff8ec8ce772b2fdd568e6", "good": 6, "cats": ["arts", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "59f2aa7605097fdf137f93d01d4432ee31d545cf", "good": 2, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "508b5f9bb96d2aaa4eb795534edd7ccba5320608", "good": 6, "cats": ["politics", "environment"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "65a3b93d695dd7f8d802354bd2b8f11150eb7128", "good": 0, "cats": ["animals", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "5d8c26356e2a3c2b3b26e6a770d45be403e662fb", "good": 0, "cats": ["disaster", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "735fa94da21d9365873326948c97bc205999daee", "good": 1, "cats": ["conflict", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "68f61a73f9c2979a00c0afd707e269087c63f364", "good": 4, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "98d06d02cd2f483c0dda946498719cf7f5df397c", "good": 3, "cats": ["politics", "world", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "3eee65bb24d8fcbe3fa16c5e6fca1c3fd3acfc0e", "good": 2, "cats": ["politics", "world", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "ad3e6eed4f771777ff3f52c4cffa72772897cb27", "good": 7, "cats": ["environment", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "f4f740c3d2015581b43f922a8906c00efd6f2dc3", "good": 6, "cats": ["science", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "673b62648d1b9727356dd3898f85796bc4d21b8d", "good": 6, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "921366ad5630c0fdbd1031f9cb598f46a1d88337", "good": 6, "cats": ["environment", "business", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "9103570e2b763b8283aa390704be0944ca07d9e2", "good": 1, "cats": ["politics", "conflict", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "3e67b2cf71eda8bbdc30492b380e6d800f42b5ad", "good": 5, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "2f8df5c9b990b3c564b4b08b783744e7db567707", "good": 4, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "6c0fef8dbafafdaa0c560c9bd3e881ea676ee116", "good": 5, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "3d7dea4fadebe16115a2828a243792baa9b79e60", "good": 5, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "551b5ac50f1d31c51453012ce9d6d0fe6a6ebac9", "good": 4, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "61e92d67b50618b43e13d96630ee6a34a25a8742", "good": 5, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "39182cdd688163ca21c90a0d0abe3549a19dd5b2", "good": 5, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "5ceb7d873e5c7e77c4f4f1ba13c540630b225c9a", "good": 4, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "2f91c5d640defbf3c6a7d80dee17334087b7d481", "good": 5, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "e26ddcf0cf27467085cb84fb78af05207554a459", "good": 6, "cats": ["arts", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "ce357d7fa8b944856c85fcd1058b3871504c0b79", "good": 6, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "08791ef89b00a1ed9e647053e769af826f750386", "good": 3, "cats": ["business", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "0822174d56a223e3b0b083bfc4df6adaf53c349b", "good": 4, "cats": ["business", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "ad84f6794428868cf74fd32e2551474e3a477493", "good": 3, "cats": ["politics", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "c751fac7263d57770021faae8d1cd3b6fb8c52bb", "good": 5, "cats": ["sports", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "f51feaafd4fa46ab29ae6bdb29c3bc3589a52b7d", "good": 5, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "93db44c39ca00e3853ebdddd2fed7ead79644d2e", "good": 4, "cats": ["politics", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "36c6d44a657184ad9d8c444e8db01c5b91744436", "good": 4, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "08c3030babadde4353c16161f30a15927ae3a159", "good": 5, "cats": ["human-interest", "sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "2bfe6395b27b3ff1038a6fbd4cd857f31357399f", "good": 4, "cats": ["politics", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "b70d2bc3a607e9964ca12646b4b34a6664a03619", "good": 2, "cats": ["arts", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "e5e188ee5098330b1eb06951537f579d6f94eb03", "good": 8, "cats": ["arts", "human-interest", "education"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "717e272c9f9f783becb3ab7bb8d434d4117013c4", "good": 3, "cats": ["conflict", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "1da10f26bd63d976961a43e7ca49258f7d376455", "good": 9, "cats": ["human-interest", "disaster", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "9ce76163692c1da1072d2d280ae419af0f3e91ef", "good": 6, "cats": ["business", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "42abde141cedc767aebb172630f164f622ddf293", "good": 5, "cats": ["politics", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:08Z"}
+{"id": "34c63f3cab5a95b3c08d5f743b0007a0cd805655", "good": 5, "cats": ["business", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "0698e0a55cac0d648238bb1d7f86b51a8ba13db6", "good": 2, "cats": ["world", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "cfa9c2b9d96e4ec6c152b711cf34e048658c9147", "good": 7, "cats": ["business", "education"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "82c8eb30e87da56265db572949727b75094aae2e", "good": 6, "cats": ["world", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "52ffee22b3fde22a461a8573e2d5b3ae18d4ff59", "good": 3, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "aa588f658925d9cd30188bc227719e19ad96a84a", "good": 3, "cats": ["business", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "7665cbdbbb33d1e724d14dae62c417a82cd667e5", "good": 1, "cats": ["world", "politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "811372d3cdcbe77b9f85b38d8d1393671a91562a", "good": 6, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "8ab4997527819a90d3db32362ab1e7e7026b36ab", "good": 1, "cats": ["world", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "85f8947642bdc05558dce7d4a291a10350f0ca83", "good": 4, "cats": ["politics", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "deffba4519b0ff559798db4c61002a20d5bc4fa5", "good": 2, "cats": ["world", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "6dad850803acc8df3a6fc059f8c386b91ba35b00", "good": 2, "cats": ["world", "politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "bb80002cc3cc4538a968fe23706a3ae3e815b0be", "good": 5, "cats": ["world", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "85da5ba179dd70d878fcf1492c888dfc88995197", "good": 1, "cats": ["world", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "7d510d63e45c82dd0bf2a964f55befce29a169c3", "good": 4, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "bf3703b47d8341c483cccfb48609d580c47d9adf", "good": 6, "cats": ["world", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "541640af71b2aa4ce3fd681f4bab35658df44bbd", "good": 1, "cats": ["world", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "299e4a9bbfa679d12a913d70b30136ea7480654a", "good": 3, "cats": ["business", "education"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "b93fe912c10fb2d600bf0b48b714673a82ae4edb", "good": 3, "cats": ["arts", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "4f7184d319d0f3886c5755ebcb76cc45c32a5c69", "good": 1, "cats": ["community", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "e82d01bbc49dc95afc36baa58c7ed4f401da39d9", "good": 1, "cats": ["world", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "60323e059b255af6a603895281cf8c9c8b8712f5", "good": 1, "cats": ["world", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "9cd9121970fa7e1f4bd5095967664d1530b86883", "good": 6, "cats": ["business", "technology", "arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "6a3ab951851946a29c797d7a58083f19bc357867", "good": 2, "cats": ["world", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "064a515284b3e21ba8a8519ceb88e55c3ea58d9a", "good": 7, "cats": ["world", "business", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "5bed34b4a84e42e22fc84c00410a40fb58924503", "good": 2, "cats": ["world", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "5743144538e923275f52c9a8c9fd02f976030dd4", "good": 2, "cats": ["world", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "968fabda42d0c677b84aca4065e4c980eccb370b", "good": 8, "cats": ["science", "health", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "3f6b8937ad7823dc38296bdda9bd36fd3fe180a1", "good": 3, "cats": ["world", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "be6bf66337547cf729ba5e56c1e79bfea4468e74", "good": 7, "cats": ["environment", "animals"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "858ca19b1cf96b4830b82daeb52a59e9c2826b98", "good": 5, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "b0e9b508eecb769566b421a28d84077cb179d7de", "good": 5, "cats": ["politics", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "64c794496ca945b5a439f53cd9712b253f2bb8bc", "good": 1, "cats": ["world", "politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "13ec4dd29266b57768cbbefbc1ba673912cfdaf2", "good": 6, "cats": ["technology", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "dd0263302a5aed0859f4ee919431f7d99368d3f9", "good": 3, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "d08b71b032bbc951555717d86660067a5d467c8c", "good": 9, "cats": ["disaster", "community", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "059bd3d286ef6c2f8e547fc5324edf1eb4d42d5d", "good": 3, "cats": ["community", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "f82d8207e35b0bde34d24e774fcb4a4664bdae27", "good": 5, "cats": ["politics", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "7674bfe2b021207bd507a3e40f5a7c47186c040e", "good": 2, "cats": ["community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "602dc9f403993b8fbee1d982c8d71c22ada335e7", "good": 5, "cats": ["sports", "education"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "e1be4c75b8fa9bce89ebd2bc2dbe3276f8c1e87b", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "285fa2feb74e0378fea0085ce82657622afbbd95", "good": 6, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "ba39fe1a808b68679c0a31fb1cf232cd061f89f4", "good": 6, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "312122092fc257e52ab35089f91b4bba42265dec", "good": 4, "cats": ["business", "arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "f0348663db646aec8fee16fe1fefc698cdc74396", "good": 5, "cats": ["business", "education"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "4fd6aaef60479c7cdd1c00730bdd86d30ea3986a", "good": 4, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "d101aa3513f79c213c8e81cb0bedf50d03a0ebb3", "good": 1, "cats": ["disaster", "environment"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "f397cf3e3b1a4e0e5bbd6caed8cc27eaabbd3818", "good": 5, "cats": ["business", "arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "c44a399f9a63b14443458ddd30d454733bcda09a", "good": 5, "cats": ["business", "arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "254f676ab062dc31cf21b6ba36c375ae5302d272", "good": 6, "cats": ["business", "arts", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:16Z"}
+{"id": "fd01af6b9156d70665497fe6e50c668124054548", "good": 7, "cats": ["arts", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "0b75ad3cca6d85ef717b2656d3510a68b54b6a94", "good": 6, "cats": ["business", "education"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "190681e9f240d3a4cc46369fc1bea07e10b5c8e6", "good": 0, "cats": ["disaster", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "4713c46221e592c34375b3d3d299c19960dc4e10", "good": 0, "cats": ["arts", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "503466ab7b51092695d8ddbf8f53dde683180484", "good": 2, "cats": ["sports", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "919ca00499e7e4a7f72b610d1ecfd0e9eb83081f", "good": 3, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "68f987b7d968fbddd0c1aae7632b0bd068592b63", "good": 5, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "33c1231d593c4e1f866546cefe41d83fde3366d5", "good": 3, "cats": ["politics", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "147f0b4cea26511d61c315b90ff13fe46fb69b3b", "good": 0, "cats": ["conflict", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "2e829037c75c22da3d94c4e339738b0dd239654f", "good": 0, "cats": ["disaster", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "2a9ef4d9f25ceecdaf9f8ef079a99ec52ca97bc7", "good": 3, "cats": ["sports", "health"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "f16a9cfa32780cad10cc21076ebbde95730623f7", "good": 5, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "f7f23b661d23b458300b78ea8f33845f4cfd57d1", "good": 8, "cats": ["human-interest", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "adf91c3babf0b0cb31df8201d24b07b3edb7a2b9", "good": 4, "cats": ["arts", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "ce6a72805b9ff44ddd8b2c642f8a3c58364aa67b", "good": 4, "cats": ["politics", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "601db9db0330909716034458aae13c4f42117701", "good": 7, "cats": ["education", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "2393457295cda65921a9a137251ebef30a8943a7", "good": 1, "cats": ["arts", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "41809d234580ba59aa7bc7dcd337c9d6ffa6cbf4", "good": 6, "cats": ["arts", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "e388f7ae2dfe7f964475c3ebf857c6df038622b3", "good": 8, "cats": ["arts", "community", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "dab8a347227b01cada60af6b502dc7eb144f105f", "good": 2, "cats": ["politics", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "73dbced04087eec6349e9e67d053bbf9aa2b79d2", "good": 7, "cats": ["business", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "a4276ed4d48cc9b0bb682e8aa376dabf88b52e56", "good": 5, "cats": ["world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "4c183d097dadacada24b7af5251f535f6f880db2", "good": 5, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "e441c16c37ad3df1659f7179418dc40fa239b316", "good": 5, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "8c38725f5d6106d149b1ef402147c77c631aacfc", "good": 5, "cats": ["world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "8aa96961d33d832ec07dfb7e6ae49f497d892efb", "good": 5, "cats": ["world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "983b043f433d5225a6ae8826d23ad99c3e081435", "good": 5, "cats": ["world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "91da20c8b8e1e81537c16d37e311a4ae33d6e5f7", "good": 2, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "bf4f7ccfb5c8dd3e3065a48f3183e0abbb42520d", "good": 6, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "0668e5cf6e2d49dc83a185784f564d657eebbccd", "good": 5, "cats": ["politics", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "1f42a280c5afd5dd85d8859a7a560c15db4fce2e", "good": 5, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "4231b71b8b84afd560c1f438dfb70108b02f42f3", "good": 7, "cats": ["world", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "4ff848aa04a9f850428a3508ede40bab413038fc", "good": 5, "cats": ["world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "9e485bc55c5b7eb4eecdd972ba606c02b152e475", "good": 4, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "3949e8a501dc68745548404ef22e15cc218c9bfe", "good": 5, "cats": ["politics", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "d69e0e2bd11b0bf2385e437a339481e5ff1c0038", "good": 6, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "d9ca22049c7995f0074959d17f3325030279a643", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "4161c32dc0ab27e2c112fa2def59758b7edb4c22", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "cf22987cb135797e29410410a537fb7c18cc4426", "good": 6, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "6b7c821ffe6967d05a24ebc1c4dbb7ef45a1687b", "good": 0, "cats": ["health", "disaster", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "bccfaeed051e12528489b55c00d9b779d620e9be", "good": 5, "cats": ["health"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "4ba6d08d14f49511c4629c98c061cdd283adef67", "good": 6, "cats": ["technology", "health"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "4aad50cf1e6c091c37a9577c240ccdf6520f6ea8", "good": 8, "cats": ["environment", "science"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "1459ce8765d5f9d0f13d5aa6764b966ee7fc6cc7", "good": 4, "cats": ["disaster", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "c96f14deae3ddca3f13b5009ce9a5cde6614a02d", "good": 3, "cats": ["conflict", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "905b3ec086c224a50cdb2d617caac87dfb02e790", "good": 6, "cats": ["community", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "28647000160bc5028be50269b2dc8f7cdd215066", "good": 7, "cats": ["community", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "23b0e82968a3776841b5905a5cec153f6c81a87a", "good": 7, "cats": ["human-interest", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "f955876febd9b08fe44ff5bdd8300d170c5aec2b", "good": 2, "cats": ["conflict", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "946ba2fc48f9cb7e5944157346d2a6cdcacffc62", "good": 5, "cats": ["politics", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:24Z"}
+{"id": "978455e7f7c1bee586bf1e02139bcc7fa423329e", "good": 2, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "079a183a701668c61a0dcc2ed6bc7faa3f912b65", "good": 1, "cats": ["politics", "world", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "a9cf52c7a768df214998efa8d1a2b1f6822144ce", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "2e38fd68d511a6e2f476eb2edca6c50c74d8a681", "good": 4, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "83ac58851c5b7e2ed4d73fd91c0ef7052b0317a3", "good": 6, "cats": ["arts", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "66aa7f96beb8ca80acfb42f9b5bc6a75b008ebde", "good": 8, "cats": ["business", "community", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "c72e4a96f1875f286a2ead081c9e5ccef28deb44", "good": 8, "cats": ["environment", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "8fc04a7a8fa8e840c0cbea96f83d342d54687e10", "good": 8, "cats": ["business", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "8f0cd484192c3da27b6991f3229c01b2dbafda52", "good": 5, "cats": ["business", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "2b46ab87f712a5c0485b8dcfcb712b46b357365a", "good": 7, "cats": ["world", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "4220aff687f2235ffa602f4bf449230d6845b373", "good": 6, "cats": ["business", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "bc2d7d7b957105e3a9e5e13ae2d6827f1fbefa8e", "good": 5, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "e8df148ba3c134b38bde3492307e8b743ac4a450", "good": 1, "cats": ["disaster", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "0373ed6b36589763976438f1cc8a8bbe0f130490", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "28606acb2a73c00207f460b510cd96fe42fd7b5b", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "5b231f10a0c09489cce019a19f42e629cfd54c3b", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "988aab665c0eba644a9266e0806ac2119927e17a", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "bfe76ded3242f4c28f1cd56994740c6daf47e03c", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "8dccdcd45af2550e6579e0f92aeed3de30ac1df5", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "285a4217036d6e40a245eb2cfa5af829f0396e57", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "bcc27f7fbefb45df609ba488fa7b0def1f9be6b0", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "d04c5ec74cc13118a89b048a919f8cf7d15f321f", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "e943d1e719be57326b30140b9dbff031c689d4dd", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "500dbbc6feaa3baafcf6f067104c6b2d20f0994f", "good": 6, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "a61061171e269b1eeca687c9a5e0904bd6284b51", "good": 6, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "767c59b8f0c5f824e7c9d36d3bab7afba071dd50", "good": 5, "cats": ["business", "arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "2ce275f7535002c9284f1b4ddeaca59e41d30e59", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "edc1687fd00aa4a8aca8b945c383b1f1f1a58688", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "93c37e71f1bb89929b198795e0c8a4fa031dad75", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "75e70c4cb5e84711aeede5e56db8a71eea6d184e", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "9fc89947a0cc65c523274690b378ff427e0aa580", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "96b0a52c30a99def659cc67d9d8465e17f0943c8", "good": 6, "cats": ["sports", "education"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "6a6b74fed5bcd723e7250e2dc736adaddb7cc4d1", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "13387478f53151e1d186c844ed43b5d329bc23a2", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "18571068b13db9fb6b385ecebf265688d9d665c1", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "4de8aa7299c8c889ad8a58c1b7a8f6b0862193c9", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "02fc15d2cc255ea8ac375035724e9dcaed41e4ef", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "fe00ca473429b98267c37bea3d2afe0a7d4d9468", "good": 7, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "ca224e1f89eb2fc614f021f16326dd12a4e66f4a", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "e8ca6c5224efd2c5af84b8cae3509a139d405990", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "157209d9354c4ee332294efe47f3bb9a999c003b", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "aa9248404c7f6ca79aaf18012be484739988118a", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "dfeba494474fa62b1a23fea7f871756809923523", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "ca3a7387211538680c43fdb4e9797cad3b253bae", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "3216ad32791f7d4568d17f38f5eaef91e1d3f8ba", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "e73639e005bfbad77d23b4778f327d9bf2b3d7f2", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "eba260133cf0aedc596b5af21272ec4e242ad8c4", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "e7a9161641466e0c96a3b68234f348fdeb10d5dc", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "25269d2d5174577b89cf2ecb332f54d77eb231e3", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "bcafbdaa2bd4c615343840148bb721bcc6f4c616", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:33Z"}
+{"id": "c4926f812a36e3c36e5bc7aa363ca9b204500d5d", "good": 3, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "104c170d56287079d4bce331be4a55e3c9814e6d", "good": 3, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "2854152f07a85c32c6876b855d7faf4e456f7951", "good": 3, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "0ccf52dc831c17b81f9d4165393586f219f89a4a", "good": 3, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "b85e6894d18e735f4e9344e9903aafd8a8414bdb", "good": 3, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "08b7fa676b92b0c76d47014761dc9e2389eff6cd", "good": 4, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "10fa6401b35090864ca7dbc793b4cec4628afde7", "good": 4, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "5dac1d5106cd2010bff8ebb247615f44e94779b3", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "9d7cf2feb1d914a5e81516bc7b6b5610fb66bf2d", "good": 4, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "e6a556c90abe5c3fbf87d88e7a9ceca3916c4de0", "good": 4, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "68db41a6f061244fcbc4dec87fbb1b2aee6d05ce", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "7e98c4116f2e444f6c1ccc1d79679a293798a4d5", "good": 4, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "43e80b9e334436ca3665d2d1577a5371bfa4c03c", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "89604ee5bc7a4ca0fe354dd23b37e9c685e39952", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "2e468263391eda02ad5de0a7c0bf1a26acc1329c", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "8a4795268c487de213186715e9b5898d9b8e5d12", "good": 3, "cats": ["health", "science"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "5a3f1b2fcc25eb66efa6de202f20327fb5100208", "good": 2, "cats": ["health", "science", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "3ca8d0a5833994fc6cece5e847f8ad6f13be7f5e", "good": 6, "cats": ["technology", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "c728f0eb7febfdf2bd55fb4493e5265f10e50f1a", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "545edb51e5147ad758f6558b5d5298d107ebc11e", "good": 2, "cats": ["world", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "c6d1b6e07390712ca1952ddb089e1f61c0c379d8", "good": 7, "cats": ["health", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "8e95f5a5b03ebcc06026e3ebe55d1395cd3f13de", "good": 3, "cats": ["technology", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "cd8fa13dd5b374647ea2a7e2b65f40d0904d7f2c", "good": 3, "cats": ["human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "037e2430d3f1654b5baaed3840e5a83bdd64da7e", "good": 3, "cats": ["technology", "environment"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "efbb5fb28a24a7e60747f065a09044345839bb22", "good": 4, "cats": ["technology", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "70683c2cc5cd4801a933fe8a45bf46929765717f", "good": 6, "cats": ["health", "education"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "7ecd7051e952815ff49e36604d8e61cff16fef80", "good": 7, "cats": ["health"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "38870fe2ef2ef328bd494dd596bfe74a31caaebf", "good": 7, "cats": ["health", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "c75136e1eba6c2338197c4e468df52a9af330fb2", "good": 5, "cats": ["science"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "90f40fe69df6fb9a11b02440b4044cb6b2413410", "good": 4, "cats": ["education", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "3bdf3bee3a87fd1c56d441e97ac19da4ed1a0614", "good": 7, "cats": ["human-interest", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "5420e270398a8c9af443b94ca7e585670878dd2e", "good": 0, "cats": ["politics", "conflict", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "d43a6fd46585e026a6e328cbe0b8c44da4d5f2f4", "good": 3, "cats": ["technology", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "a3d719f74218234b679b1c2d2fe8326f99aa5ffb", "good": 6, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "8aa0e822defb30d71a07aa3a8c68f6fa053a92b8", "good": 1, "cats": ["health", "world", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "aa0bd5148a90255b456b879c97b38ec6b5d95024", "good": 6, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "bf5089bd7912f4f3a208aad4d1fde91e1693c148", "good": 6, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "1f1f7f81eed5445b78142382eeb4c9af39be5e17", "good": 5, "cats": ["technology", "arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "1cb1bcd0cb58daab2f695b6c07d972efc93a52a9", "good": 4, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "90e849fe7bb84bb2a497d89558bee34aad21fcf8", "good": 4, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "dba6df33ce8657e4466d1164d6dae4e33d90947f", "good": 3, "cats": ["politics", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "f3a938b24cb20a8636d4eb3f86b4f97d810f1d9f", "good": 1, "cats": ["politics", "conflict", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "9047d6fd151c5da713de169dbe17197004d9775b", "good": 4, "cats": ["politics", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "8541267a6826c008fd78aea8895272079af8679f", "good": 6, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "ed041b108e60eec66ed4126aa97c7cc517fe52f7", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "2d1079eaa07b8ae2f487dab592dc006d7b63386e", "good": 5, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "d5e202dbb6c815d96e04594da3ad59f765c185d0", "good": 4, "cats": ["sports", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "df6ed20479872d13e4f0ae2c3837e82fcb698c17", "good": 6, "cats": ["arts", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "5d2f0d9caa47a36d997a6f8a610d8d133308ffb3", "good": 2, "cats": ["disaster", "environment", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "cb63a5acb706fddacd493fd4641cf8b148fa0a48", "good": 5, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:42Z"}
+{"id": "8430fda60df3add228820ea5303b95f00be72465", "good": 3, "cats": ["sports", "world", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "e10b0dff2ca0e8dee6112cf4c9a306947f37f446", "good": 3, "cats": ["community", "business", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "32b445bda73a8f4c0aafa1f746c5ca65a3032a17", "good": 5, "cats": ["business", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "e60f0342fea7b3c8a8fd095e876a06e71b8a4c47", "good": 2, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "4de4ee6c589229c0e0b722d9597957ec5fefdd3b", "good": 0, "cats": ["health", "disaster", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "129699cfc58b0c81d01dc1a17df5e81d10c96931", "good": 1, "cats": ["conflict", "animals"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "306c2466480bb4844d39babc8911532c542afef1", "good": 5, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "7b4d4c2f9d436df7e0a98533c793f91f7661651e", "good": 5, "cats": ["technology", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "5775a57ecca589c8b6086878993513e426f30249", "good": 7, "cats": ["community", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "4aa350a3539e18db984e34168051877f35da8b20", "good": 6, "cats": ["arts", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "1c3384e5d66b1063b457c43ac0f016ba32e5554c", "good": 0, "cats": ["health", "disaster", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "a77eab6ca60578d2b3fb0f69f2cb9c08812a2b11", "good": 5, "cats": ["health"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "74ca400f1a9821d905a4a2b7f79cc175fca90257", "good": 5, "cats": ["arts", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "8cc388c17ec13b87c0bd8d919ead9be589961aa9", "good": 2, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "2255120958ff399e4334247a4ed4e23c0702dd86", "good": 5, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "939f2f2ed7bb081b0678faa78251c4db577469fa", "good": 5, "cats": ["politics", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "b29d90c4f2d85b5e74cd764de241ff71a60b0e6c", "good": 5, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "7d9a15ac24a5f4868002de6e26473976fb0db48c", "good": 8, "cats": ["community", "education"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "b71f1d06bfcd899f87594254c314dced822f797f", "good": 7, "cats": ["politics", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "ad98df442a488b9681b6aab6ecb2b9437e2ed42f", "good": 8, "cats": ["environment", "business", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "6753fb3c53feb11a409952fa2ce352290375c227", "good": 6, "cats": ["community", "arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "9f57b79ac4ba1047f710b6f26b670383cbe92b89", "good": 2, "cats": ["conflict", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "6c50b3a06c811c5d9e2fbb01052574de00637d8f", "good": 6, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "03917fddb938d26e960022e523f82949887bbbb3", "good": 4, "cats": ["environment", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "54e3cde21f1d4bde6bc420c3569a3164bfce652e", "good": 5, "cats": ["community", "arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "3973e25bfcdac36ee7f638a484e4cba4841d5e7b", "good": 2, "cats": ["conflict", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "32e318043817490a6f2a243e6fd345f16d5e455f", "good": 6, "cats": ["arts", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "b2087679aeaa44f3aa8e0d6f5cb508651f21ed93", "good": 4, "cats": ["environment", "animals"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "e1be12dd343dece702ddeb0b19e3f87653cb135d", "good": 2, "cats": ["conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "333496334cf30979f6609b7977e79ac3b74193aa", "good": 5, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "c5dadb9b8e8448a3906c331845008e46b6216f8f", "good": 4, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "8c6a5fff3f211eea46fb2015036af3f9a95e6ea0", "good": 5, "cats": ["business", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "d263f0148f0a3313b7fbe04e819f757459677e32", "good": 7, "cats": ["health", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "8f73d6dcb0301e0ac14c584a2d59aab4ab9284ba", "good": 7, "cats": ["arts", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "6b24bb3129ea4bd827ab26a5ba16c03aa8ac1b51", "good": 6, "cats": ["business", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "48f6230a0aae529a6add89eaa737e98022cd25bf", "good": 1, "cats": ["conflict", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "97cd33b07bc78b2ba5047d4bef20cea1e151a0ac", "good": 7, "cats": ["community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "cb3302c0511d07d0db640896e9d6f3aa0ca613b4", "good": 5, "cats": ["environment", "animals"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "342ba986470ae7458221050dda70bb144013eef5", "good": 8, "cats": ["science", "education"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "28616389af1347dadb5a1c34a0a60ccd140eb1e5", "good": 7, "cats": ["arts", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "bfcff73dbc5f8c9e521787f53c2653c79bef32a6", "good": 4, "cats": ["education", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "9ae2ffc1222ff72464dca5184560a26a26aa648f", "good": 3, "cats": ["education", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "102148adae1c1726baa6d0f76a663fbf7e7abe3b", "good": 7, "cats": ["human-interest", "sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "bdb9b4ac749e78f7bb6ff4b47820f5730ed05191", "good": 5, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "be0dc8618be699ad59724874d634cfd3b77f67c7", "good": 8, "cats": ["education", "science"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "0c1769d4ce61c8ebcd1457fb82bbd1c1fea3bc13", "good": 6, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "6958a52f2244464fe9160d149bdfb58485dbf9c2", "good": 7, "cats": ["education", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "68510b4b2c2f5b3546f1415509002e0cd9ebba2e", "good": 2, "cats": ["conflict", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "c6b4257a9947950456a8a807e017f2e79d7cf278", "good": 5, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "54906edd00cae9a16afaf2ec6ae12db83e45b7ae", "good": 7, "cats": ["community", "arts", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:51Z"}
+{"id": "13458ddd6184ba605257e53e4974cc836cc80457", "good": 8, "cats": ["sports", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "aa86c42b8515babffe81911adfe54d9623328fb2", "good": 3, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "6d9eeef0e689b336b54e8a8ec9deb35305490f99", "good": 4, "cats": ["sports", "health"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "234347150fda25c6a4d89a8624ac331e99523f41", "good": 5, "cats": ["health", "science"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "273628d79b4f73124b9254cd7db3a2b38ff83c73", "good": 7, "cats": ["technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "da46dfff57232fef24a2a57b3a90de7fd709f8e5", "good": 2, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "e8d8a0dcd9aa0fe703ecbeefa6733f255c7faea7", "good": 1, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "5731d9d55e8f55cd12d5fdfdab5dccd2be74ba65", "good": 6, "cats": ["arts", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "0793cf07530d6ab9865f85cfc6ee2062741835ef", "good": 4, "cats": ["arts", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "8afeb23947400ba422e32f67057c504168ef3591", "good": 4, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "1a10a7ded7b32f8b91252a86f1d55adfc122484c", "good": 5, "cats": ["conflict", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "5a688cdbccb2c0be33770387feaaf7e225c0983f", "good": 9, "cats": ["science", "education", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "6b122110f4eac61878c31f6a956843c5713f0992", "good": 4, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "7ae198c9e01ddce67d9a8e24641d4c730a73c71d", "good": 9, "cats": ["science", "environment", "education"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "142a50879fdcfd6110a193b29ee4e1a88b4f4990", "good": 7, "cats": ["business", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "d97507dad6f69a604e8c83e6c12669d51d44ef65", "good": 3, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "b4ec66d96f909e828b61d0300361bb28a73b3e12", "good": 1, "cats": ["conflict", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "b01fa9d7cf01602c5a7e1b78f4361cbc0201bf6d", "good": 5, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "6f12eea193060342a1aa99fa4ecfdd5f53cd762f", "good": 5, "cats": ["business", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "b663f79396090022dbae3acefedcac19e3b9d5d2", "good": 8, "cats": ["education", "health"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "e54e3ad35a20b794369366dc15aa75faca5cb7db", "good": 3, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "5b0ac1de90f67051ef464e43d3f6f03026470d67", "good": 1, "cats": ["human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "454d3d862252822d2fab7b9a820906973f4328dc", "good": 5, "cats": ["technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "1900f430fa0fb3758dd3c39528fce7b10bfb5f5c", "good": 4, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "47377ef4e2d0db40c6b3aeef84e19a95bf1b1518", "good": 6, "cats": ["human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "b3751c1e63613ca98570428b99597feb81f81222", "good": 5, "cats": ["technology", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "61048675f4d5e7bdb21675eb67e14522acf6cbf4", "good": 2, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "4d9dfa1133f0d79ce40442f001fcbd62f93e63ea", "good": 7, "cats": ["technology", "health", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "442c5704fcc19979230222e082ba542d102e9f24", "good": 3, "cats": ["arts", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "5740d98bbf4a76fa28d1a7eb1b44958fd95b6730", "good": 6, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "508b38e667f517e58afdb4152c58c0616979443b", "good": 8, "cats": ["education", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "d29d6e0d6638c2843cffa306e14a9ed6ab33c0e0", "good": 4, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "af6f64a4efe0668778d0ec391803602fbc6dd448", "good": 5, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "c093cae4603f596b1dc692aa729c9c0bda02f2a9", "good": 3, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "05e914c8297e902b5616e0732b92e329a75e3dee", "good": 6, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "5c052ffa9c4e7e0fc1ead7efd460385e8e6f6c56", "good": 0, "cats": ["health", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "b0e181a45116107c005117019aac7bd669b776f3", "good": 4, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "956c2ec5af3603ec13968a4570f8f260dcb072c4", "good": 2, "cats": ["sports", "health"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "f047fc1326e5e1f7ad9135a7a4d1a8d98b79c9f2", "good": 8, "cats": ["community", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "94045385fa8602f3f7303830e737986ff7826703", "good": 6, "cats": ["technology", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "84de678b9094e0a751f1a255c0de3ffd179b2a99", "good": 6, "cats": ["science", "environment", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "b35a304be05f1ce9196fa3e34954d1c61e61dc6a", "good": 5, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "1a277339e09e2a3780a37ff8afda289f20517f2d", "good": 3, "cats": ["politics", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "ffb48afa5ef99d5b6030393f8a9e48d95d3fe869", "good": 4, "cats": ["politics", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "562392eb989a4061ff100d495283185a1f9af029", "good": 5, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "e8843904bcf97b0e8f272441795ebe989e0c0487", "good": 4, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "48b1c2890171311c7719550fe1887868c31ea228", "good": 6, "cats": ["technology", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "68f21d8456c8401eee5bcea3af7b9d93d86e5298", "good": 7, "cats": ["health", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "374526947a2c5d10274c89dbc61d942fa8ddaf8f", "good": 5, "cats": ["environment", "science"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "01c78a31600f2fda0c3a901716e5b181431d226d", "good": 5, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:37:59Z"}
+{"id": "a99a4f7ff478e0c519cf76034d9a1b24583ed040", "good": 1, "cats": ["disaster", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "11159550d82e366125a4eb85670ea621af9158a1", "good": 2, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "65f6284afead8a163e5fb77ee68623d7e4bbbb3d", "good": 6, "cats": ["politics", "world", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "41198d4196ba8567f34c02305ae4b006dae8daaf", "good": 1, "cats": ["conflict", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "04d6a72e9e5d402371b0673196ae4200ab4db0d6", "good": 5, "cats": ["politics", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "9e9e14e278620e0d0509e30aa2036351f11dcdbf", "good": 5, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "6d8c71cb613758456ef4102a26cbe19f6ed6d683", "good": 5, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "a383f33438a8a770f3221e479a4c04a24c52a400", "good": 5, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "d1d6fe1b935bfb43657ddf0db54ce60ec0027b9e", "good": 5, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "de010688f1a20c50e9c7412da4f5df06fcc2e3be", "good": 5, "cats": ["business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "085c395a68546349617d55ef73e741f0bdd747ad", "good": 0, "cats": ["health"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "b2f5ede84d15585050c9caeab4a128cc1baeb682", "good": 0, "cats": ["arts", "health"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "d67a4a5dec6226c31d04bfc5861e3d231157f880", "good": 0, "cats": ["arts"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "124d1c2fb05b9c007068492f5f037beb2f0715ab", "good": 5, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "e0e3f8aa4860ab5d24411e111eccbc23bee15746", "good": 5, "cats": ["sports"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "e4ff89bad3ab4b5cf39b607e7db4d8efc2d51daa", "good": 0, "cats": ["health", "disaster", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "71fd35b39886e7c07efd5b774c2bdde190a1681f", "good": 6, "cats": ["environment", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "7cf8fa7743859031632c5339cdb0c05e1a5170da", "good": 6, "cats": ["politics", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "f597abadaea3cab7aac59ca05e1de4e2c903d479", "good": 6, "cats": ["business", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "f7e68e1523307c8e168c2283f7efb6daf99cf74b", "good": 7, "cats": ["business", "technology", "science"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "d93060a1c51c55cf0e0f35aa6781ace8c23c52c1", "good": 5, "cats": ["politics", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "eee3deeb9af0297de6aee07de0d85aa528f15211", "good": 8, "cats": ["community", "arts", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "1dc1ac88f2aa86edba8040678f7d7c19aa9ca70f", "good": 5, "cats": ["community", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "a6fa14f41159011b84c455922d59e95656fccdbe", "good": 7, "cats": ["health", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "83e18bf69795e38e4d1107282e06890ad3cb332e", "good": 5, "cats": ["health"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "40ead53bb699cf5e237cc04a14e82788c0a6db2b", "good": 6, "cats": ["community", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "552604cfe5a626feac7e4c7a52f26a524dfd98e1", "good": 8, "cats": ["education", "health"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "f85f77e1ef5169840f94f7d572c5f7e0632e000c", "good": 1, "cats": ["conflict", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "a33ecb445bbe046f08f542d320cae16162341f52", "good": 5, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "b3ca2c30b5d3d239f5131151ec04d6001f67a5ee", "good": 5, "cats": ["environment", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "0d45e6a1a96be0c346ab68b2d6b2d3adcdc2a8d0", "good": 2, "cats": ["politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "37a46f683e9d1d95e81d46dfda2ff4dc8eaf0660", "good": 0, "cats": ["human-interest", "education"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "e33f8417d54d0edcab7ecef2b19c44b5417ca392", "good": 2, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "849ceb36601f9c6875e1134d1ff8d8a6d6a1a63b", "good": 1, "cats": ["conflict", "disaster", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "ad6ea86ec983a513ffbbdbc50936f29c20de513d", "good": 2, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "fa286f155ef6f7ba8a0fb865a33f8374a0b6b0ff", "good": 1, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "39341b4cac9fce19063e98bebe253dfd331a993e", "good": 3, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "8d917c3a6631e50cb8e863b6e7b5c0945cee8a61", "good": 8, "cats": ["human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "f4b8970a2d0551875e5d4db838e8a344be9e25cf", "good": 5, "cats": ["community", "disaster"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "e994047ca302f2f8f03837e4ef352d763a533234", "good": 6, "cats": ["community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "adf6fe0fc7dc873065f184beee46ee8df3b60965", "good": 6, "cats": ["politics", "community"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "78a37371a33f8d953643c49f49044991e0b13f49", "good": 4, "cats": ["conflict", "politics", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "08d1596a2903b15387ca7f80c9ef885399f80b36", "good": 3, "cats": ["conflict", "politics"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "20450998125e68bc1777dd4ef649fe3fd953f48a", "good": 6, "cats": ["arts", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "a7a6411407081e780306044b843fbbd43835481a", "good": 4, "cats": ["politics", "conflict"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "b7eecdc84a9d18e36d91c26c1306287bbaceb782", "good": 5, "cats": ["technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "b4e57618baa5d0ef0d6b268fb2a613dcff0576f9", "good": 5, "cats": ["politics", "world"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "6703df4a1851e8457f64c657b0f385d58cab8104", "good": 6, "cats": ["technology", "business"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "aa93534263341b4bd5255d41ea25db0ee3a5feeb", "good": 6, "cats": ["business", "technology"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
+{"id": "e6f07f7925c41a5482019a647e21f70219a2d751", "good": 8, "cats": ["sports", "human-interest"], "model": "gemini-3.5-flash-lite", "at": "2026-08-17T15:38:08Z"}
