@@ -163,6 +163,7 @@ def main():
         return
 
     tagged = 0
+    consecutive_failures = 0
     with TAGS.open("a", encoding="utf-8") as out:
         for req_n in range(MAX_REQUESTS_PER_RUN):
             batch = pending[req_n * BATCH:(req_n + 1) * BATCH]
@@ -171,12 +172,18 @@ def main():
             try:
                 result = classify_batch(key, batch)
             except Exception as exc:
-                print(f"classify: request failed ({type(exc).__name__}); "
-                      "stopping this run")
-                break
+                consecutive_failures += 1
+                print(f"classify: batch {req_n} failed ({type(exc).__name__}); "
+                      f"skipping ({consecutive_failures} consecutive)")
+                if consecutive_failures >= 3:
+                    print("classify: 3 consecutive failures; stopping this run")
+                    break
+                time.sleep(SLEEP_BETWEEN)
+                continue
             if result == "rate_limited":
                 print("classify: 429 rate limited; stopping this run")
                 break
+            consecutive_failures = 0
             for row in result:
                 out.write(json.dumps(row, ensure_ascii=False) + "\n")
             tagged += len(result)
