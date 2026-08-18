@@ -3,3 +3,4 @@ __pycache__/
 .claude/
 .DS_Store
 .gemini_key
+docs/
