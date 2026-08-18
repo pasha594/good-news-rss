@@ -20,7 +20,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 MAX_AGE_DAYS = 7
-MAX_ARTICLES = 25000
 SLIDER_DEFAULT = 7    # default position of the min-score slider
 DASHBOARD_FLOOR = 5   # dashboard embeds articles down to this score
 
@@ -123,7 +122,6 @@ def main():
     cutoff = int(time.time()) - MAX_AGE_DAYS * 86400
     rows = [r for r in rows if when(r) >= cutoff]
     rows.sort(key=when, reverse=True)
-    rows = rows[:MAX_ARTICLES]
 
     n_tagged = 0
     for r in rows:

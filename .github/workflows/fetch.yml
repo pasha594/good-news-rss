@@ -11,11 +11,13 @@ concurrency:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
@@ -39,6 +41,7 @@ jobs:
         run: python build_site.py
 
       - name: Commit new data
+        continue-on-error: true   # a git problem must never block the site deploy
         env:
           GUARDIAN_API_KEY: ${{ secrets.GUARDIAN_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -47,24 +50,42 @@ jobs:
           git config user.email "feed-bot@users.noreply.github.com"
           # accumulate.py is idempotent, so on any push failure (remote moved,
           # transient server error) we reset to the remote state, re-accumulate
-          # on top of it, and try again.
-          for attempt in 1 2 3; do
+          # on top of it, and try again. classify.py is deliberately NOT re-run
+          # here - it costs 3-5 min per pass and any tags lost to the reset are
+          # picked up by the next scheduled run.
+          for attempt in 1 2; do
             git add data/ docs/
             if git diff --cached --quiet; then
               echo "No new articles this run."
-              exit 0
+              break
             fi
             git commit -m "accumulate: $(date -u +'%Y-%m-%d %H:%M') UTC"
             if git push; then
-              exit 0
+              break
             fi
             echo "Push failed (attempt $attempt); resetting to remote and retrying."
             git rebase --abort 2>/dev/null || true
             git fetch origin main
             git reset --hard origin/main
             python accumulate.py
-            python classify.py
             python build_site.py
+            if [ "$attempt" = "2" ]; then
+              echo "::warning::Could not push data after 2 attempts; deploying site anyway."
+            fi
           done
-          echo "Giving up after 3 attempts."
-          exit 1
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+  deploy:
+    needs: fetch
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
