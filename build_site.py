@@ -43,8 +43,14 @@ def load_rows():
 def load_tags():
     # Fold rows by id: v3 writes a gate row and later an enrichment row for
     # the same article; later fields update, never clobber, earlier ones.
+    # Tags are written at-or-after their article's first_seen, so only shards
+    # overlapping the display window can hold tags for displayed articles -
+    # the fold stays bounded as history grows.
+    floor = time.time() - (MAX_AGE_DAYS + 2) * 86400
+    paths = [p for p in store.shards("tags")
+             if store.week_start_epoch(store.shard_key(p, "tags")) + 7 * 86400 >= floor]
     folded = {}
-    for t in store.read_jsonl(store.shards("tags")):
+    for t in store.read_jsonl(paths):
         if "id" in t:
             folded.setdefault(t["id"], {}).update(t)
     return {aid: (f.get("good", -1), f.get("cats", []))

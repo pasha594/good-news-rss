@@ -9,7 +9,8 @@ topics, location names, entities.
 Quota posture: Gemini free tier, billing never attached ($0 hard cap).
 A shared per-run budget of MAX_REQUESTS_PER_RUN calls covers both phases;
 gate runs first (newest articles), enrichment consumes what remains.
-Steady state is ~150 calls/day against a ~1,000/day free quota.
+At ~10k articles/day and ~40% gate survivorship this is ~420 calls/day;
+the per-run cap bounds worst case at 720/day against a ~1,000/day quota.
 
 Rows append to the current week's tags shard; enrichment is a SECOND row
 for the same id and readers fold rows by id, so a crash or 429 between
@@ -38,6 +39,7 @@ GATE_BATCH = 50
 ENRICH_BATCH = 20
 MAX_REQUESTS_PER_RUN = int(os.environ.get("CLASSIFY_MAX_REQUESTS", "15"))
 SLEEP_BETWEEN = 4              # seconds; stays inside free RPM
+DEADLINE_S = int(os.environ.get("CLASSIFY_DEADLINE_S", "480"))
 DESC_CLIP = 220
 MAX_AGE_DAYS = 8               # never classify articles too old to display
 
@@ -159,7 +161,7 @@ def call_model(key, prompt_text):
     }
     r = requests.post(
         f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent",
-        params={"key": key}, json=body, timeout=90)
+        params={"key": key}, json=body, timeout=45)
     if r.status_code == 429:
         return "rate_limited"
     r.raise_for_status()
@@ -231,14 +233,20 @@ def main():
         print("classify: no GEMINI_API_KEY; skipping")
         return
 
-    # Fold all tag rows by id: enrichment rows update gate rows.
-    folded = {}
-    for t in store.read_jsonl(store.shards("tags")):
-        if "id" in t:
-            folded.setdefault(t["id"], {}).update(t)
-
     # Only articles young enough to still display are worth classifying.
     floor = time.time() - MAX_AGE_DAYS * 86400
+
+    # Fold tag rows by id (enrichment rows update gate rows). A tag is always
+    # written at-or-after its article's first_seen, so tags for in-window
+    # articles only live in shards whose week overlaps the window - the fold
+    # stays bounded as history grows.
+    folded = {}
+    recent_tag_shards = [p for p in store.shards("tags")
+                         if store.week_start_epoch(store.shard_key(p, "tags"))
+                         + 7 * 86400 >= floor]
+    for t in store.read_jsonl(recent_tag_shards):
+        if "id" in t:
+            folded.setdefault(t["id"], {}).update(t)
     recent_shards = [p for p in store.shards("articles")
                      if store.week_start_epoch(store.shard_key(p, "articles"))
                      + 7 * 86400 >= floor]
@@ -248,7 +256,10 @@ def main():
             aid = store.article_id(row["source"], row["title"], row.get("link", ""))
             articles.setdefault(aid, row)
 
-    pending_gate = [(aid, row) for aid, row in articles.items() if aid not in folded]
+    # An article counts as gated only if a GATE row exists ("good" present) -
+    # an orphaned enrichment row alone must not block re-gating.
+    pending_gate = [(aid, row) for aid, row in articles.items()
+                    if "good" not in folded.get(aid, {})]
     pending_gate.sort(key=lambda p: p[1].get("first_seen", ""), reverse=True)
 
     # Enrichment pending: v3 gate survivors without enrichment fields yet.
@@ -259,6 +270,7 @@ def main():
     pending_enrich.sort(key=lambda p: p[1].get("first_seen", ""), reverse=True)
 
     budget = MAX_REQUESTS_PER_RUN
+    started = time.monotonic()
     # Reserve part of the budget for enrichment so a large gate backlog can
     # never starve it; unused reservation is returned to the gate phase.
     enrich_need = -(-len(pending_enrich) // ENRICH_BATCH)  # ceil
@@ -280,7 +292,8 @@ def main():
 
         # Phase GATE, newest first.
         gi = 0
-        while gate_budget > 0 and gi * GATE_BATCH < len(pending_gate):
+        while (gate_budget > 0 and gi * GATE_BATCH < len(pending_gate)
+               and time.monotonic() - started < DEADLINE_S):
             batch = pending_gate[gi * GATE_BATCH:(gi + 1) * GATE_BATCH]
             gi += 1
             budget -= 1
@@ -309,9 +322,11 @@ def main():
                     pending_enrich.append((aid, row))
             time.sleep(SLEEP_BETWEEN)
 
-        # Phase ENRICH with whatever budget remains.
+        # Phase ENRICH with whatever budget remains - its own failure streak.
+        failures = 0
         ei = 0
-        while budget > 0 and ei * ENRICH_BATCH < len(pending_enrich):
+        while (budget > 0 and ei * ENRICH_BATCH < len(pending_enrich)
+               and time.monotonic() - started < DEADLINE_S):
             batch = pending_enrich[ei * ENRICH_BATCH:(ei + 1) * ENRICH_BATCH]
             ei += 1
             budget -= 1
@@ -333,10 +348,15 @@ def main():
             enriched += len(result)
             time.sleep(SLEEP_BETWEEN)
 
+    left_gate = max(0, len(pending_gate) - gi * GATE_BATCH)
+    left_enrich = max(0, len(pending_enrich) - ei * ENRICH_BATCH)
     print(f"classify: gated +{gated} (skipped {skipped} state-outlet), "
-          f"enriched +{enriched}; "
-          f"pending gate {max(0, len(pending_gate) - gi * GATE_BATCH)}, "
-          f"pending enrich {max(0, len(pending_enrich) - ei * ENRICH_BATCH)}")
+          f"enriched +{enriched}; pending gate {left_gate}, "
+          f"pending enrich {left_enrich}")
+    if left_gate > 5000:
+        print(f"::warning::classify gate backlog at {left_gate} - budget may "
+              "be saturating; articles age out of classification at "
+              f"{MAX_AGE_DAYS} days")
 
 
 if __name__ == "__main__":
