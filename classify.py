@@ -259,6 +259,11 @@ def main():
     pending_enrich.sort(key=lambda p: p[1].get("first_seen", ""), reverse=True)
 
     budget = MAX_REQUESTS_PER_RUN
+    # Reserve part of the budget for enrichment so a large gate backlog can
+    # never starve it; unused reservation is returned to the gate phase.
+    enrich_need = -(-len(pending_enrich) // ENRICH_BATCH)  # ceil
+    enrich_reserve = min(budget // 3, enrich_need)
+    gate_budget = budget - enrich_reserve
     gated = enriched = skipped = failures = 0
     wk_path = store.shard_path("tags", store.week_key())
     with wk_path.open("a", encoding="utf-8") as out:
@@ -275,10 +280,11 @@ def main():
 
         # Phase GATE, newest first.
         gi = 0
-        while budget > 0 and gi * GATE_BATCH < len(pending_gate):
+        while gate_budget > 0 and gi * GATE_BATCH < len(pending_gate):
             batch = pending_gate[gi * GATE_BATCH:(gi + 1) * GATE_BATCH]
             gi += 1
             budget -= 1
+            gate_budget -= 1
             try:
                 result = gate_batch(key, batch)
             except Exception as exc:
