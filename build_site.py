@@ -5,8 +5,11 @@ Two pages, one template (page_template.html):
   docs/index.html      - all articles from the last MAX_AGE_DAYS
   docs/good-news.html  - the subset tagged good >= GOOD_THRESHOLD by classify.py
 
-Article payload rows: [srcIdx, title, link, desc, epoch, cats|0, good|-1]
-(the last two are filled from the tags-* shards when a tag exists).
+Article payload rows:
+  [srcIdx, title, link, desc, epoch, cats|0, good|-1,
+   virtues|0, topics|0, entities|0, flags]
+flags: bit 8 = v3-classified, 1 = impactful, 2 = uplifting, 4 = on_mission.
+All tag fields come from folding the tags-* shards by article id.
 """
 
 import calendar
@@ -53,8 +56,7 @@ def load_tags():
     for t in store.read_jsonl(paths):
         if "id" in t:
             folded.setdefault(t["id"], {}).update(t)
-    return {aid: (f.get("good", -1), f.get("cats", []))
-            for aid, f in folded.items()}
+    return folded
 
 
 def fail_list():
@@ -80,7 +82,9 @@ def build_page(rows, out_name, title, refresh_note, nav_link, n_failed, fails,
     sources = [{"n": n, "p": 1 if premium[n] else 0, "c": counts[n]} for n in src_names]
     articles = [[sidx[r["source"]], r["title"], r.get("link", ""),
                  r.get("description", ""), parse_iso(r.get("published")),
-                 r.get("_cats") or 0, r.get("_good", -1)]
+                 r.get("_cats") or 0, r.get("_good", -1),
+                 r.get("_virtues", 0), r.get("_topics", 0),
+                 r.get("_ents", 0), r.get("_flags", 0)]
                 for r in rows]
 
     payload = json.dumps(
@@ -120,10 +124,21 @@ def main():
 
     n_tagged = 0
     for r in rows:
-        tag = tags.get(article_id(r["source"], r["title"], r.get("link", "")))
-        if tag:
+        f = tags.get(article_id(r["source"], r["title"], r.get("link", "")))
+        if f:
             n_tagged += 1
-            r["_good"], r["_cats"] = tag[0], tag[1]
+            r["_good"] = f.get("good", -1)
+            r["_cats"] = f.get("cats", [])
+            if f.get("v") == 3:
+                r["_flags"] = (8 | (1 if f.get("impactful") else 0)
+                               | (2 if f.get("uplifting") else 0)
+                               | (4 if f.get("on_mission") else 0))
+            r["_virtues"] = f.get("virtues") or 0
+            r["_topics"] = f.get("topics") or 0
+            ents = f.get("entities") or []
+            r["_ents"] = [[e.get("name", ""),
+                           1 if e.get("type") == "organization" else 0]
+                          for e in ents if e.get("name")] or 0
 
     n_failed, fails = fail_list()
 

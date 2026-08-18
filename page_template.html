@@ -11,6 +11,7 @@
     --border: #dde5e0; --accent: #157a46; --accent-soft: #e3f2e9;
     --link: #0f62b7; --row-alt: #fafcfb; --hover: #eef5f1;
     --badge-bg: #d9ead3; --badge-text: #1e5c33; --badge-border: #b7d6ac;
+    --v-bg: #e3e9fa; --v-text: #3450b0; --t-bg: #faedd8; --t-text: #8a5a12;
     --input-bg: #ffffff; --shadow: 0 8px 24px rgba(20, 40, 30, .12);
   }
   @media (prefers-color-scheme: dark) {
@@ -19,6 +20,7 @@
       --border: #2a332e; --accent: #4cc98a; --accent-soft: #1d3328;
       --link: #6cb2ff; --row-alt: #1b211e; --hover: #212a25;
       --badge-bg: #1e3a2a; --badge-text: #8fd8ae; --badge-border: #2e5540;
+      --v-bg: #1d2742; --v-text: #9db4f5; --t-bg: #33270f; --t-text: #e0b26a;
       --input-bg: #121815; --shadow: 0 8px 24px rgba(0, 0, 0, .5);
     }
   }
@@ -122,6 +124,26 @@
     padding: 1px 7px; border-radius: 999px;
   }
   .pill.score { background: var(--badge-bg); color: var(--badge-text); font-weight: 700; }
+  .pill.virtue { background: var(--v-bg); color: var(--v-text); }
+  .pill.topic { background: var(--t-bg); color: var(--t-text); }
+  .ent {
+    display: inline-block; font-size: 10.5px; margin: 3px 4px 0 0;
+    color: var(--muted); border: 1px solid var(--border);
+    padding: 0 7px; border-radius: 999px;
+  }
+  .gate-chip {
+    border: 1px solid var(--border); background: var(--panel); color: var(--muted);
+    border-radius: 6px; padding: 2px 9px; font-size: 12px; cursor: pointer;
+  }
+  .gate-chip.active {
+    color: var(--v-text); background: var(--v-bg);
+    border-color: var(--v-text); font-weight: 600;
+  }
+  #vtSel {
+    max-width: 190px; padding: 2px 6px; font-size: 12px; color: var(--muted);
+    background: var(--panel); border: 1px solid var(--border); border-radius: 6px;
+  }
+  #vtSel.filtered { color: var(--v-text); border-color: var(--v-text); font-weight: 600; }
   td.hl span.nolink { font-weight: 600; }
   td.desc { color: var(--muted); font-size: 13px; }
   td.date { white-space: nowrap; color: var(--muted); font-size: 12.5px;
@@ -140,6 +162,10 @@
       <input type="range" id="goodSlider" min="__SLIDER_MIN__" max="10" step="1">
       <span id="goodMinVal"></span>
     </span>
+    <button class="gate-chip" data-bit="1" title="Headline is a complete thought about a real action or event">Impactful</button>
+    <button class="gate-chip" data-bit="2" title="The bare headline reads uplifting on its own">Uplifting</button>
+    <button class="gate-chip" data-bit="4" title="Fits a tolerance/civil-rights exhibit or is unambiguous human-goodness">On mission</button>
+    <select id="vtSel"><option value="">All virtues &amp; topics</option></select>
     <button id="clearBtn">Clear filters &times;</button>
   </div>
   <div class="meta">
@@ -206,15 +232,22 @@ const DATA = JSON.parse(document.getElementById("data").textContent);
 const SRC = DATA.sources;                  // [{n, p, c}]
 const ART = DATA.articles;                 // [srcIdx, title, link, desc, epoch]
 const lowerTitle = ART.map(a => a[1].toLowerCase());
-const lowerDesc = ART.map(a =>
-  (a[3] + (a.length > 5 && a[5] ? " " + a[5].join(" ") : "")).toLowerCase());
+const lowerDesc = ART.map(a => {
+  let h = a[3];
+  if (a[5]) h += " " + a[5].join(" ");
+  if (a[7]) h += " " + a[7].join(" ");
+  if (a[8]) h += " " + a[8].join(" ");
+  if (a[9]) for (const e of a[9]) h += " " + e[0];
+  return h.toLowerCase();
+});
 const fmt = new Intl.DateTimeFormat(undefined, { dateStyle: "medium", timeStyle: "short" });
 document.getElementById("genAt").textContent = fmt.format(new Date(DATA.generated));
 
 const GOOD_DEFAULT_ON = __GOOD_DEFAULT_ON__;
 const GOOD_DEFAULT_MIN = __GOOD_DEFAULT_MIN__;
 let goodMin = GOOD_DEFAULT_MIN;
-const state = { src: null, hq: "", dq: "", dp: "all", good: GOOD_DEFAULT_ON, sortK: "t", sortDir: -1 };
+const state = { src: null, hq: "", dq: "", dp: "all", good: GOOD_DEFAULT_ON,
+                gates: 0, vt: "", sortK: "t", sortDir: -1 };
 let matched = [];      // indices into ART after filtering+sorting
 let rendered = 0;
 const CHUNK = 400;
@@ -233,7 +266,10 @@ function rowHtml(i) {
     : '<span class="nolink">' + esc(a[1]) + "</span>";
   let pills = "";
   if (a.length > 6 && a[6] >= 0) pills += '<span class="pill score">&#10087; ' + a[6] + "/10</span>";
-  if (a.length > 5 && a[5]) for (const c of a[5]) pills += '<span class="pill">' + esc(c) + "</span>";
+  if (a[5]) for (const c of a[5]) pills += '<span class="pill">' + esc(c) + "</span>";
+  if (a[7]) for (const v of a[7]) pills += '<span class="pill virtue">' + esc(v.replace(/_/g, " ")) + "</span>";
+  if (a[8]) for (const t of a[8]) pills += '<span class="pill topic">' + esc(t.replace(/_/g, " ")) + "</span>";
+  if (a[9]) for (const e of a[9]) pills += '<span class="ent">' + (e[1] ? "&#127963; " : "&#128100; ") + esc(e[0]) + "</span>";
   if (pills) pills = "<br>" + pills;
   return "<tr><td class='src'>" + esc(SRC[a[0]].n) + badge(a[0]) + "</td>" +
          "<td class='hl'>" + hl + pills + "</td><td class='desc'>" + esc(a[3]) + "</td>" +
@@ -259,6 +295,11 @@ function applyFilters() {
     const a = ART[i];
     if (srcSel && !srcSel.has(a[0])) continue;
     if (state.good && !(a.length > 6 && a[6] >= goodMin)) continue;
+    if (state.gates && ((a[10] || 0) & state.gates) !== state.gates) continue;
+    if (state.vt) {
+      const list = state.vt[0] === "v" ? a[7] : a[8];
+      if (!list || !list.includes(state.vt.slice(2))) continue;
+    }
     if (cut !== null && (!a[4] || a[4] < cut)) continue;
     if (hq && !lowerTitle[i].includes(hq)) continue;
     if (dq && !lowerDesc[i].includes(dq)) continue;
@@ -397,16 +438,54 @@ goodSlider.addEventListener("input", () => {
 });
 syncGoodUI();
 
+// ---- gate chips + virtues/topics select ----
+const gateChips = document.querySelectorAll(".gate-chip");
+gateChips.forEach(ch => ch.addEventListener("click", () => {
+  state.gates ^= Number(ch.dataset.bit);
+  ch.classList.toggle("active", (state.gates & Number(ch.dataset.bit)) !== 0);
+  applyFilters();
+}));
+const vtSel = document.getElementById("vtSel");
+{
+  const vc = {}, tc = {};
+  for (const a of ART) {
+    if (a[7]) for (const v of a[7]) vc[v] = (vc[v] || 0) + 1;
+    if (a[8]) for (const t of a[8]) tc[t] = (tc[t] || 0) + 1;
+  }
+  const add = (group, counts, prefix) => {
+    const og = document.createElement("optgroup");
+    og.label = group;
+    for (const k of Object.keys(counts).sort()) {
+      const o = document.createElement("option");
+      o.value = prefix + ":" + k;
+      o.textContent = k.replace(/_/g, " ") + " (" + counts[k] + ")";
+      og.appendChild(o);
+    }
+    if (og.children.length) vtSel.appendChild(og);
+  };
+  add("Virtues", vc, "v");
+  add("Topics", tc, "t");
+}
+vtSel.addEventListener("change", () => {
+  state.vt = vtSel.value;
+  vtSel.classList.toggle("filtered", !!state.vt);
+  applyFilters();
+});
+
 // ---- clear ----
 const clearBtn = document.getElementById("clearBtn");
 function anyFilter() {
   return state.src !== null || state.hq || state.dq || state.dp !== "all" ||
-         state.good !== GOOD_DEFAULT_ON || goodMin !== GOOD_DEFAULT_MIN;
+         state.good !== GOOD_DEFAULT_ON || goodMin !== GOOD_DEFAULT_MIN ||
+         state.gates !== 0 || state.vt !== "";
 }
 function updateClearBtn() { clearBtn.classList.toggle("active", !!anyFilter()); }
 clearBtn.addEventListener("click", () => {
   state.src = null; state.hq = ""; state.dq = ""; state.dp = "all";
   state.good = GOOD_DEFAULT_ON; goodMin = GOOD_DEFAULT_MIN;
+  state.gates = 0; state.vt = "";
+  gateChips.forEach(ch => ch.classList.remove("active"));
+  vtSel.value = ""; vtSel.classList.remove("filtered");
   syncGoodUI();
   document.getElementById("hlFilter").value = "";
   document.getElementById("descFilter").value = "";
