@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Fetch every known-working feed and append NEW articles to data/articles.jsonl.
+"""Fetch every known-working feed and append NEW articles to the weekly-sharded store (see store.py).
 
 Designed to run every 15 minutes (GitHub Actions or local cron). Lean by design:
 no feed discovery or pattern probing — it only hits the URLs in
 working_feeds.json (regenerate that with refresh_feeds.py when the source list
-changes). Dedupe is by a stable id per article, tracked in data/seen_ids.txt.
+changes). Dedupe is by a stable id per article, tracked in the seen_ids-* shards.
 
 Each appended JSONL row:
   {"first_seen": UTC ISO, "source": str, "premium": bool, "title": str,
@@ -26,11 +26,11 @@ from pathlib import Path
 import feedparser
 import requests
 
+import store
+
 ROOT = Path(__file__).resolve().parent
 FEEDS_FILE = ROOT / "working_feeds.json"
 DATA_DIR = ROOT / "data"
-ARTICLES = DATA_DIR / "articles.jsonl"
-SEEN = DATA_DIR / "seen_ids.txt"
 
 TIMEOUT = (6, 12)
 WORKERS = 32
@@ -115,11 +115,13 @@ def fetch_feed(src):
                 title = clean_text(it.get("webTitle", ""), TITLE_MAX)
                 if not title:
                     continue
-                pub = it.get("webPublicationDate")
+                # clamp like the RSS path: build_site's shard-window math
+                # relies on published <= first_seen + 2d
+                pe = store.parse_iso(it.get("webPublicationDate"))
                 out.append({"title": title, "link": it.get("webUrl", ""),
                             "description": clean_text(
                                 (it.get("fields") or {}).get("trailText", ""), DESC_MAX),
-                            "published": pub})
+                            "published": iso(pe) if 0 < pe <= now + 2 * 86400 else None})
             return name, out
         except Exception:
             return name, []
@@ -146,19 +148,14 @@ def fetch_feed(src):
     return name, out
 
 
-def article_id(source, art):
-    key = source + "|" + (art["link"] or art["title"])
-    return hashlib.sha1(key.encode("utf-8", "replace")).hexdigest()
-
-
 def main():
     feeds = json.loads(FEEDS_FILE.read_text())
     premium = {f["name"]: f["premium"] for f in feeds}
     DATA_DIR.mkdir(exist_ok=True)
 
     seen = set()
-    if SEEN.exists():
-        seen = set(SEEN.read_text().split())
+    for p in store.shards("seen_ids", ".txt"):
+        seen.update(p.read_text().split())
 
     first_seen = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     new_rows, new_ids = [], []
@@ -171,7 +168,7 @@ def main():
             else:
                 empty_names.append(name)
             for a in articles:
-                aid = article_id(name, a)
+                aid = store.article_id(name, a["title"], a["link"])
                 if aid in seen:
                     continue
                 seen.add(aid)
@@ -180,13 +177,14 @@ def main():
                                  "premium": premium.get(name, False), **a})
 
     if new_rows:
-        with ARTICLES.open("a", encoding="utf-8") as f:
+        wk = store.week_key()
+        with store.shard_path("articles", wk).open("a", encoding="utf-8") as f:
             for row in new_rows:
                 f.write(json.dumps(row, ensure_ascii=False) + "\n")
-        with SEEN.open("a", encoding="utf-8") as f:
+        with store.shard_path("seen_ids", wk, ".txt").open("a", encoding="utf-8") as f:
             f.write("".join(i + "\n" for i in new_ids))
 
-    total = sum(1 for _ in ARTICLES.open()) if ARTICLES.exists() else 0
+    total = sum(1 for p in store.shards("articles") for _ in p.open())
     print(f"+{len(new_rows)} new articles from {ok_feeds} feeds "
           f"({len(empty_names)} feeds returned nothing); {total} total stored")
     if empty_names:

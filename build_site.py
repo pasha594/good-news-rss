@@ -6,7 +6,7 @@ Two pages, one template (page_template.html):
   docs/good-news.html  - the subset tagged good >= GOOD_THRESHOLD by classify.py
 
 Article payload rows: [srcIdx, title, link, desc, epoch, cats|0, good|-1]
-(the last two are filled from data/tags.jsonl when a tag exists).
+(the last two are filled from the tags-* shards when a tag exists).
 """
 
 import calendar
@@ -18,47 +18,33 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
+import store
+
 ROOT = Path(__file__).resolve().parent
 MAX_AGE_DAYS = 7
 SLIDER_DEFAULT = 7    # default position of the min-score slider
 DASHBOARD_FLOOR = 5   # dashboard embeds articles down to this score
 
 
-def parse_iso(s):
-    if not s:
-        return 0
-    try:
-        return calendar.timegm(time.strptime(s, "%Y-%m-%dT%H:%M:%SZ"))
-    except Exception:
-        return 0
-
-
-def article_id(source, title, link):
-    key = source + "|" + (link or title)
-    return hashlib.sha1(key.encode("utf-8", "replace")).hexdigest()
+parse_iso = store.parse_iso
+article_id = store.article_id
 
 
 def load_rows():
-    rows = []
-    with (ROOT / "data" / "articles.jsonl").open(encoding="utf-8") as f:
-        for line in f:
-            try:
-                rows.append(json.loads(line))
-            except json.JSONDecodeError:
-                pass
-    return rows
+    # Rows qualify for the page only when published-or-first_seen is within
+    # MAX_AGE_DAYS; published is clamped to first_seen+2d at fetch time, so
+    # qualifying rows have first_seen >= cutoff-2d. Read just those shards.
+    floor = time.time() - (MAX_AGE_DAYS + 2) * 86400
+    paths = [p for p in store.shards("articles")
+             if store.week_start_epoch(store.shard_key(p, "articles")) + 7 * 86400 >= floor]
+    return list(store.read_jsonl(paths))
 
 
 def load_tags():
     tags = {}
-    path = ROOT / "data" / "tags.jsonl"
-    if path.exists():
-        for line in path.open(encoding="utf-8"):
-            try:
-                t = json.loads(line)
-                tags[t["id"]] = (t.get("good", -1), t.get("cats", []))
-            except (json.JSONDecodeError, KeyError):
-                pass
+    for t in store.read_jsonl(store.shards("tags")):
+        if "id" in t:
+            tags[t["id"]] = (t.get("good", -1), t.get("cats", []))
     return tags
 
 

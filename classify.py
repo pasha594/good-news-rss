@@ -5,7 +5,7 @@ Runs after accumulate.py in the cron. Uses the Gemini free tier (project has no
 billing attached, so worst case is 429s, never charges). Hard caps per run keep
 usage far inside free quotas: MAX_REQUESTS_PER_RUN requests of BATCH articles.
 Articles are classified once, keyed by the same id as the dedupe store; results
-append to data/tags.jsonl:
+append to the current week's tags-* shard (see store.py):
 
   {"id": sha1, "good": 0-10, "cats": [...], "model": str, "at": UTC ISO}
 
@@ -23,9 +23,9 @@ from pathlib import Path
 import requests
 from urllib.parse import urlparse
 
+import store
+
 ROOT = Path(__file__).resolve().parent
-ARTICLES = ROOT / "data" / "articles.jsonl"
-TAGS = ROOT / "data" / "tags.jsonl"
 
 MODEL = "gemini-3.5-flash-lite"
 BATCH = 50
@@ -88,11 +88,6 @@ def gemini_key():
     return f.read_text().strip() if f.exists() else ""
 
 
-def article_id(source, title, link):
-    key = source + "|" + (link or title)
-    return hashlib.sha1(key.encode("utf-8", "replace")).hexdigest()
-
-
 def classify_batch(key, batch):
     lines = []
     for n, (_aid, row) in enumerate(batch, 1):
@@ -138,20 +133,13 @@ def main():
         return
 
     done = set()
-    if TAGS.exists():
-        for line in TAGS.open(encoding="utf-8"):
-            try:
-                done.add(json.loads(line)["id"])
-            except (json.JSONDecodeError, KeyError):
-                pass
+    for t in store.read_jsonl(store.shards("tags")):
+        if "id" in t:
+            done.add(t["id"])
 
     pending = []
-    for line in ARTICLES.open(encoding="utf-8"):
-        try:
-            row = json.loads(line)
-        except json.JSONDecodeError:
-            continue
-        aid = article_id(row["source"], row["title"], row.get("link", ""))
+    for row in store.read_jsonl(store.shards("articles")):
+        aid = store.article_id(row["source"], row["title"], row.get("link", ""))
         if aid not in done:
             pending.append((aid, row))
             done.add(aid)  # guard against duplicate rows in the store
@@ -164,7 +152,7 @@ def main():
 
     tagged = 0
     consecutive_failures = 0
-    with TAGS.open("a", encoding="utf-8") as out:
+    with store.shard_path("tags", store.week_key()).open("a", encoding="utf-8") as out:
         for req_n in range(MAX_REQUESTS_PER_RUN):
             batch = pending[req_n * BATCH:(req_n + 1) * BATCH]
             if not batch:
