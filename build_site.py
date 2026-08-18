@@ -41,11 +41,14 @@ def load_rows():
 
 
 def load_tags():
-    tags = {}
+    # Fold rows by id: v3 writes a gate row and later an enrichment row for
+    # the same article; later fields update, never clobber, earlier ones.
+    folded = {}
     for t in store.read_jsonl(store.shards("tags")):
         if "id" in t:
-            tags[t["id"]] = (t.get("good", -1), t.get("cats", []))
-    return tags
+            folded.setdefault(t["id"], {}).update(t)
+    return {aid: (f.get("good", -1), f.get("cats", []))
+            for aid, f in folded.items()}
 
 
 def fail_list():
