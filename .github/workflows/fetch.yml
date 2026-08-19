@@ -13,6 +13,7 @@ permissions:
   contents: write
   pages: write
   id-token: write
+  actions: read
 
 jobs:
   fetch:
@@ -39,6 +40,12 @@ jobs:
 
       - name: Rebuild live site
         run: python build_site.py
+
+      - name: Build health page
+        continue-on-error: true   # health must never block the site deploy
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python build_health.py
 
       - name: Commit new data
         continue-on-error: true   # a git problem must never block the site deploy

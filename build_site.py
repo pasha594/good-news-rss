@@ -145,7 +145,8 @@ def main():
     build_page(
         rows, "index.html", "Good News Feeds",
         f"Auto-updates every 30 minutes &middot; last {MAX_AGE_DAYS} days shown",
-        '<a class="nav" href="good-news.html">&rarr; Good News dashboard</a>',
+        '<a class="nav" href="good-news.html">&rarr; Good News dashboard</a> '
+        '<a class="nav" href="health/">&middot; pipeline health</a>',
         n_failed, fails, good_on=False, slider_min=0)
 
     good = [r for r in rows if r.get("_good", -1) >= DASHBOARD_FLOOR]
@@ -153,7 +154,8 @@ def main():
         good, "good-news.html", "Good News Dashboard",
         "Uplifting stories, tagged by AI &mdash; drag the slider to set the "
         "minimum score &middot; auto-updates every 30 minutes",
-        '<a class="nav" href="index.html">&rarr; all articles</a>',
+        '<a class="nav" href="index.html">&rarr; all articles</a> '
+        '<a class="nav" href="health/">&middot; pipeline health</a>',
         n_failed, fails, good_on=True, slider_min=DASHBOARD_FLOOR)
 
     print(f"tags matched onto page rows: {n_tagged}/{len(rows)}; "
