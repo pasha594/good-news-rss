@@ -45,6 +45,9 @@ ENRICH_BATCH = 20
 MAX_REQUESTS_PER_RUN = int(os.environ.get("CLASSIFY_MAX_REQUESTS", "100"))
 DAILY_QUOTA = int(os.environ.get("CLASSIFY_DAILY_QUOTA", "900"))
 SLEEP_BETWEEN = 4              # seconds; stays inside free RPM
+FAIL_SLEEP = 15                # back off harder after a failed call; the
+                               # free tier throws 503/timeout storms at peak
+MAX_FAIL_STREAK = 4
 DEADLINE_S = int(os.environ.get("CLASSIFY_DEADLINE_S", "1200"))
 DESC_CLIP = 220
 MAX_AGE_DAYS = 8               # never classify articles too old to display
@@ -278,6 +281,8 @@ def main():
             spent.add(("gate", t["at"]))
         if store.parse_iso(t.get("enriched_at")) >= day_start:
             spent.add(("enrich", t["enriched_at"]))
+        if t.get("spend") == "fail" and store.parse_iso(t.get("at")) >= day_start:
+            spent.add(("fail", t["at"]))
     recent_shards = [p for p in store.shards("articles")
                      if store.week_start_epoch(store.shard_key(p, "articles"))
                      + 7 * 86400 >= floor]
@@ -343,10 +348,15 @@ def main():
                 result = gate_batch(key, batch)
             except Exception as exc:
                 failures += 1
+                # A failed attempt may still consume server-side quota, and
+                # writes no batch rows the pacer could count - record it as
+                # an id-less marker row (invisible to every fold/reader).
+                out.write(json.dumps({"spend": "fail", "at": now_iso()},
+                                     ensure_ascii=False) + "\n")
                 print(f"classify: gate batch failed ({type(exc).__name__})")
-                if failures >= 3:
+                if failures >= MAX_FAIL_STREAK:
                     break
-                time.sleep(SLEEP_BETWEEN)
+                time.sleep(FAIL_SLEEP)
                 continue
             if result == "rate_limited":
                 print("classify: 429 rate limited; stopping")
@@ -375,10 +385,12 @@ def main():
                 result = enrich_batch(key, batch)
             except Exception as exc:
                 failures += 1
+                out.write(json.dumps({"spend": "fail", "at": now_iso()},
+                                     ensure_ascii=False) + "\n")
                 print(f"classify: enrich batch failed ({type(exc).__name__})")
-                if failures >= 3:
+                if failures >= MAX_FAIL_STREAK:
                     break
-                time.sleep(SLEEP_BETWEEN)
+                time.sleep(FAIL_SLEEP)
                 continue
             if result == "rate_limited":
                 print("classify: 429 rate limited; stopping")
