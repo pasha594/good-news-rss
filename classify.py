@@ -313,6 +313,10 @@ def main():
     enrich_need = -(-len(pending_enrich) // ENRICH_BATCH)  # ceil
     enrich_reserve = min(budget // 3, enrich_need)
     gate_budget = budget - enrich_reserve
+    # Reserve wall-clock for enrichment, not just calls: a backlogged gate
+    # phase otherwise eats the whole deadline and enrichment never runs
+    # (seen live: 52 gate calls, enriched +0). ~24s covers a call + sleep.
+    gate_deadline = DEADLINE_S - min(DEADLINE_S // 3, 24 * enrich_reserve)
     gated = enriched = skipped = failures = 0
     wk_path = store.shard_path("tags", store.week_key())
     with wk_path.open("a", encoding="utf-8") as out:
@@ -330,7 +334,7 @@ def main():
         # Phase GATE, newest first.
         gi = 0
         while (gate_budget > 0 and gi * GATE_BATCH < len(pending_gate)
-               and time.monotonic() - started < DEADLINE_S):
+               and time.monotonic() - started < gate_deadline):
             batch = pending_gate[gi * GATE_BATCH:(gi + 1) * GATE_BATCH]
             gi += 1
             budget -= 1
