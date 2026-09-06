@@ -7,10 +7,15 @@ impactful AND uplifting, batched 20/call): tolerant virtues, humanitarian
 topics, location names, entities.
 
 Quota posture: Gemini free tier, billing never attached ($0 hard cap).
-A shared per-run budget of MAX_REQUESTS_PER_RUN calls covers both phases;
-gate runs first (newest articles), enrichment consumes what remains.
-At ~10k articles/day and ~40% gate survivorship this is ~420 calls/day;
-the per-run cap bounds worst case at 720/day against a ~1,000/day quota.
+The budget self-paces against the daily quota: each run estimates the
+calls already made today (distinct batch timestamps in the tag shards;
+"today" = the Pacific calendar day, Gemini's quota reset) and spends at
+most MAX_REQUESTS_PER_RUN of what remains under DAILY_QUOTA. Runs are
+scheduled every 30 min but GitHub throttles cron unpredictably (observed:
+48/day scheduled, 2-8/day delivered), so a fixed per-run budget is wrong
+in both directions - self-pacing keeps daily spend at ~DAILY_QUOTA no
+matter how many runs actually fire. Within a run, gate goes first
+(newest articles), enrichment consumes what remains past its reserve.
 
 Rows append to the current week's tags shard; enrichment is a SECOND row
 for the same id and readers fold rows by id, so a crash or 429 between
@@ -24,7 +29,7 @@ Never fails the workflow: quota/API/parse problems log, skip, exit 0.
 import json
 import os
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import requests
@@ -37,9 +42,10 @@ ROOT = Path(__file__).resolve().parent
 MODEL = "gemini-3.5-flash-lite"
 GATE_BATCH = 50
 ENRICH_BATCH = 20
-MAX_REQUESTS_PER_RUN = int(os.environ.get("CLASSIFY_MAX_REQUESTS", "15"))
+MAX_REQUESTS_PER_RUN = int(os.environ.get("CLASSIFY_MAX_REQUESTS", "100"))
+DAILY_QUOTA = int(os.environ.get("CLASSIFY_DAILY_QUOTA", "900"))
 SLEEP_BETWEEN = 4              # seconds; stays inside free RPM
-DEADLINE_S = int(os.environ.get("CLASSIFY_DEADLINE_S", "480"))
+DEADLINE_S = int(os.environ.get("CLASSIFY_DEADLINE_S", "1200"))
 DESC_CLIP = 220
 MAX_AGE_DAYS = 8               # never classify articles too old to display
 
@@ -172,6 +178,18 @@ def now_iso():
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
+def quota_day_start():
+    """Epoch of the start of the current Pacific calendar day - Gemini's
+    free-tier daily quota resets at midnight PT."""
+    try:
+        from zoneinfo import ZoneInfo
+        tz = ZoneInfo("America/Los_Angeles")
+    except Exception:              # no tzdata; fixed PST is close enough
+        tz = timezone(timedelta(hours=-8))
+    now = datetime.now(tz)
+    return datetime(now.year, now.month, now.day, tzinfo=tz).timestamp()
+
+
 def gate_batch(key, batch):
     lines = [article_line(n, row) for n, (_aid, row) in enumerate(batch, 1)]
     results = call_model(key, GATE_PROMPT + "\n".join(lines))
@@ -241,12 +259,25 @@ def main():
     # articles only live in shards whose week overlaps the window - the fold
     # stays bounded as history grows.
     folded = {}
+    # Every successful API call writes one batch of rows sharing one
+    # timestamp (calls are SLEEP_BETWEEN apart, so timestamps are distinct
+    # per call). Counting today's distinct batch timestamps therefore
+    # estimates today's quota spend - no extra state file needed. Skip rows
+    # (model="rule") cost nothing and are excluded; failed calls write no
+    # rows, which undercounts - DAILY_QUOTA sits below the real quota to
+    # absorb that.
+    day_start = quota_day_start()
+    spent = set()
     recent_tag_shards = [p for p in store.shards("tags")
                          if store.week_start_epoch(store.shard_key(p, "tags"))
                          + 7 * 86400 >= floor]
     for t in store.read_jsonl(recent_tag_shards):
         if "id" in t:
             folded.setdefault(t["id"], {}).update(t)
+        if t.get("model") == MODEL and store.parse_iso(t.get("at")) >= day_start:
+            spent.add(("gate", t["at"]))
+        if store.parse_iso(t.get("enriched_at")) >= day_start:
+            spent.add(("enrich", t["enriched_at"]))
     recent_shards = [p for p in store.shards("articles")
                      if store.week_start_epoch(store.shard_key(p, "articles"))
                      + 7 * 86400 >= floor]
@@ -269,7 +300,13 @@ def main():
                       if survivor(f) and "virtues" not in f and aid in articles]
     pending_enrich.sort(key=lambda p: p[1].get("first_seen", ""), reverse=True)
 
-    budget = MAX_REQUESTS_PER_RUN
+    budget = min(MAX_REQUESTS_PER_RUN, max(0, DAILY_QUOTA - len(spent)))
+    if budget == 0:
+        print(f"classify: ~{len(spent)} calls already made this quota day "
+              f"(cap {DAILY_QUOTA}); skipping run")
+        return
+    print(f"classify: budget {budget} calls "
+          f"(~{len(spent)}/{DAILY_QUOTA} spent this quota day)")
     started = time.monotonic()
     # Reserve part of the budget for enrichment so a large gate backlog can
     # never starve it; unused reservation is returned to the gate phase.

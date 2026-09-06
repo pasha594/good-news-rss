@@ -2,7 +2,10 @@ name: accumulate
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    # Offset minutes: GitHub sheds :00/:30 scheduled load most aggressively,
+    # so off-peak minutes get dropped less often. Delivery is still
+    # best-effort - classify.py self-paces its quota to tolerate any cadence.
+    - cron: "7,37 * * * *"
   workflow_dispatch:
 
 concurrency:
@@ -18,9 +21,18 @@ permissions:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 35   # classify may spend up to ~21 min when backlogged
     steps:
       - uses: actions/checkout@v4
+
+      - name: Sync to branch tip
+        # A queued run's checkout SHA is frozen at creation time; if the
+        # previous run pushed while this one waited, the snapshot predates
+        # that push. Classify's quota pacing and dedupe must see those tag
+        # rows, so hard-sync to the real tip before doing anything.
+        run: |
+          git fetch origin main || true
+          git reset --hard origin/main
 
       - uses: actions/setup-python@v5
         with:
@@ -57,9 +69,9 @@ jobs:
           git config user.email "feed-bot@users.noreply.github.com"
           # accumulate.py is idempotent, so on any push failure (remote moved,
           # transient server error) we reset to the remote state, re-accumulate
-          # on top of it, and try again. classify.py is deliberately NOT re-run
-          # here - it costs 3-5 min per pass and any tags lost to the reset are
-          # picked up by the next scheduled run.
+          # on top of it, and try again. classify.py is NOT re-run - its rows
+          # are quota already spent, so they are saved across the reset and
+          # replayed (line-level union) instead of being regenerated.
           for attempt in 1 2; do
             git add data/
             if git diff --cached --quiet; then
@@ -72,8 +84,17 @@ jobs:
             fi
             echo "Push failed (attempt $attempt); resetting to remote and retrying."
             git rebase --abort 2>/dev/null || true
+            rm -rf /tmp/tags_save && mkdir -p /tmp/tags_save
+            cp data/tags-*.jsonl /tmp/tags_save/ 2>/dev/null || true
             git fetch origin main
             git reset --hard origin/main
+            for f in /tmp/tags_save/*.jsonl; do
+              [ -e "$f" ] || continue
+              b=$(basename "$f")
+              touch "data/$b"
+              awk '!seen[$0]++' "data/$b" "$f" > "/tmp/$b.merged"
+              mv "/tmp/$b.merged" "data/$b"
+            done
             python accumulate.py
             python build_site.py
             if [ "$attempt" = "2" ]; then
