@@ -170,7 +170,7 @@ def call_model(key, prompt_text):
     }
     r = requests.post(
         f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent",
-        params={"key": key}, json=body, timeout=45)
+        params={"key": key}, json=body, timeout=75)
     if r.status_code == 429:
         return "rate_limited"
     r.raise_for_status()
@@ -210,7 +210,7 @@ def gate_batch(key, batch):
                    "good": good,
                    "cats": [c for c in item.get("cats", []) if c in CATS][:3],
                    "model": MODEL, "at": at}
-        except (KeyError, ValueError, TypeError, IndexError):
+        except (KeyError, ValueError, TypeError, IndexError, AttributeError):
             continue
         if 0 <= idx < len(batch):
             out.append(row)
@@ -241,7 +241,7 @@ def enrich_batch(key, batch):
                                 "country": str(loc.get("country", ""))[:80]},
                    "entities": ents,
                    "enriched_at": at}
-        except (KeyError, ValueError, TypeError, IndexError):
+        except (KeyError, ValueError, TypeError, IndexError, AttributeError):
             continue
         if 0 <= idx < len(batch):
             out.append(row)
