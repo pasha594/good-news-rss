@@ -31,12 +31,16 @@
     background: var(--bg); color: var(--text);
     display: flex; flex-direction: column;
   }
-  header { padding: 14px 20px 10px; flex: none; }
-  .titlebar { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  header { padding: 14px 20px 10px; flex: none; position: relative; }
+  /* Right padding is a permanent slot for #clearBtn (absolutely positioned),
+     so the button appearing/disappearing never reflows the controls. */
+  .titlebar { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+              padding-right: 120px; }
   h1 { font-size: 20px; letter-spacing: -.2px; }
   h1 .leaf { color: var(--accent); }
   .stats { color: var(--muted); font-size: 13px; }
   .stats b { color: var(--text); }
+  #shownCount { display: inline-block; text-align: right; font-variant-numeric: tabular-nums; }
   .meta { margin-top: 4px; font-size: 12px; color: var(--muted);
           display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
   .meta details { display: inline; }
@@ -45,25 +49,61 @@
   .meta li span { color: var(--muted); }
   #clearBtn {
     border: 1px solid var(--border); background: var(--panel); color: var(--muted);
-    border-radius: 6px; padding: 2px 10px; font-size: 12px; cursor: pointer; display: none;
+    border-radius: 6px; padding: 2px 10px; font-size: 12px; cursor: pointer; visibility: hidden;
+    position: absolute; top: 22px; right: 20px;
   }
-  #clearBtn.active { display: inline-block; color: var(--accent); border-color: var(--accent); }
+  #clearBtn.active { visibility: visible; color: var(--accent); border-color: var(--accent); }
+  /* Toggle states change color only, never font-weight: a bolder label is
+     wider and would shove every control after it sideways. */
   #goodBtn {
     border: 1px solid var(--border); background: var(--panel); color: var(--muted);
-    border-radius: 6px; padding: 2px 10px; font-size: 12px; cursor: pointer;
+    border-radius: 6px; padding: 2px 10px; font-size: 12px; font-weight: 600; cursor: pointer;
   }
   #goodBtn.active {
-    color: var(--badge-text); background: var(--accent-soft);
-    border-color: var(--accent); font-weight: 600;
+    color: var(--badge-text); background: var(--accent-soft); border-color: var(--accent);
   }
-  #goodCtl { display: inline-flex; align-items: center; gap: 6px; }
-  #goodCtl input[type="range"] { width: 96px; accent-color: var(--accent); cursor: pointer; }
+  /* The titlebar aligns text baselines; a range input has none, so center
+     the slider group on the line and nudge it onto the buttons' midline. */
+  #goodCtl { display: inline-flex; align-items: center; gap: 8px; align-self: center;
+             position: relative; top: 3px; }
   #goodCtl.off { opacity: .45; }
-  #goodMinVal { font-size: 12px; font-weight: 700; color: var(--badge-text);
-                min-width: 44px; font-variant-numeric: tabular-nums; }
+  /* Stepped slider: every step gets the same --step px, tick marks sit
+     exactly under the thumb-center positions (inset by half a thumb). */
+  .slider { --thumb: 14px; --step: 18px; --steps: 5; --fill: 0px;
+            position: relative; display: inline-block; height: 14px; }
+  #goodSlider {
+    -webkit-appearance: none; appearance: none; background: transparent;
+    width: calc(var(--steps) * var(--step) + var(--thumb));
+    height: 14px; margin: 0; padding: 0; cursor: pointer; display: block;
+  }
+  #goodSlider:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+  #goodSlider::-webkit-slider-runnable-track {
+    height: 4px; border-radius: 2px;
+    background: linear-gradient(to right, var(--accent) var(--fill), var(--border) var(--fill));
+  }
+  #goodSlider::-moz-range-track {
+    height: 4px; border-radius: 2px;
+    background: linear-gradient(to right, var(--accent) var(--fill), var(--border) var(--fill));
+  }
+  #goodSlider::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none; box-sizing: border-box;
+    width: var(--thumb); height: var(--thumb); margin-top: -5px; border-radius: 50%;
+    background: var(--accent); border: 2px solid var(--panel); box-shadow: 0 0 0 1px var(--accent);
+  }
+  #goodSlider::-moz-range-thumb {
+    box-sizing: border-box; width: var(--thumb); height: var(--thumb); border-radius: 50%;
+    background: var(--accent); border: 2px solid var(--panel); box-shadow: 0 0 0 1px var(--accent);
+  }
+  .ticks { position: absolute; top: 15px; left: calc(var(--thumb) / 2 - .5px);
+           right: calc(var(--thumb) / 2 - .5px);
+           display: flex; justify-content: space-between; pointer-events: none; }
+  .ticks i { width: 1px; height: 5px; background: var(--muted); opacity: .6; }
+  #goodMinVal { display: inline-block; font-size: 12px; font-weight: 700; color: var(--badge-text);
+                min-width: 7ch; font-variant-numeric: tabular-nums; }
 
-  .table-wrap { flex: 1; overflow: auto; padding: 0 20px 20px; }
-  table { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 900px;
+  .table-wrap { flex: 1; overflow: auto; padding: 0 20px 20px; scrollbar-gutter: stable; }
+  table { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 1100px;
+          table-layout: fixed;
           background: var(--panel); border: 1px solid var(--border); border-radius: 10px; }
   thead th { position: sticky; background: var(--panel); z-index: 3; text-align: left; }
   thead tr.labels th {
@@ -109,10 +149,11 @@
     background: var(--badge-bg); color: var(--badge-text); border: 1px solid var(--badge-border);
     padding: 1px 6px; border-radius: 999px; vertical-align: 1px;
   }
-  tbody td { padding: 9px 12px; border-top: 1px solid var(--border); vertical-align: top; }
+  tbody td { padding: 9px 12px; border-top: 1px solid var(--border); vertical-align: top;
+             overflow-wrap: anywhere; }
   tbody tr:nth-child(even) { background: var(--row-alt); }
   tbody tr:hover { background: var(--hover); }
-  td.src { white-space: nowrap; font-weight: 600; font-size: 13px; }
+  td.src { font-weight: 600; font-size: 13px; }
   td.src .badge { margin-left: 6px; }
   td.hl a { color: var(--link); text-decoration: none; font-weight: 600; }
   td.hl a:hover { text-decoration: underline; }
@@ -133,11 +174,10 @@
   }
   .gate-chip {
     border: 1px solid var(--border); background: var(--panel); color: var(--muted);
-    border-radius: 6px; padding: 2px 9px; font-size: 12px; cursor: pointer;
+    border-radius: 6px; padding: 2px 9px; font-size: 12px; font-weight: 600; cursor: pointer;
   }
   .gate-chip.active {
-    color: var(--v-text); background: var(--v-bg);
-    border-color: var(--v-text); font-weight: 600;
+    color: var(--v-text); background: var(--v-bg); border-color: var(--v-text);
   }
   #vtSel {
     max-width: 190px; padding: 2px 6px; font-size: 12px; color: var(--muted);
@@ -146,8 +186,11 @@
   #vtSel.filtered { color: var(--v-text); border-color: var(--v-text); font-weight: 600; }
   td.hl span.nolink { font-weight: 600; }
   td.desc { color: var(--muted); font-size: 13px; }
+  td.tr { font-size: 13.5px; font-weight: 500; }
+  td.tr .tr-same, td.tr .tr-wait { color: var(--muted); font-weight: 400; }
+  #trStatus { margin-left: 6px; font-size: 10px; text-transform: none; letter-spacing: 0; }
   td.date { white-space: nowrap; color: var(--muted); font-size: 12.5px;
-            font-variant-numeric: tabular-nums; }
+            font-variant-numeric: tabular-nums; overflow: hidden; text-overflow: ellipsis; }
   #empty { padding: 40px; text-align: center; color: var(--muted); display: none; }
 </style>
 </head>
@@ -159,7 +202,11 @@
       &middot; <b>__N_SOURCES__</b> sources</span>
     <button id="goodBtn">&#10087; Good news only</button>
     <span id="goodCtl">
-      <input type="range" id="goodSlider" min="__SLIDER_MIN__" max="10" step="1">
+      <span class="slider" id="goodSliderBox">
+        <input type="range" id="goodSlider" min="__SLIDER_MIN__" max="10" step="1"
+               aria-label="Minimum good-news score">
+        <span class="ticks" id="goodTicks"></span>
+      </span>
       <span id="goodMinVal"></span>
     </span>
     <button class="gate-chip" data-bit="1" title="Headline is a complete thought about a real action or event">Impactful</button>
@@ -181,12 +228,14 @@
 <div class="table-wrap">
   <table>
     <colgroup>
-      <col style="width:210px"><col style="width:32%"><col><col style="width:150px">
+      <col style="width:190px"><col style="width:27%"><col style="width:23%"><col>
+      <col style="width:180px">
     </colgroup>
     <thead>
       <tr class="labels">
         <th class="sortable" data-k="s">Source<span class="arrow"></span></th>
         <th class="sortable" data-k="h">Headline<span class="arrow"></span></th>
+        <th>Translation<span id="trStatus"></span></th>
         <th>Description</th>
         <th class="sortable" data-k="t">Date<span class="arrow"></span></th>
       </tr>
@@ -207,6 +256,13 @@
           </div>
         </th>
         <th><input id="hlFilter" type="search" placeholder="Filter headlines..."></th>
+        <th>
+          <select id="trLang" aria-label="Translate headlines into">
+            <option value="en">English</option>
+            <option value="he">Hebrew &mdash; &#1506;&#1489;&#1512;&#1497;&#1514;</option>
+            <option value="ar">Arabic &mdash; &#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;</option>
+          </select>
+        </th>
         <th><input id="descFilter" type="search" placeholder="Filter descriptions..."></th>
         <th>
           <select id="dateFilter">
@@ -243,6 +299,10 @@ const lowerDesc = ART.map(a => {
 const fmt = new Intl.DateTimeFormat(undefined, { dateStyle: "medium", timeStyle: "short" });
 document.getElementById("genAt").textContent = fmt.format(new Date(DATA.generated));
 
+// Reserve the widest possible count so the header never reflows as it changes.
+document.getElementById("shownCount").style.minWidth =
+  ART.length.toLocaleString().length + "ch";
+
 const GOOD_DEFAULT_ON = __GOOD_DEFAULT_ON__;
 const GOOD_DEFAULT_MIN = __GOOD_DEFAULT_MIN__;
 let goodMin = GOOD_DEFAULT_MIN;
@@ -272,7 +332,8 @@ function rowHtml(i) {
   if (a[9]) for (const e of a[9]) pills += '<span class="ent">' + (e[1] ? "&#127963; " : "&#128100; ") + esc(e[0]) + "</span>";
   if (pills) pills = "<br>" + pills;
   return "<tr><td class='src'>" + esc(SRC[a[0]].n) + badge(a[0]) + "</td>" +
-         "<td class='hl'>" + hl + pills + "</td><td class='desc'>" + esc(a[3]) + "</td>" +
+         "<td class='hl'>" + hl + pills + "</td>" + trCellHtml(i) +
+         "<td class='desc'>" + esc(a[3]) + "</td>" +
          "<td class='date'>" + d + "</td></tr>";
 }
 
@@ -283,6 +344,7 @@ function renderChunk() {
   for (let i = rendered; i < end; i++) html += rowHtml(matched[i]);
   tbody.insertAdjacentHTML("beforeend", html);
   rendered = end;
+  trObservePending();
 }
 
 function applyFilters() {
@@ -306,6 +368,7 @@ function applyFilters() {
     matched.push(i);
   }
   sortMatched();
+  trReset();
   tbody.innerHTML = "";
   rendered = 0;
   renderChunk();
@@ -419,22 +482,32 @@ const goodBtn = document.getElementById("goodBtn");
 const goodCtl = document.getElementById("goodCtl");
 const goodSlider = document.getElementById("goodSlider");
 const goodMinVal = document.getElementById("goodMinVal");
+const goodBox = document.getElementById("goodSliderBox");
+const SL_MIN = Number(goodSlider.min), SL_MAX = Number(goodSlider.max);
+goodBox.style.setProperty("--steps", SL_MAX - SL_MIN);
+document.getElementById("goodTicks").innerHTML = "<i></i>".repeat(SL_MAX - SL_MIN + 1);
 function syncGoodUI() {
   goodBtn.classList.toggle("active", state.good);
   goodCtl.classList.toggle("off", !state.good);
   goodSlider.value = goodMin;
   goodMinVal.textContent = "≥ " + goodMin + "/10";
+  // Fill the track up to the thumb's center (half a thumb + whole steps).
+  goodBox.style.setProperty("--fill",
+    "calc(var(--thumb) / 2 + " + (goodMin - SL_MIN) + " * var(--step))");
 }
 goodBtn.addEventListener("click", () => {
   state.good = !state.good;
   syncGoodUI();
   applyFilters();
 });
+// Coalesce drags to one re-filter per frame; the label and thumb update
+// immediately, the table catches up on the next frame.
+let sliderFrame = 0;
 goodSlider.addEventListener("input", () => {
   goodMin = Number(goodSlider.value);
   if (!state.good) state.good = true;
   syncGoodUI();
-  applyFilters();
+  if (!sliderFrame) sliderFrame = requestAnimationFrame(() => { sliderFrame = 0; applyFilters(); });
 });
 syncGoodUI();
 
@@ -503,6 +576,178 @@ new IntersectionObserver(entries => {
 wrap.addEventListener("scroll", () => {
   if (wrap.scrollTop + wrap.clientHeight > wrap.scrollHeight - 1200) renderChunk();
 }, { passive: true });
+
+// ---- headline translation ----
+// Google Translate's free web endpoint, called from the viewer's browser:
+// no key, no billing. POST with a form body is a CORS "simple request"
+// (the endpoint rate-limits preflights), and returns [[text, srcLang], ...]
+// per q. Only cells scrolled near the viewport are translated; results are
+// cached in memory and, best-effort, in localStorage.
+const TR_URL = "https://translate.googleapis.com/translate_a/t?client=gtx&sl=auto&tl=";
+const TR_CODES = { en: ["en"], he: ["he", "iw"], ar: ["ar"] };
+const TR_NAMES = { en: "English", he: "Hebrew", ar: "Arabic" };
+const TR_BATCH = 40, TR_CHARS = 3500, TR_PARALLEL = 2, TR_KEEP = 4000;
+const trSel = document.getElementById("trLang");
+const trStatus = document.getElementById("trStatus");
+let trLang = "en";
+try { const s = localStorage.getItem("trLang"); if (TR_CODES[s]) trLang = s; } catch (e) {}
+trSel.value = trLang;
+
+const trCache = new Map();         // lang|title -> translated text, or 0 = already in lang
+try {
+  const saved = JSON.parse(localStorage.getItem("trCache.v1") || "{}");
+  for (const k of Object.keys(saved)) trCache.set(k, saved[k]);
+} catch (e) {}
+const trQueue = new Map();         // lang|title -> title, waiting to be sent
+const trInflight = new Set();
+let trActive = 0, trTimer = 0, trPauseUntil = 0, trFails = 0, trSaveTimer = 0;
+
+const RE_HE = /[֐-׿]/g, RE_AR = /[؀-ۿݐ-ݿ]/g,
+      RE_LATIN = /[A-Za-zÀ-ɏ]/g,
+      RE_NON_EN = /[^\x00-\x7F‘’“”–—… £€]/,
+      RE_EN_WORDS = /\b(the|and|of|to|for|with|is|are|was|were|from|after|how|new|says|over|at|by|its|their|this|that|what|why|who|will|has|have|as|on|into|about)\b/i;
+const nChars = (re, s) => (s.match(re) || []).length;
+
+// Cheap local answer to "is this headline already in lang?" so most cells
+// never hit the network; anything uncertain goes to Google, whose per-item
+// detected language makes the final call.
+function trAlreadyIn(lang, s) {
+  const he = nChars(RE_HE, s), ar = nChars(RE_AR, s), la = nChars(RE_LATIN, s);
+  if (lang === "he") return he > 0 && he >= ar && he >= la;
+  if (lang === "ar") return ar > 0 && ar >= he && ar >= la;
+  return !RE_NON_EN.test(s) && RE_EN_WORDS.test(s);
+}
+
+function trInner(i) {
+  const t = ART[i][1];
+  const same = '<span class="tr-same" title="Already in ' + TR_NAMES[trLang] + '">' + esc(t) + "</span>";
+  if (trAlreadyIn(trLang, t)) return same;
+  const v = trCache.get(trLang + "|" + t);
+  if (v === undefined) return null;
+  return v === 0 ? same : '<span lang="' + trLang + '">' + esc(v) + "</span>";
+}
+
+function trCellHtml(i) {
+  const inner = trInner(i);
+  return "<td class='tr' dir='auto' data-i='" + i + "'" +
+         (inner === null ? " data-p='1'><span class='tr-wait'>…</span>" : ">" + inner) + "</td>";
+}
+
+function trFill(td) {
+  const inner = trInner(Number(td.dataset.i));
+  if (inner === null) return false;
+  td.innerHTML = inner;
+  td.removeAttribute("data-p");
+  return true;
+}
+
+const trIO = new IntersectionObserver(entries => {
+  for (const e of entries) {
+    if (!e.isIntersecting) continue;
+    trIO.unobserve(e.target);
+    if (trFill(e.target)) continue;
+    const t = ART[Number(e.target.dataset.i)][1];
+    const k = trLang + "|" + t;
+    if (!trInflight.has(k)) trQueue.set(k, t);
+  }
+  trSchedule();
+}, { root: document.querySelector(".table-wrap"), rootMargin: "400px 0px" });
+
+function trObservePending() {
+  for (const td of tbody.querySelectorAll("td.tr[data-p]")) trIO.observe(td);
+}
+
+// Rows are about to be replaced: stop watching them and drop queued work
+// for cells that no longer exist (in-flight requests still land in cache).
+function trReset() {
+  trIO.disconnect();
+  trQueue.clear();
+}
+
+function trSchedule(delay) {
+  if (!trTimer) trTimer = setTimeout(trFlush, delay || 50);
+}
+
+function trFlush() {
+  trTimer = 0;
+  const wait = trPauseUntil - Date.now();
+  // "retrying" means there is wanted work waiting out a backoff - not
+  // merely that some earlier request failed.
+  trStatus.textContent = wait > 0 && trQueue.size ? "· retrying" : "";
+  if (wait > 0) { if (trQueue.size) trSchedule(wait); return; }
+  while (trActive < TR_PARALLEL && trQueue.size) {
+    const batch = [];
+    let chars = 0;
+    for (const [k, t] of trQueue) {
+      if (batch.length && (batch.length >= TR_BATCH || chars + t.length > TR_CHARS)) break;
+      batch.push([k, t]);
+      chars += t.length;
+    }
+    trSend(trLang, batch);
+  }
+}
+
+function trSend(lang, batch) {
+  trActive++;
+  for (const [k] of batch) { trQueue.delete(k); trInflight.add(k); }
+  const body = new URLSearchParams();
+  for (const [, t] of batch) body.append("q", t);
+  const opts = { method: "POST", body };
+  if (typeof AbortSignal !== "undefined" && AbortSignal.timeout) opts.signal = AbortSignal.timeout(20000);
+  fetch(TR_URL + lang, opts)
+    .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    .then(res => {
+      if (!Array.isArray(res)) throw new Error("bad response");
+      batch.forEach(([k, t], j) => {
+        const item = res[j];
+        const text = Array.isArray(item) ? item[0] : item;
+        const src = Array.isArray(item) ? item[1] : "";
+        if (typeof text !== "string") return;
+        const same = TR_CODES[lang].includes(src) || text.trim() === t.trim();
+        trPut(k, same ? 0 : text);
+      });
+      trFails = 0;
+      for (const td of tbody.querySelectorAll("td.tr[data-p]")) trFill(td);
+    })
+    .catch(() => {
+      // Rate-limited, offline or timed out: back off (10s, 20s, ... up to
+      // 2 min) and retry whatever is still wanted in the current language.
+      trFails++;
+      trPauseUntil = Date.now() + Math.min(120000, 10000 * 2 ** (trFails - 1));
+      if (lang === trLang) for (const [k, t] of batch) if (!trCache.has(k)) trQueue.set(k, t);
+    })
+    .finally(() => {
+      trActive--;
+      for (const [k] of batch) trInflight.delete(k);
+      trSchedule();
+    });
+}
+
+function trPut(k, v) {
+  trCache.delete(k);
+  trCache.set(k, v);
+  if (trSaveTimer) return;
+  trSaveTimer = setTimeout(() => {
+    trSaveTimer = 0;
+    try {
+      const keep = [...trCache].slice(-TR_KEEP);
+      localStorage.setItem("trCache.v1", JSON.stringify(Object.fromEntries(keep)));
+    } catch (e) {}
+  }, 1500);
+}
+
+trSel.addEventListener("change", () => {
+  trLang = trSel.value;
+  try { localStorage.setItem("trLang", trLang); } catch (e) {}
+  trReset();
+  for (const td of tbody.querySelectorAll("td.tr")) {
+    if (!trFill(td)) {
+      td.setAttribute("data-p", "1");
+      td.innerHTML = "<span class='tr-wait'>…</span>";
+    }
+  }
+  trObservePending();
+});
 
 updateSrcBtn();
 applyFilters();
