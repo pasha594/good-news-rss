@@ -59,6 +59,32 @@ def load_tags():
     return folded
 
 
+def alltime_stats():
+    """Whole-history numbers for the page header: when ingestion began, how
+    many articles have ever been stored (one line per article, the same
+    count the health page shows), and ge[k] = articles ever scored >= k."""
+    shards = store.shards("articles")
+    ingested = 0
+    for p in shards:
+        with p.open("rb") as f:
+            for chunk in iter(lambda: f.read(1 << 20), b""):
+                ingested += chunk.count(b"\n")
+    # Shards are keyed by first_seen week, so the earliest article is in the
+    # first shard.
+    since = min((r["first_seen"] for r in store.read_jsonl(shards[:1])
+                 if r.get("first_seen")), default=None)
+    good_by_id = {}
+    for t in store.read_jsonl(store.shards("tags")):
+        if "good" in t and "id" in t:
+            good_by_id[t["id"]] = t["good"]
+    hist = [0] * 11
+    for g in good_by_id.values():
+        if isinstance(g, int) and 0 <= g <= 10:
+            hist[g] += 1
+    ge = [sum(hist[k:]) for k in range(11)]
+    return {"since": since, "ingested": ingested, "ge": ge}
+
+
 def fail_list():
     items, n = "", 0
     status = ROOT / "feed_status.csv"
@@ -72,7 +98,7 @@ def fail_list():
 
 
 def build_page(rows, out_name, title, refresh_note, nav_link, n_failed, fails,
-               good_on=False, slider_min=0):
+               alltime, good_on=False, slider_min=0):
     counts, premium = {}, {}
     for r in rows:
         counts[r["source"]] = counts.get(r["source"], 0) + 1
@@ -89,7 +115,7 @@ def build_page(rows, out_name, title, refresh_note, nav_link, n_failed, fails,
 
     payload = json.dumps(
         {"generated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-         "sources": sources, "articles": articles},
+         "alltime": alltime, "sources": sources, "articles": articles},
         ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
 
     page = ((ROOT / "page_template.html").read_text(encoding="utf-8")
@@ -141,13 +167,14 @@ def main():
                           for e in ents if e.get("name")] or 0
 
     n_failed, fails = fail_list()
+    alltime = alltime_stats()
 
     build_page(
         rows, "index.html", "Good News Feeds",
         f"Auto-updates every 30 minutes &middot; last {MAX_AGE_DAYS} days shown",
         '<a class="nav" href="good-news.html">&rarr; Good News dashboard</a> '
         '<a class="nav" href="health/">&middot; pipeline health</a>',
-        n_failed, fails, good_on=False, slider_min=0)
+        n_failed, fails, alltime, good_on=False, slider_min=0)
 
     good = [r for r in rows if r.get("_good", -1) >= DASHBOARD_FLOOR]
     build_page(
@@ -156,7 +183,7 @@ def main():
         "minimum score &middot; auto-updates every 30 minutes",
         '<a class="nav" href="index.html">&rarr; all articles</a> '
         '<a class="nav" href="health/">&middot; pipeline health</a>',
-        n_failed, fails, good_on=True, slider_min=DASHBOARD_FLOOR)
+        n_failed, fails, alltime, good_on=True, slider_min=DASHBOARD_FLOOR)
 
     print(f"tags matched onto page rows: {n_tagged}/{len(rows)}; "
           f"dashboard subset (>= {DASHBOARD_FLOOR}): {len(good)}")

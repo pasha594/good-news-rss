@@ -38,9 +38,14 @@
               padding-right: 120px; }
   h1 { font-size: 20px; letter-spacing: -.2px; }
   h1 .leaf { color: var(--accent); }
-  .stats { color: var(--muted); font-size: 13px; }
-  .stats b { color: var(--text); }
-  #shownCount { display: inline-block; text-align: right; font-variant-numeric: tabular-nums; }
+  .stats { margin-top: 6px; color: var(--muted); font-size: 13px;
+           display: flex; gap: 4px 22px; flex-wrap: wrap; }
+  .stats b { color: var(--text); font-variant-numeric: tabular-nums; }
+  /* Counts that change with filters get a reserved width (set from the
+     largest possible value) so the summary line never reflows. */
+  #shownCount, #allGood, #allGoodMin { display: inline-block; text-align: right; }
+  #allGoodMin { min-width: 2ch; }
+  #allGoodPart.off { opacity: .5; }
   .meta { margin-top: 4px; font-size: 12px; color: var(--muted);
           display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
   .meta details { display: inline; }
@@ -198,8 +203,6 @@
 <header>
   <div class="titlebar">
     <h1><span class="leaf">&#10087;</span> __PAGE_TITLE__</h1>
-    <span class="stats"><b id="shownCount"></b> shown of <b>__N_ARTICLES__</b> articles
-      &middot; <b>__N_SOURCES__</b> sources</span>
     <button id="goodBtn">&#10087; Good news only</button>
     <span id="goodCtl">
       <span class="slider" id="goodSliderBox">
@@ -214,6 +217,14 @@
     <button class="gate-chip" data-bit="4" title="Fits a tolerance/civil-rights exhibit or is unambiguous human-goodness">On mission</button>
     <select id="vtSel"><option value="">All virtues &amp; topics</option></select>
     <button id="clearBtn">Clear filters &times;</button>
+  </div>
+  <div class="stats">
+    <span><b id="shownCount"></b> shown of <b>__N_ARTICLES__</b> articles<span id="winRange"></span>
+      &middot; <b>__N_SOURCES__</b> sources</span>
+    <span id="allTime" hidden>All time since <b id="allSince"></b>:
+      <b id="allIngested"></b> articles ingested
+      <span id="allGoodPart">&middot; <b id="allGood"></b> scored
+        &ge;&nbsp;<b id="allGoodMin"></b>/10</span></span>
   </div>
   <div class="meta">
     <span>Fetched <span id="genAt"></span></span>
@@ -302,6 +313,31 @@ document.getElementById("genAt").textContent = fmt.format(new Date(DATA.generate
 // Reserve the widest possible count so the header never reflows as it changes.
 document.getElementById("shownCount").style.minWidth =
   ART.length.toLocaleString().length + "ch";
+
+// Date range covered by this page's articles.
+{
+  let lo = Infinity, hi = 0;
+  for (const a of ART) if (a[4]) { if (a[4] < lo) lo = a[4]; if (a[4] > hi) hi = a[4]; }
+  if (hi) {
+    const df = new Intl.DateTimeFormat(undefined, { month: "short", day: "numeric", year: "numeric" });
+    const d1 = new Date(lo * 1000), d2 = new Date(hi * 1000);
+    let txt;
+    try { txt = df.formatRange(d1, d2); } catch (e) { txt = df.format(d1) + " – " + df.format(d2); }
+    const b = document.createElement("b");
+    b.textContent = txt;
+    document.getElementById("winRange").append(" from ", b);
+  }
+}
+
+// Whole-history totals (built from every stored article, not just this page).
+const ALL = DATA.alltime;
+if (ALL && ALL.ge && ALL.since) {
+  document.getElementById("allSince").textContent =
+    new Intl.DateTimeFormat(undefined, { dateStyle: "medium" }).format(new Date(ALL.since));
+  document.getElementById("allIngested").textContent = ALL.ingested.toLocaleString();
+  document.getElementById("allGood").style.minWidth = ALL.ge[0].toLocaleString().length + "ch";
+  document.getElementById("allTime").hidden = false;
+}
 
 const GOOD_DEFAULT_ON = __GOOD_DEFAULT_ON__;
 const GOOD_DEFAULT_MIN = __GOOD_DEFAULT_MIN__;
@@ -491,6 +527,11 @@ function syncGoodUI() {
   goodCtl.classList.toggle("off", !state.good);
   goodSlider.value = goodMin;
   goodMinVal.textContent = "≥ " + goodMin + "/10";
+  if (ALL && ALL.ge) {
+    document.getElementById("allGood").textContent = (ALL.ge[goodMin] || 0).toLocaleString();
+    document.getElementById("allGoodMin").textContent = goodMin;
+    document.getElementById("allGoodPart").classList.toggle("off", !state.good);
+  }
   // Fill the track up to the thumb's center (half a thumb + whole steps).
   goodBox.style.setProperty("--fill",
     "calc(var(--thumb) / 2 + " + (goodMin - SL_MIN) + " * var(--step))");
