@@ -29,9 +29,9 @@ MAX_AGE_DAYS = 7
 SLIDER_DEFAULT = 7    # default position of the min-score slider
 DASHBOARD_FLOOR = 5   # dashboard embeds articles down to this score
 # The Cloudflare Worker (worker/) behind the per-row "AI" translate button;
-# an empty value hides the buttons.
-LLM_TRANSLATE_URL = os.environ.get(
-    "LLM_TRANSLATE_URL", "https://good-news-translate.pasha-c0e.workers.dev/")
+# an empty value hides the buttons. Hidden for now - to turn it back on, use
+# "https://good-news-translate.pasha-c0e.workers.dev/" as the default.
+LLM_TRANSLATE_URL = os.environ.get("LLM_TRANSLATE_URL", "")
 
 
 parse_iso = store.parse_iso
