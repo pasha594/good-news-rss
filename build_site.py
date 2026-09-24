@@ -17,6 +17,7 @@ import csv
 import hashlib
 import html as htmlmod
 import json
+import os
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -27,6 +28,10 @@ ROOT = Path(__file__).resolve().parent
 MAX_AGE_DAYS = 7
 SLIDER_DEFAULT = 7    # default position of the min-score slider
 DASHBOARD_FLOOR = 5   # dashboard embeds articles down to this score
+# The Cloudflare Worker (worker/) behind the per-row "AI" translate button;
+# an empty value hides the buttons.
+LLM_TRANSLATE_URL = os.environ.get(
+    "LLM_TRANSLATE_URL", "https://good-news-translate.pasha-c0e.workers.dev/")
 
 
 parse_iso = store.parse_iso
@@ -125,6 +130,7 @@ def build_page(rows, out_name, title, refresh_note, nav_link, n_failed, fails,
             .replace("__GOOD_DEFAULT_MIN__", str(SLIDER_DEFAULT))
             .replace("__SLIDER_MIN__", str(slider_min))
             .replace("__REFRESH_NOTE__", refresh_note)
+            .replace("__LLM_TRANSLATE_URL__", LLM_TRANSLATE_URL)
             .replace("__PAYLOAD__", payload)
             .replace("__N_SOURCES__", str(len(sources)))
             .replace("__N_ARTICLES__", f"{len(articles):,}")

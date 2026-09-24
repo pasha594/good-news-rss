@@ -193,6 +193,15 @@
   td.desc { color: var(--muted); font-size: 13px; }
   td.tr { font-size: 13.5px; font-weight: 500; }
   td.tr .tr-same, td.tr .tr-wait { color: var(--muted); font-weight: 400; }
+  .ai-btn, .ai-tag {
+    margin-inline-start: 6px; padding: 0 6px; border-radius: 999px; cursor: pointer;
+    font-size: 10px; font-weight: 700; letter-spacing: .03em; line-height: 16px; vertical-align: 1px;
+  }
+  .ai-btn { border: 1px solid var(--border); background: var(--panel); color: var(--muted); }
+  .ai-btn:hover:not(:disabled) { color: var(--v-text); border-color: var(--v-text); }
+  .ai-btn:disabled { cursor: progress; opacity: .7; }
+  .ai-btn.err { color: var(--t-text); border-color: var(--t-text); }
+  .ai-tag { border: 1px solid var(--v-text); background: var(--v-bg); color: var(--v-text); }
   #trStatus { margin-left: 6px; font-size: 10px; text-transform: none; letter-spacing: 0; }
   td.date { white-space: nowrap; color: var(--muted); font-size: 12.5px;
             font-variant-numeric: tabular-nums; overflow: hidden; text-overflow: ellipsis; }
@@ -659,27 +668,38 @@ function trAlreadyIn(lang, s) {
   return !RE_NON_EN.test(s) && RE_EN_WORDS.test(s);
 }
 
-function trInner(i) {
-  const t = ART[i][1];
+// What a translation cell shows. `pending` means Google's translation is not
+// in hand yet, so the cell still needs to be requested when it scrolls into
+// view (even while an AI translation is displayed, so toggling back works).
+function trState(i) {
+  const t = ART[i][1], k = trLang + "|" + t;
   const same = '<span class="tr-same" title="Already in ' + TR_NAMES[trLang] + '">' + esc(t) + "</span>";
-  if (trAlreadyIn(trLang, t)) return same;
-  const v = trCache.get(trLang + "|" + t);
-  if (v === undefined) return null;
-  return v === 0 ? same : '<span lang="' + trLang + '">' + esc(v) + "</span>";
+  if (trAlreadyIn(trLang, t)) return { html: same, pending: false };
+  const g = trCache.get(k);
+  if (g === 0) return { html: same, pending: false };
+  const ai = AI_ON && aiCache.get(k);
+  if (ai && !aiShowGoogle.has(k)) {
+    return { html: '<span lang="' + trLang + '">' + esc(ai.t) + "</span>" + aiTagHtml(ai.m),
+             pending: g === undefined };
+  }
+  if (g === undefined) return { html: "<span class='tr-wait'>…</span>" + aiBtnHtml(k), pending: true };
+  return { html: '<span lang="' + trLang + '">' + esc(g) + "</span>" + aiBtnHtml(k), pending: false };
 }
 
 function trCellHtml(i) {
-  const inner = trInner(i);
-  return "<td class='tr' dir='auto' data-i='" + i + "'" +
-         (inner === null ? " data-p='1'><span class='tr-wait'>…</span>" : ">" + inner) + "</td>";
+  const s = trState(i);
+  return "<td class='tr' dir='auto' data-i='" + i + "'" + (s.pending ? " data-p='1'" : "") +
+         ">" + s.html + "</td>";
 }
 
+// Re-render one cell; returns true when it no longer needs Google. Only
+// touches the DOM when the content changed: rewriting a cell mid-click
+// swallows the click on its AI button.
 function trFill(td) {
-  const inner = trInner(Number(td.dataset.i));
-  if (inner === null) return false;
-  td.innerHTML = inner;
-  td.removeAttribute("data-p");
-  return true;
+  const s = trState(Number(td.dataset.i));
+  if (td._html !== s.html) { td.innerHTML = s.html; td._html = s.html; }
+  if (s.pending) td.setAttribute("data-p", "1"); else td.removeAttribute("data-p");
+  return !s.pending;
 }
 
 const trIO = new IntersectionObserver(entries => {
@@ -781,13 +801,92 @@ trSel.addEventListener("change", () => {
   trLang = trSel.value;
   try { localStorage.setItem("trLang", trLang); } catch (e) {}
   trReset();
+  for (const td of tbody.querySelectorAll("td.tr")) trFill(td);
+  trObservePending();
+});
+
+// ---- per-row AI translation (Gemini via our Cloudflare Worker) ----
+// On demand only: one click translates one headline. The Worker holds the
+// Gemini key; without a configured URL the buttons simply don't appear.
+const AI_URL = "__LLM_TRANSLATE_URL__";
+const AI_ON = /^https?:\/\//.test(AI_URL);
+const AI_KEEP = 1000;
+const aiCache = new Map();        // lang|title -> {t: translation, m: model}
+const aiShowGoogle = new Set();   // keys the viewer toggled back to Google
+const aiPending = new Set();
+const aiErr = new Map();          // lang|title -> message for the retry button
+try {
+  const saved = JSON.parse(localStorage.getItem("aiCache.v1") || "{}");
+  for (const k of Object.keys(saved)) aiCache.set(k, saved[k]);
+} catch (e) {}
+
+function aiBtnHtml(k) {
+  if (!AI_ON) return "";
+  if (aiPending.has(k)) return '<button class="ai-btn" disabled title="Translating with Gemini…">AI…</button>';
+  if (aiCache.has(k)) return '<button class="ai-btn" title="Show the AI (Gemini) translation">AI</button>';
+  const err = aiErr.get(k);
+  return err
+    ? '<button class="ai-btn err" title="' + esc(err) + '">AI ↻</button>'
+    : '<button class="ai-btn" title="Translate this headline with Gemini (AI)">AI</button>';
+}
+
+function aiTagHtml(model) {
+  return '<button class="ai-tag" title="AI translation' + (model ? " by " + esc(model) : "") +
+         ' · click to show Google\'s">AI</button>';
+}
+
+// Re-render every visible cell showing this headline (it can appear twice).
+function aiRefresh(k) {
   for (const td of tbody.querySelectorAll("td.tr")) {
-    if (!trFill(td)) {
-      td.setAttribute("data-p", "1");
-      td.innerHTML = "<span class='tr-wait'>…</span>";
-    }
+    if (trLang + "|" + ART[Number(td.dataset.i)][1] === k) trFill(td);
   }
   trObservePending();
+}
+
+function aiSave() {
+  try {
+    const keep = [...aiCache].slice(-AI_KEEP);
+    localStorage.setItem("aiCache.v1", JSON.stringify(Object.fromEntries(keep)));
+  } catch (e) {}
+}
+
+function aiTranslate(k, text, lang) {
+  aiPending.add(k);
+  aiErr.delete(k);
+  aiRefresh(k);
+  const opts = { method: "POST", headers: { "Content-Type": "text/plain;charset=UTF-8" },
+                 body: JSON.stringify({ text, target: lang }) };
+  if (typeof AbortSignal !== "undefined" && AbortSignal.timeout) opts.signal = AbortSignal.timeout(30000);
+  fetch(AI_URL, opts)
+    .then(r => r.json().catch(() => ({})).then(d => ({ ok: r.ok, d })))
+    .then(({ ok, d }) => {
+      if (ok && typeof d.translation === "string" && d.translation) {
+        aiCache.delete(k);
+        aiCache.set(k, { t: d.translation, m: d.model || "" });
+        aiShowGoogle.delete(k);
+        aiSave();
+      } else {
+        aiErr.set(k, d.error === "blocked" ? "Gemini declined to translate this headline · click to retry"
+                   : d.error === "busy" ? "Gemini is busy right now · click to retry"
+                   : d.error === "config" ? "AI translation is misconfigured (check the Worker's key and models)"
+                   : "AI translation failed · click to retry");
+      }
+    })
+    .catch(() => aiErr.set(k, "Couldn't reach the translation service · click to retry"))
+    .finally(() => { aiPending.delete(k); aiRefresh(k); });
+}
+
+tbody.addEventListener("click", e => {
+  const b = e.target.closest(".ai-btn, .ai-tag");
+  if (!b || b.disabled) return;
+  const text = ART[Number(b.closest("td.tr").dataset.i)][1];
+  const k = trLang + "|" + text;
+  if (aiCache.has(k)) {          // already translated: just switch views
+    if (aiShowGoogle.has(k)) aiShowGoogle.delete(k); else aiShowGoogle.add(k);
+    aiRefresh(k);
+  } else if (!aiPending.has(k)) {
+    aiTranslate(k, text, trLang);
+  }
 });
 
 updateSrcBtn();

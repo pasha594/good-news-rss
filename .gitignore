@@ -4,3 +4,6 @@ __pycache__/
 .DS_Store
 .gemini_key
 docs/
+worker/.dev.vars
+worker/.wrangler/
+node_modules/

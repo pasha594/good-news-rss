@@ -1,0 +1,18 @@
+name = "good-news-translate"
+main = "translate.js"
+compatibility_date = "2026-06-01"
+workers_dev = true
+
+[vars]
+ALLOWED_ORIGINS = "https://pasha594.github.io"
+# Tried in order; the next one is used when a model is overloaded or over
+# its free quota. gemini-3.5-flash-lite is left out on purpose: the
+# classifier depends on that model's free quota.
+MODELS = "gemini-3.8-flash,gemini-3.7-flash,gemini-3.6-flash,gemini-3.5-flash,gemini-3.1-flash-lite"
+
+# The Gemini key is a secret, set with: npx wrangler secret put GEMINI_API_KEY
+
+# Saved translations, so a headline is only sent to Gemini once.
+[[kv_namespaces]]
+binding = "TRANSLATIONS"
+id = "22f271c3cad048db8705762570a66ab1"
