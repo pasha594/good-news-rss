@@ -8812,3 +8812,20 @@
 {"id": "c77f962950c325ab406c821daab6deeacb02d901", "virtues": ["innovation_for_good"], "topics": [], "location": {"present": false, "city": "", "country": ""}, "entities": [{"name": "SpaceX", "type": "organization"}], "enriched_at": "2026-10-13T08:32:00Z"}
 {"id": "6e0fa400af82b6bdace82cf31682417c19150d41", "virtues": ["innovation_for_good"], "topics": [], "location": {"present": false, "city": "", "country": ""}, "entities": [], "enriched_at": "2026-10-13T08:32:00Z"}
 {"id": "4966096390ae8bd9b545b14773002c227f5398ef", "virtues": [], "topics": [], "location": {"present": false, "city": "", "country": ""}, "entities": [{"name": "Amos Collins", "type": "person"}, {"name": "Javen Donald", "type": "person"}], "enriched_at": "2026-10-13T08:32:00Z"}
+{"id": "4ffc3f517f6331d845c7e434aa484b558a39b08b", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-10-13T16:25:44Z"}
+{"id": "3d354e148a5c87225e48e50859232919bb0fe69f", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-10-13T16:25:44Z"}
+{"id": "92fecc38be8f0ec2da8fd33a8024de84d0539664", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-10-13T16:25:44Z"}
+{"id": "6ea86d90d246c66ca8dfbcb7212e7cee6830c59c", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-10-13T16:25:44Z"}
+{"id": "2cea72619e33158dd44f9c86dc76ead2c7c6885d", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-10-13T16:25:44Z"}
+{"id": "7f3ce693014cadd4d45d67e06684a3d50d7bd3ee", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-10-13T16:25:44Z"}
+{"id": "d943c6a5165ef395e5d29b8c54c98602d92ee4dd", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-10-13T16:25:44Z"}
+{"id": "a335da7fb58149177ea138e08f7f31fc4e3a4e15", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-10-13T16:25:44Z"}
+{"id": "7e3cc47b2d71aeaf9c4a363855d586ab45604136", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-10-13T16:25:44Z"}
+{"id": "6178d71108d8fba0c01a0b19858799f51d2a1f93", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-10-13T16:25:44Z"}
+{"id": "895af0a30dc12147b479e26888a3dc70ac64a6f5", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-10-13T16:25:44Z"}
+{"id": "daaa0b2b220411d09ab00b0b3a3c784f2ce0b75f", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-10-13T16:25:44Z"}
+{"id": "67ae1fdee0bdfb6c72c2ff2b1203d6a06f01b337", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-10-13T16:25:44Z"}
+{"spend": "fail", "at": "2026-10-13T16:25:52Z"}
+{"spend": "fail", "at": "2026-10-13T16:26:08Z"}
+{"spend": "fail", "at": "2026-10-13T16:26:32Z"}
+{"spend": "fail", "at": "2026-10-13T16:28:02Z"}
