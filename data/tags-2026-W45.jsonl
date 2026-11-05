@@ -23082,3 +23082,42 @@
 {"spend": "fail", "at": "2026-11-05T07:26:47Z"}
 {"spend": "fail", "at": "2026-11-05T07:27:03Z"}
 {"spend": "fail", "at": "2026-11-05T07:27:19Z"}
+{"id": "a49d7690cd4843db52e455eb923c4bfade299afe", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-05T15:49:44Z"}
+{"id": "82552be191087e729ecc066931986e2f936e1308", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-05T15:49:44Z"}
+{"id": "0191ba7e2c2cd31e4d77512c0ec145dbde60892c", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-05T15:49:44Z"}
+{"id": "b1e1952f94cb35fdc9c04eebc11f17cbe6d2b2be", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-05T15:49:44Z"}
+{"id": "c06a50a7337156bc15b060f64bb2c77b3af2e372", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-05T15:49:44Z"}
+{"id": "fc40f13b3044d005ebaf3bd68166d4b285c10c9e", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-05T15:49:44Z"}
+{"id": "73ea3360257421a0f3ae95f144521238f075b1f9", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-05T15:49:44Z"}
+{"id": "5cb1627933ea7629c927c06bdffde77332444bb9", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-05T15:49:44Z"}
+{"id": "1774d50e34b8aa2e51b69b692ba10ce91ad61710", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-05T15:49:44Z"}
+{"id": "6e0ce291c992196175d564a5b4e050028dd36443", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-05T15:49:44Z"}
+{"id": "152f860b0f5ddc625d282047d22c0c2c94e46cb2", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-05T15:49:44Z"}
+{"id": "e8d7b8b468ccf45191d693de7f6005289be315ec", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-05T15:49:44Z"}
+{"spend": "fail", "at": "2026-11-05T15:49:46Z"}
+{"spend": "fail", "at": "2026-11-05T15:50:02Z"}
+{"spend": "fail", "at": "2026-11-05T15:50:19Z"}
+{"spend": "fail", "at": "2026-11-05T15:50:36Z"}
+{"spend": "fail", "at": "2026-11-05T15:50:40Z"}
+{"id": "bbeaea1d82da1d84c3b26f0e8aa1084949b09115", "virtues": [], "topics": [], "location": {"present": true, "city": "", "country": "Indonesia"}, "entities": [], "enriched_at": "2026-11-05T15:51:10Z"}
+{"id": "c34b0afd8b843cdf2cfcf3389395727012341b90", "virtues": [], "topics": [], "location": {"present": false, "city": "", "country": ""}, "entities": [{"name": "Dirk Kuyt", "type": "person"}, {"name": "Fenerbahce", "type": "organization"}], "enriched_at": "2026-11-05T15:51:10Z"}
+{"id": "9e4c4ee17fa836e67285c259003c167a87888edf", "virtues": [], "topics": [], "location": {"present": false, "city": "", "country": ""}, "entities": [], "enriched_at": "2026-11-05T15:51:10Z"}
+{"id": "024fe03c2d9212e64d2a60c196f03359a68cfc65", "virtues": [], "topics": [], "location": {"present": false, "city": "", "country": ""}, "entities": [], "enriched_at": "2026-11-05T15:51:10Z"}
+{"id": "9b00bb9e12d6ccab67dff162bed72fb23674aa8a", "virtues": ["environmental_stewardship"], "topics": [], "location": {"present": true, "city": "San Francisco", "country": "United States"}, "entities": [{"name": "Bay Area Air District", "type": "organization"}], "enriched_at": "2026-11-05T15:51:10Z"}
+{"id": "bc26af8cfc4b27fbe6f7bd62390d1c9c750190b3", "virtues": ["environmental_stewardship"], "topics": [], "location": {"present": true, "city": "Washington", "country": "United States"}, "entities": [{"name": "Sierra Club", "type": "organization"}], "enriched_at": "2026-11-05T15:51:10Z"}
+{"id": "3cec704bc6540f3ac2883c36780d1c07573f6b24", "virtues": ["environmental_stewardship", "innovation_for_good"], "topics": [], "location": {"present": true, "city": "", "country": "China"}, "entities": [], "enriched_at": "2026-11-05T15:51:10Z"}
+{"id": "d7f44258519f05d8abd0ec663e2b8afad236ecd3", "virtues": ["reconciliation"], "topics": ["civil_rights"], "location": {"present": true, "city": "London", "country": "United Kingdom"}, "entities": [], "enriched_at": "2026-11-05T15:51:10Z"}
+{"id": "6d03dcbc8bbe2a8efd0213bdf55c341a77e6954c", "virtues": [], "topics": [], "location": {"present": false, "city": "", "country": "Canada"}, "entities": [{"name": "Alexander MacDonald", "type": "person"}, {"name": "Canadian Space Agency", "type": "organization"}], "enriched_at": "2026-11-05T15:51:10Z"}
+{"id": "8caa2983661c4b9486814dc08f0971410b79676b", "virtues": [], "topics": [], "location": {"present": false, "city": "", "country": ""}, "entities": [{"name": "Zamzam Al Hammadi", "type": "person"}], "enriched_at": "2026-11-05T15:51:10Z"}
+{"id": "8fddf4e2aa5df0363858216ec77128ec305d5048", "virtues": ["community_engagement", "environmental_stewardship"], "topics": [], "location": {"present": false, "city": "", "country": ""}, "entities": [], "enriched_at": "2026-11-05T15:51:10Z"}
+{"id": "90da0c6a294cdab607042a4d5022782a0b76e1e3", "virtues": [], "topics": [], "location": {"present": false, "city": "", "country": ""}, "entities": [{"name": "Nico Paz", "type": "person"}, {"name": "Jesus de Miguel", "type": "person"}, {"name": "Como", "type": "organization"}], "enriched_at": "2026-11-05T15:51:10Z"}
+{"id": "e204c9be4707df4f57e32e3a5e8f01807c7b224d", "virtues": ["diplomacy"], "topics": [], "location": {"present": false, "city": "", "country": ""}, "entities": [], "enriched_at": "2026-11-05T15:51:10Z"}
+{"id": "4c572e2c4c16325a69860c9c670c9adae762905a", "virtues": [], "topics": [], "location": {"present": false, "city": "", "country": ""}, "entities": [], "enriched_at": "2026-11-05T15:51:10Z"}
+{"id": "95df847b53a0bdc7330a4cb8722c24e697669464", "virtues": ["community_engagement", "environmental_stewardship"], "topics": [], "location": {"present": false, "city": "", "country": ""}, "entities": [{"name": "L'Oréal", "type": "organization"}, {"name": "Aster Pharmacy", "type": "organization"}], "enriched_at": "2026-11-05T15:51:10Z"}
+{"id": "d430033feec012325079d19d2064866552601ffc", "virtues": [], "topics": [], "location": {"present": true, "city": "Auckland", "country": "New Zealand"}, "entities": [{"name": "Virat Kohli", "type": "person"}], "enriched_at": "2026-11-05T15:51:10Z"}
+{"id": "4a0782040c1f472681690503ca794cb41af38c66", "virtues": [], "topics": [], "location": {"present": true, "city": "", "country": "United Arab Emirates"}, "entities": [], "enriched_at": "2026-11-05T15:51:10Z"}
+{"id": "5780c8ca5818faa2c60b98861d4dfe0bbc9c09c1", "virtues": [], "topics": ["philanthropy"], "location": {"present": true, "city": "Jerusalem", "country": "Israel"}, "entities": [{"name": "Hebrew University of Jerusalem", "type": "organization"}, {"name": "Wallace Weber", "type": "person"}], "enriched_at": "2026-11-05T15:51:10Z"}
+{"id": "27f11e9a8c34a809f653a5fcbf78e074d19b4878", "virtues": [], "topics": [], "location": {"present": true, "city": "", "country": "Israel"}, "entities": [], "enriched_at": "2026-11-05T15:51:10Z"}
+{"id": "44bb538f677f8b013a0cac779d7415cbf23e7b42", "virtues": [], "topics": [], "location": {"present": true, "city": "Tel Aviv", "country": "Israel"}, "entities": [{"name": "Noa Kirel", "type": "person"}, {"name": "Agustín Bernasconi", "type": "person"}], "enriched_at": "2026-11-05T15:51:10Z"}
+{"spend": "fail", "at": "2026-11-05T15:51:27Z"}
+{"spend": "fail", "at": "2026-11-05T15:51:43Z"}
