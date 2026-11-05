@@ -17,6 +17,15 @@ in both directions - self-pacing keeps daily spend at ~DAILY_QUOTA no
 matter how many runs actually fire. Within a run, gate goes first
 (newest articles), enrichment consumes what remains past its reserve.
 
+Model fallback: the free tier sheds load with HTTP 503 "high demand" on
+the primary model for hours at a time (Nov 2026: 18% of calls one day,
+100% the next), while other free models stay up. Each batch therefore
+walks MODELS in order; free quotas are per model, so every model is paced
+against its own daily cap. A model that fails twice in a row cools down
+and drops to the back of the chain for a few minutes; a 429 retires it
+for the run. Gate rows record the model that produced them in "model",
+enrichment rows in "enrich_model", and fail markers in "model".
+
 Rows append to the current week's tags shard; enrichment is a SECOND row
 for the same id and readers fold rows by id, so a crash or 429 between
 phases never loses work. Forward-only: v2 rows count as gated (never
@@ -39,15 +48,22 @@ import store
 
 ROOT = Path(__file__).resolve().parent
 
-MODEL = "gemini-3.5-flash-lite"
+MODEL = "gemini-3.5-flash-lite"   # primary; earlier rows all carry it
+# Fallbacks in order. gemini-3.1-flash-lite agreed with the primary on 93%
+# of good>=7 calls in a 100-article spot check (2026-11-05).
+MODELS = [m.strip() for m in os.environ.get(
+    "CLASSIFY_MODELS", f"{MODEL},gemini-3.1-flash-lite").split(",") if m.strip()]
 GATE_BATCH = 50
 ENRICH_BATCH = 20
 MAX_REQUESTS_PER_RUN = int(os.environ.get("CLASSIFY_MAX_REQUESTS", "100"))
-DAILY_QUOTA = int(os.environ.get("CLASSIFY_DAILY_QUOTA", "900"))
+DAILY_QUOTA = int(os.environ.get("CLASSIFY_DAILY_QUOTA", "900"))   # primary
+FALLBACK_DAILY_QUOTA = int(os.environ.get("CLASSIFY_FALLBACK_DAILY_QUOTA", "500"))
 SLEEP_BETWEEN = 4              # seconds; stays inside free RPM
-FAIL_SLEEP = 15                # back off harder after a failed call; the
-                               # free tier throws 503/timeout storms at peak
-MAX_FAIL_STREAK = 4
+FAIL_SLEEP = 15                # back off harder after a batch failed on
+                               # every model; 503/timeout storms at peak
+MAX_FAIL_STREAK = 4            # consecutive batches that failed everywhere
+MODEL_FAIL_STREAK = 2          # consecutive failures before a model cools
+MODEL_COOLDOWN_S = 180
 DEADLINE_S = int(os.environ.get("CLASSIFY_DEADLINE_S", "1200"))
 DESC_CLIP = 220
 MAX_AGE_DAYS = 8               # never classify articles too old to display
@@ -161,7 +177,7 @@ def article_line(n, row):
     return f"{n}. [{row['source']} | {domain}] {row['title']} | {desc}"
 
 
-def call_model(key, prompt_text):
+def call_model(key, prompt_text, model=MODEL):
     """One generateContent call. Returns parsed JSON list or 'rate_limited'."""
     body = {
         "contents": [{"parts": [{"text": prompt_text}]}],
@@ -169,12 +185,84 @@ def call_model(key, prompt_text):
                              "responseMimeType": "application/json"},
     }
     r = requests.post(
-        f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent",
+        f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
         params={"key": key}, json=body, timeout=75)
     if r.status_code == 429:
         return "rate_limited"
     r.raise_for_status()
     return json.loads(r.json()["candidates"][0]["content"]["parts"][0]["text"])
+
+
+def describe(exc):
+    """Short failure label. Never str(exc): requests embeds the URL, and the
+    URL carries the API key."""
+    resp = getattr(exc, "response", None)
+    if resp is not None:
+        return f"HTTP {resp.status_code}"
+    return type(exc).__name__
+
+
+class AllModelsFailed(Exception):
+    pass
+
+
+class ModelPool:
+    """Walks MODELS per batch, pacing each against its own daily cap."""
+
+    def __init__(self, models, remaining, budget, out):
+        self.models = models
+        self.remaining = remaining        # calls left today, per model
+        self.budget = budget              # calls left this run, all models
+        self.calls = 0
+        self.out = out
+        self.streak = {m: 0 for m in models}
+        self.cool_until = {m: 0.0 for m in models}
+        self.retired = set()              # 429: quota gone for this run
+        self.used = {}
+
+    def usable(self):
+        return [m for m in self.models
+                if m not in self.retired and self.remaining.get(m, 0) > 0]
+
+    def call(self, key, prompt, phase, limit=None):
+        """Returns (model, parsed result). Warm models first, cooling ones
+        only if every warm one fails. Attempts stop once the run has made
+        `limit` calls (the gate phase's share). Raises AllModelsFailed."""
+        cap = self.budget if limit is None else min(self.budget, limit)
+        now = time.monotonic()
+        usable = self.usable()
+        order = ([m for m in usable if self.cool_until[m] <= now]
+                 + [m for m in usable if self.cool_until[m] > now])
+        errors = []
+        for m in order:
+            if self.calls >= cap:
+                break
+            self.calls += 1
+            self.remaining[m] -= 1
+            try:
+                result = call_model(key, prompt, m)
+            except Exception as exc:
+                # A failed attempt may still consume server-side quota, and
+                # writes no batch rows the pacer could count - record it as
+                # an id-less marker row (invisible to every fold/reader).
+                self.out.write(json.dumps(
+                    {"spend": "fail", "model": m, "at": now_iso()},
+                    ensure_ascii=False) + "\n")
+                errors.append(f"{m}: {describe(exc)}")
+                self.streak[m] += 1
+                if self.streak[m] >= MODEL_FAIL_STREAK:
+                    self.streak[m] = 0
+                    self.cool_until[m] = time.monotonic() + MODEL_COOLDOWN_S
+                continue
+            if result == "rate_limited":
+                errors.append(f"{m}: HTTP 429")
+                self.retired.add(m)
+                continue
+            self.streak[m] = 0
+            self.cool_until[m] = 0.0
+            self.used[(phase, m)] = self.used.get((phase, m), 0) + 1
+            return m, result
+        raise AllModelsFailed("; ".join(errors) or "no model left")
 
 
 def now_iso():
@@ -193,11 +281,9 @@ def quota_day_start():
     return datetime(now.year, now.month, now.day, tzinfo=tz).timestamp()
 
 
-def gate_batch(key, batch):
+def gate_batch(pool, key, batch, limit):
     lines = [article_line(n, row) for n, (_aid, row) in enumerate(batch, 1)]
-    results = call_model(key, GATE_PROMPT + "\n".join(lines))
-    if results == "rate_limited":
-        return "rate_limited"
+    model, results = pool.call(key, GATE_PROMPT + "\n".join(lines), "gate", limit)
     out, at = [], now_iso()
     for item in results:
         try:
@@ -209,7 +295,7 @@ def gate_batch(key, batch):
                    "on_mission": bool(item.get("on_mission", False)),
                    "good": good,
                    "cats": [c for c in item.get("cats", []) if c in CATS][:3],
-                   "model": MODEL, "at": at}
+                   "model": model, "at": at}
         except (KeyError, ValueError, TypeError, IndexError, AttributeError):
             continue
         if 0 <= idx < len(batch):
@@ -217,11 +303,9 @@ def gate_batch(key, batch):
     return out
 
 
-def enrich_batch(key, batch):
+def enrich_batch(pool, key, batch):
     lines = [article_line(n, row) for n, (_aid, row) in enumerate(batch, 1)]
-    results = call_model(key, ENRICH_PROMPT + "\n".join(lines))
-    if results == "rate_limited":
-        return "rate_limited"
+    model, results = pool.call(key, ENRICH_PROMPT + "\n".join(lines), "enrich")
     out, at = [], now_iso()
     for item in results:
         try:
@@ -240,6 +324,7 @@ def enrich_batch(key, batch):
                                 "city": str(loc.get("city", ""))[:80],
                                 "country": str(loc.get("country", ""))[:80]},
                    "entities": ents,
+                   "enrich_model": model,
                    "enriched_at": at}
         except (KeyError, ValueError, TypeError, IndexError, AttributeError):
             continue
@@ -268,21 +353,28 @@ def main():
     # estimates today's quota spend - no extra state file needed. Skip rows
     # (model="rule") cost nothing and are excluded; failed calls write no
     # rows, which undercounts - DAILY_QUOTA sits below the real quota to
-    # absorb that.
+    # absorb that. Spend is tracked per model (free quotas are per model);
+    # rows from before the fallback chain carry no enrich_model / fail
+    # model and count against the primary.
     day_start = quota_day_start()
-    spent = set()
+    spent = {m: set() for m in MODELS}
     recent_tag_shards = [p for p in store.shards("tags")
                          if store.week_start_epoch(store.shard_key(p, "tags"))
                          + 7 * 86400 >= floor]
     for t in store.read_jsonl(recent_tag_shards):
         if "id" in t:
             folded.setdefault(t["id"], {}).update(t)
-        if t.get("model") == MODEL and store.parse_iso(t.get("at")) >= day_start:
-            spent.add(("gate", t["at"]))
+        if t.get("spend") == "fail":
+            m = t.get("model", MODEL)
+            if m in spent and store.parse_iso(t.get("at")) >= day_start:
+                spent[m].add(("fail", t["at"]))
+            continue
+        if t.get("model") in spent and store.parse_iso(t.get("at")) >= day_start:
+            spent[t["model"]].add(("gate", t["at"]))
         if store.parse_iso(t.get("enriched_at")) >= day_start:
-            spent.add(("enrich", t["enriched_at"]))
-        if t.get("spend") == "fail" and store.parse_iso(t.get("at")) >= day_start:
-            spent.add(("fail", t["at"]))
+            m = t.get("enrich_model", MODEL)
+            if m in spent:
+                spent[m].add(("enrich", t["enriched_at"]))
     recent_shards = [p for p in store.shards("articles")
                      if store.week_start_epoch(store.shard_key(p, "articles"))
                      + 7 * 86400 >= floor]
@@ -305,13 +397,15 @@ def main():
                       if survivor(f) and "virtues" not in f and aid in articles]
     pending_enrich.sort(key=lambda p: p[1].get("first_seen", ""), reverse=True)
 
-    budget = min(MAX_REQUESTS_PER_RUN, max(0, DAILY_QUOTA - len(spent)))
+    caps = {m: DAILY_QUOTA if m == MODEL else FALLBACK_DAILY_QUOTA
+            for m in MODELS}
+    remaining = {m: max(0, caps[m] - len(spent[m])) for m in MODELS}
+    spend_note = ", ".join(f"{m} ~{len(spent[m])}/{caps[m]}" for m in MODELS)
+    budget = min(MAX_REQUESTS_PER_RUN, sum(remaining.values()))
     if budget == 0:
-        print(f"classify: ~{len(spent)} calls already made this quota day "
-              f"(cap {DAILY_QUOTA}); skipping run")
+        print(f"classify: daily caps reached ({spend_note}); skipping run")
         return
-    print(f"classify: budget {budget} calls "
-          f"(~{len(spent)}/{DAILY_QUOTA} spent this quota day)")
+    print(f"classify: budget {budget} calls (spent this quota day: {spend_note})")
     started = time.monotonic()
     # Reserve part of the budget for enrichment so a large gate backlog can
     # never starve it; unused reservation is returned to the gate phase.
@@ -323,8 +417,10 @@ def main():
     # (seen live: 52 gate calls, enriched +0). ~24s covers a call + sleep.
     gate_deadline = DEADLINE_S - min(DEADLINE_S // 3, 24 * enrich_reserve)
     gated = enriched = skipped = failures = 0
+    gate_done = enrich_done = 0    # articles in batches that came back
     wk_path = store.shard_path("tags", store.week_key())
     with wk_path.open("a", encoding="utf-8") as out:
+        pool = ModelPool(MODELS, remaining, budget, out)
         # Zero-cost code rejections first.
         for aid, row in list(pending_gate):
             if row["source"] in STATE_OUTLETS:
@@ -338,35 +434,33 @@ def main():
 
         # Phase GATE, newest first.
         gi = 0
-        while (gate_budget > 0 and gi * GATE_BATCH < len(pending_gate)
+        while (pool.calls < gate_budget and pool.usable()
+               and gi * GATE_BATCH < len(pending_gate)
                and time.monotonic() - started < gate_deadline):
             batch = pending_gate[gi * GATE_BATCH:(gi + 1) * GATE_BATCH]
             gi += 1
-            budget -= 1
-            gate_budget -= 1
             try:
-                result = gate_batch(key, batch)
-            except Exception as exc:
+                result = gate_batch(pool, key, batch, gate_budget)
+            except AllModelsFailed as exc:
                 failures += 1
-                # A failed attempt may still consume server-side quota, and
-                # writes no batch rows the pacer could count - record it as
-                # an id-less marker row (invisible to every fold/reader).
-                out.write(json.dumps({"spend": "fail", "at": now_iso()},
-                                     ensure_ascii=False) + "\n")
-                print(f"classify: gate batch failed ({type(exc).__name__})")
+                print(f"classify: gate batch failed on every model ({exc})")
                 if failures >= MAX_FAIL_STREAK:
                     break
                 time.sleep(FAIL_SLEEP)
                 continue
-            if result == "rate_limited":
-                print("classify: 429 rate limited; stopping")
-                budget = 0
-                break
+            except Exception as exc:     # parse error etc.; the call succeeded
+                failures += 1
+                print(f"classify: gate batch unusable ({describe(exc)})")
+                if failures >= MAX_FAIL_STREAK:
+                    break
+                time.sleep(FAIL_SLEEP)
+                continue
             failures = 0
             by_id = {r["id"]: r for r in result}
             for r in result:
                 out.write(json.dumps(r, ensure_ascii=False) + "\n")
             gated += len(result)
+            gate_done += len(batch)
             for aid, row in batch:  # survivors join this run's enrich queue
                 g = by_id.get(aid)
                 if g and g["impactful"] and g["uplifting"]:
@@ -376,36 +470,47 @@ def main():
         # Phase ENRICH with whatever budget remains - its own failure streak.
         failures = 0
         ei = 0
-        while (budget > 0 and ei * ENRICH_BATCH < len(pending_enrich)
+        while (pool.calls < budget and pool.usable()
+               and ei * ENRICH_BATCH < len(pending_enrich)
                and time.monotonic() - started < DEADLINE_S):
             batch = pending_enrich[ei * ENRICH_BATCH:(ei + 1) * ENRICH_BATCH]
             ei += 1
-            budget -= 1
             try:
-                result = enrich_batch(key, batch)
-            except Exception as exc:
+                result = enrich_batch(pool, key, batch)
+            except AllModelsFailed as exc:
                 failures += 1
-                out.write(json.dumps({"spend": "fail", "at": now_iso()},
-                                     ensure_ascii=False) + "\n")
-                print(f"classify: enrich batch failed ({type(exc).__name__})")
+                print(f"classify: enrich batch failed on every model ({exc})")
                 if failures >= MAX_FAIL_STREAK:
                     break
                 time.sleep(FAIL_SLEEP)
                 continue
-            if result == "rate_limited":
-                print("classify: 429 rate limited; stopping")
-                break
+            except Exception as exc:
+                failures += 1
+                print(f"classify: enrich batch unusable ({describe(exc)})")
+                if failures >= MAX_FAIL_STREAK:
+                    break
+                time.sleep(FAIL_SLEEP)
+                continue
             failures = 0
             for r in result:
                 out.write(json.dumps(r, ensure_ascii=False) + "\n")
             enriched += len(result)
+            enrich_done += len(batch)
             time.sleep(SLEEP_BETWEEN)
 
-    left_gate = max(0, len(pending_gate) - gi * GATE_BATCH)
-    left_enrich = max(0, len(pending_enrich) - ei * ENRICH_BATCH)
+    # Failed batches stay pending (retried next run), so count only the
+    # batches that came back.
+    left_gate = max(0, len(pending_gate) - gate_done)
+    left_enrich = max(0, len(pending_enrich) - enrich_done)
     print(f"classify: gated +{gated} (skipped {skipped} state-outlet), "
           f"enriched +{enriched}; pending gate {left_gate}, "
           f"pending enrich {left_enrich}")
+    if pool.used or pool.calls:
+        used = ", ".join(f"{p} {m} x{n}" for (p, m), n in sorted(pool.used.items()))
+        print(f"classify: {pool.calls} calls made; succeeded: {used or 'none'}")
+    if any(m != MODEL for (_p, m) in pool.used):
+        print("::warning::classify fell back from "
+              f"{MODEL} this run ({used})")
     if left_gate > 5000:
         print(f"::warning::classify gate backlog at {left_gate} - budget may "
               "be saturating; articles age out of classification at "
