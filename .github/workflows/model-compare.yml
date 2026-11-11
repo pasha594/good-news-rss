@@ -1,8 +1,8 @@
 name: Model compare (eval)
 
 # One-off evaluation: classify a fixed sample of RSS articles with Claude Haiku 5.5
-# (hard $1 cap) and Gemini, same prompt; then the whole month with Haiku, adding
-# entity/location fields ($12 cap, cumulative). Runs on push to this branch or by hand;
+# (hard $1 cap) and Gemini, same prompt; then the whole month with Haiku, adding the
+# deciding filter and entity/location fields ($12 cap, cumulative). Runs on push to this branch or by hand;
 # each job retries up to 3 times and commits its progress after every attempt. If a
 # job still fails (or a batch outlasts the step timeout), the run relaunches itself to
 # resume, up to 8 times.
@@ -61,7 +61,7 @@ jobs:
             if [ "$rc" = 0 ] || [ "$rc" = 3 ]; then
               bash eval/model_compare/save.sh "haiku sample"
               python eval/model_compare.py haiku --ids eval/model_compare/month_ids.txt \
-                --out-name haiku_month --entities --budget-usd 12
+                --out-name haiku_month --extras --budget-usd 12
               rc=$?
             fi
             set -e

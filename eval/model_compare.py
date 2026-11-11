@@ -21,7 +21,7 @@ Usage:
   python eval/model_compare.py dry-run [--prompt-file F] [--data DIR] [--ids FILE]
   python eval/model_compare.py haiku --budget-usd 1.0
   python eval/model_compare.py haiku --ids eval/model_compare/month_ids.txt \
-      --out-name haiku_month --entities --budget-usd 12    # needs EVAL_ENTITY_PROMPT
+      --out-name haiku_month --extras --budget-usd 12    # needs EVAL_ENTITY_PROMPT
   python eval/model_compare.py gemini [--max-requests N]
 """
 
@@ -57,18 +57,20 @@ GEMINI = os.environ.get("EVAL_GEMINI_MODEL", "gemini-3.5-flash-lite")   # the li
 GEMINI_PAUSE_S = 4.5
 
 FIELDS = ("selected", "impactful", "uplifting", "score", "reason")
-# --entities adds these (their instructions come from EVAL_ENTITY_PROMPT).
-ENTITY_FIELDS = ("entity_type", "person", "org", "location", "region")
+# --extras adds these (their instructions come from EVAL_ENTITY_PROMPT).
+EXTRA_FIELDS = ("deciding_filter", "entity_type", "person", "org", "location", "region")
+DECIDING = ["pass", "conflict", "headline", "tone", "scope", "source"]
 ENTITY_TYPES = ["PER", "ORG", "NONE"]
 REGIONS = ["NORTH_AMERICA", "LATAM", "EUROPE", "MIDDLE_EAST", "AFRICA", "ASIA", "OTHER"]
 
 
-def make_schema(entities=False):
+def make_schema(extras=False):
     props = {"id": {"type": "string"}, "selected": {"type": "boolean"},
              "impactful": {"type": "boolean"}, "uplifting": {"type": "boolean"},
              "score": {"type": "integer"}, "reason": {"type": "string"}}
-    if entities:
-        props.update({"entity_type": {"type": "string", "enum": ENTITY_TYPES},
+    if extras:
+        props.update({"deciding_filter": {"type": "string", "enum": DECIDING},
+                      "entity_type": {"type": "string", "enum": ENTITY_TYPES},
                       "person": {"type": "string"}, "org": {"type": "string"},
                       "location": {"type": "string"},
                       "region": {"type": "string", "enum": REGIONS}})
@@ -133,7 +135,7 @@ def user_message(chunk):
         article_block(n, aid, r) for n, (aid, r) in enumerate(chunk, 1))
 
 
-def parse(text, chunk_ids, entities=False):
+def parse(text, chunk_ids, extras=False):
     """{id: row} for the well-formed rows the model returned for this chunk."""
     try:
         data = json.loads(text)
@@ -153,9 +155,10 @@ def parse(text, chunk_ids, entities=False):
         got = {"selected": bool(row["selected"]), "impactful": bool(row["impactful"]),
                "uplifting": bool(row["uplifting"]), "score": score,
                "reason": str(row["reason"])[:300]}
-        if entities:
-            if not all(k in row for k in ENTITY_FIELDS):
+        if extras:
+            if not all(k in row for k in EXTRA_FIELDS):
                 continue
+            got["deciding_filter"] = row["deciding_filter"] if row["deciding_filter"] in DECIDING else "scope"
             got.update({k: str(row[k] or "").strip()[:200] for k in ("person", "org", "location")})
             got["entity_type"] = row["entity_type"] if row["entity_type"] in ENTITY_TYPES else "NONE"
             got["region"] = row["region"] if row["region"] in REGIONS else "OTHER"
@@ -201,7 +204,7 @@ def todo(items, path):
 
 # ---------------------------------------------------------------- Claude Haiku (batch)
 
-def run_haiku(items, prompt, budget, name="haiku", entities=False):
+def run_haiku(items, prompt, budget, name="haiku", extras=False):
     """Results go to out/<name>.jsonl; the spend ledger in haiku_state.json is shared by
     every run, so --budget-usd caps them together."""
     import anthropic
@@ -225,7 +228,7 @@ def run_haiku(items, prompt, budget, name="haiku", entities=False):
             print(f"batch {b['n']}: processing {c.processing}, done {c.succeeded + c.errored}")
             time.sleep(30)
         b_res = OUT / f"{b.get('res', 'haiku')}.jsonl"   # each batch writes to its own run's file
-        b_ent = b.get("entities", False)
+        b_ext = b.get("extras", False)
         _, tries = read_results(b_res)
         invalid, ok = 0, 0
         for r in client.messages.batches.results(b["id"]):
@@ -244,7 +247,7 @@ def run_haiku(items, prompt, budget, name="haiku", entities=False):
                     got, why = {}, "refusal"
                 else:
                     text = next((blk.text for blk in msg.content if blk.type == "text"), "")
-                    got, why = parse(text, set(chunk_ids), b_ent), f"unparsed ({msg.stop_reason})"
+                    got, why = parse(text, set(chunk_ids), b_ext), f"unparsed ({msg.stop_reason})"
                 ok += record(b_res, chunk_ids, got, HAIKU, tries, why)
             else:
                 err = str(getattr(r.result, "error", ""))
@@ -257,7 +260,7 @@ def run_haiku(items, prompt, budget, name="haiku", entities=False):
 
     def submit(chunk):
         cfg = HAIKU_CONFIGS[state["config"]]
-        output_config = {"format": {"type": "json_schema", "schema": make_schema(entities)}}
+        output_config = {"format": {"type": "json_schema", "schema": make_schema(extras)}}
         if "effort" in cfg:
             output_config["effort"] = cfg["effort"]
         n_batch = len(state["batches"])
@@ -274,7 +277,7 @@ def run_haiku(items, prompt, budget, name="haiku", entities=False):
             }})
         batch = client.messages.batches.create(requests=reqs)
         b = {"n": n_batch, "id": batch.id, "status": "submitted", "res": name,
-             "entities": entities, "requests": mapping}
+             "extras": extras, "requests": mapping}
         state["batches"].append(b)
         save()
         print(f"batch {n_batch}: submitted {len(reqs)} requests ({len(chunk)} articles)")
@@ -384,8 +387,8 @@ def main():
     ap.add_argument("--prompt-file")
     ap.add_argument("--budget-usd", type=float, default=1.0)
     ap.add_argument("--out-name", default="haiku", help="results file stem for the haiku run")
-    ap.add_argument("--entities", action="store_true",
-                    help="also extract entity type, person, org, location, region")
+    ap.add_argument("--extras", action="store_true",
+                    help="also return deciding_filter, entity type, person, org, location, region")
     ap.add_argument("--entity-prompt-file")
     ap.add_argument("--max-requests", type=int, default=2000)
     args = ap.parse_args()
@@ -395,7 +398,7 @@ def main():
     if not items:
         return 2
     prompt = load_prompt(args.prompt_file)
-    if args.entities:
+    if args.extras:
         extra = (Path(args.entity_prompt_file).read_text(encoding="utf-8") if args.entity_prompt_file
                  else os.environ.get("EVAL_ENTITY_PROMPT", ""))
         if len(extra) < 200:
@@ -412,10 +415,10 @@ def main():
               f"(~{sys_tok / 1e6:.1f}M of it system prompt), ~{out_tok / 1e6:.2f}M output")
         print(f"haiku batch cost estimate without caching: ${est:.2f}")
         print("first article block:\n" + article_block(1, *items[0]))
-        json.dumps(make_schema(args.entities)), json.dumps(gemini_schema(make_schema(args.entities)))
+        json.dumps(make_schema(args.extras)), json.dumps(gemini_schema(make_schema(args.extras)))
         return 0
     if args.mode == "haiku":
-        return run_haiku(items, prompt, args.budget_usd, args.out_name, args.entities)
+        return run_haiku(items, prompt, args.budget_usd, args.out_name, args.extras)
     key = os.environ.get("GEMINI_API_KEY", "")
     if not key:
         sys.exit("GEMINI_API_KEY missing")
