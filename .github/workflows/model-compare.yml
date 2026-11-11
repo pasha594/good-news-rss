@@ -1,0 +1,86 @@
+name: Model compare (eval)
+
+# One-off evaluation: classify a fixed sample of RSS articles with Claude Haiku 5.5
+# (hard $1 cap) and Gemini, same prompt. Runs on push to this branch or by hand;
+# each job retries up to 3 times and commits its progress after every attempt.
+on:
+  push:
+    branches: [eval/model-compare]
+    paths:
+      - eval/model_compare.py
+      - eval/model_compare/sample_ids.txt
+      - eval/model_compare/save.sh
+      - .github/workflows/model-compare.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: model-compare
+  cancel-in-progress: false
+
+jobs:
+  haiku:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet anthropic
+      - name: Classify with Claude Haiku 5.5 (up to 3 attempts)
+        timeout-minutes: 330
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          EVAL_SYSTEM_PROMPT: ${{ secrets.EVAL_SYSTEM_PROMPT }}
+        run: |
+          for attempt in 1 2 3; do
+            set +e
+            python eval/model_compare.py haiku --budget-usd 1.0
+            rc=$?
+            set -e
+            bash eval/model_compare/save.sh "haiku attempt $attempt"
+            if [ "$rc" = 0 ] || [ "$rc" = 3 ]; then exit 0; fi
+            echo "Attempt $attempt failed (exit $rc); retrying in 5 minutes."
+            sleep 300
+          done
+          exit 1
+      - name: Save partial results
+        if: always()
+        run: bash eval/model_compare/save.sh "haiku final"
+
+  gemini:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet requests
+      - name: Classify with Gemini (up to 3 attempts)
+        timeout-minutes: 330
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_KEY_SECOND }}
+          EVAL_SYSTEM_PROMPT: ${{ secrets.EVAL_SYSTEM_PROMPT }}
+        run: |
+          for attempt in 1 2 3; do
+            set +e
+            python eval/model_compare.py gemini
+            rc=$?
+            set -e
+            bash eval/model_compare/save.sh "gemini attempt $attempt"
+            if [ "$rc" = 0 ] || [ "$rc" = 3 ]; then exit 0; fi
+            echo "Attempt $attempt failed (exit $rc); retrying in 5 minutes."
+            sleep 300
+          done
+          exit 1
+      - name: Save partial results
+        if: always()
+        run: bash eval/model_compare/save.sh "gemini final"
