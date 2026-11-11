@@ -1,7 +1,8 @@
 name: Model compare (eval)
 
 # One-off evaluation: classify a fixed sample of RSS articles with Claude Haiku 5.5
-# (hard $1 cap) and Gemini, same prompt. Runs on push to this branch or by hand;
+# (hard $1 cap) and Gemini, same prompt; then the whole month with Haiku ($12 cap,
+# cumulative). Runs on push to this branch or by hand;
 # each job retries up to 3 times and commits its progress after every attempt.
 on:
   push:
@@ -9,6 +10,7 @@ on:
     paths:
       - eval/model_compare.py
       - eval/model_compare/sample_ids.txt
+      - eval/model_compare/month_ids.txt
       - eval/model_compare/save.sh
       - .github/workflows/model-compare.yml
   workflow_dispatch:
@@ -28,6 +30,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
+      - name: Sync to branch tip
+        # A queued run starts from its trigger commit; results pushed since then
+        # (including the Haiku spend ledger) must be in the checkout.
+        run: |
+          git fetch --depth=1 origin "$GITHUB_REF_NAME"
+          git reset --hard FETCH_HEAD
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -42,6 +50,11 @@ jobs:
             set +e
             python eval/model_compare.py haiku --budget-usd 1.0
             rc=$?
+            if [ "$rc" = 0 ] || [ "$rc" = 3 ]; then
+              bash eval/model_compare/save.sh "haiku sample"
+              python eval/model_compare.py haiku --ids eval/model_compare/month_ids.txt --budget-usd 12
+              rc=$?
+            fi
             set -e
             bash eval/model_compare/save.sh "haiku attempt $attempt"
             if [ "$rc" = 0 ] || [ "$rc" = 3 ]; then exit 0; fi
@@ -60,6 +73,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
+      - name: Sync to branch tip
+        # A queued run starts from its trigger commit; results pushed since then
+        # (including the Haiku spend ledger) must be in the checkout.
+        run: |
+          git fetch --depth=1 origin "$GITHUB_REF_NAME"
+          git reset --hard FETCH_HEAD
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"

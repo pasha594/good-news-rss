@@ -14,9 +14,13 @@ out/haiku_state.json, so a retry collects a pending batch instead of paying twic
 
 Exit codes: 0 done, 3 stopped on purpose (budget or daily quota), other = retry.
 
+The --budget-usd cap is cumulative across runs (the ledger is in haiku_state.json),
+so a whole-month run after the sample run reuses the sample's results and spend.
+
 Usage:
-  python eval/model_compare.py dry-run [--prompt-file F] [--data DIR]
+  python eval/model_compare.py dry-run [--prompt-file F] [--data DIR] [--ids FILE]
   python eval/model_compare.py haiku --budget-usd 1.0
+  python eval/model_compare.py haiku --ids eval/model_compare/month_ids.txt --budget-usd 12
   python eval/model_compare.py gemini [--max-requests N]
 """
 
@@ -41,6 +45,7 @@ DESC_CHARS = 400
 MAX_TRIES = 2             # per article, before it is recorded as an error
 
 HAIKU = "claude-haiku-5-5"
+MAX_BATCH_REQUESTS = 2000  # ~35 KB per request keeps each batch far under the API's 256 MB cap
 # Batch API bills 50% of list: $0.10 / $0.50 per M tokens (prompts under 100K).
 PRICE = {"input": 0.05e-6, "output": 0.25e-6, "cache_write": 0.0625e-6, "cache_read": 0.005e-6}
 HAIKU_CONFIGS = [         # tried in order; the second only if the first is rejected
@@ -76,8 +81,8 @@ def gemini_schema(s):
 
 # ---------------------------------------------------------------- inputs
 
-def load_sample(data_dir):
-    ids = [ln.strip() for ln in open(HERE / "sample_ids.txt") if ln.strip()]
+def load_sample(data_dir, ids_file):
+    ids = [ln.strip() for ln in open(ids_file) if ln.strip()]
     want, found = set(ids), {}
     for p in sorted(glob.glob(os.path.join(data_dir, "articles-*.jsonl"))):
         for r in store.read_jsonl([Path(p)]):
@@ -223,6 +228,30 @@ def run_haiku(items, prompt, budget):
         print(f"batch {b['n']}: {ok} articles classified; spent so far ${state['spent_usd']:.4f}")
         return invalid == len(b["requests"])
 
+    def submit(chunk):
+        cfg = HAIKU_CONFIGS[state["config"]]
+        output_config = {"format": {"type": "json_schema", "schema": SCHEMA}}
+        if "effort" in cfg:
+            output_config["effort"] = cfg["effort"]
+        n_batch = len(state["batches"])
+        reqs, mapping = [], {}
+        for k in range(0, len(chunk), PER_REQUEST):
+            part = chunk[k:k + PER_REQUEST]
+            cid = f"b{n_batch}-r{k // PER_REQUEST}"
+            mapping[cid] = [aid for aid, _ in part]
+            reqs.append({"custom_id": cid, "params": {
+                "model": HAIKU, "max_tokens": 8000, "thinking": cfg["thinking"],
+                "system": [{"type": "text", "text": prompt, "cache_control": {"type": "ephemeral"}}],
+                "messages": [{"role": "user", "content": user_message(part)}],
+                "output_config": output_config,
+            }})
+        batch = client.messages.batches.create(requests=reqs)
+        b = {"n": n_batch, "id": batch.id, "status": "submitted", "requests": mapping}
+        state["batches"].append(b)
+        save()
+        print(f"batch {n_batch}: submitted {len(reqs)} requests ({len(chunk)} articles)")
+        return b
+
     for b in state["batches"]:                    # a retry first finishes what was submitted
         if b["status"] != "collected":
             collect(b)
@@ -243,35 +272,18 @@ def run_haiku(items, prompt, budget):
                   f"{len(pending)} articles left unclassified")
             return 3
         chunk = pending[:n]
-        cfg = HAIKU_CONFIGS[state["config"]]
-        output_config = {"format": {"type": "json_schema", "schema": SCHEMA}}
-        if "effort" in cfg:
-            output_config["effort"] = cfg["effort"]
-        reqs, mapping = [], {}
-        for k in range(0, len(chunk), PER_REQUEST):
-            part = chunk[k:k + PER_REQUEST]
-            cid = f"b{len(state['batches'])}-r{k // PER_REQUEST}"
-            mapping[cid] = [aid for aid, _ in part]
-            reqs.append({"custom_id": cid, "params": {
-                "model": HAIKU, "max_tokens": 8000, "thinking": cfg["thinking"],
-                "system": [{"type": "text", "text": prompt, "cache_control": {"type": "ephemeral"}}],
-                "messages": [{"role": "user", "content": user_message(part)}],
-                "output_config": output_config,
-            }})
-        batch = client.messages.batches.create(requests=reqs)
-        b = {"n": len(state["batches"]), "id": batch.id, "status": "submitted", "requests": mapping}
-        state["batches"].append(b)
-        save()
-        print(f"batch {b['n']}: submitted {len(reqs)} requests ({len(chunk)} articles)")
-        if collect(b):                            # every request rejected: try the next config
+        step = MAX_BATCH_REQUESTS * PER_REQUEST
+        new = [submit(chunk[k:k + step]) for k in range(0, len(chunk), step)]
+        rejected = [collect(b) for b in new]
+        if all(rejected) and not state["articles_billed"]:   # every request rejected: next config
             if state["config"] + 1 >= len(HAIKU_CONFIGS):
                 print("haiku: every request was rejected as invalid; stopping")
                 return 2
             state["config"] += 1
             save()
             # Rejected rows count as a try; clear them so the articles are re-asked.
-            keep = [ln for ln in res.read_text().splitlines()
-                    if json.loads(ln)["id"] not in {i for ids in mapping.values() for i in ids}]
+            asked = {i for b in new for ids in b["requests"].values() for i in ids}
+            keep = [ln for ln in res.read_text().splitlines() if json.loads(ln)["id"] not in asked]
             res.write_text("".join(ln + "\n" for ln in keep))
             print(f"haiku: switching to config {state['config']}")
 
@@ -339,12 +351,14 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("mode", choices=["dry-run", "haiku", "gemini"])
     ap.add_argument("--data", default=str(ROOT / "data"))
+    ap.add_argument("--ids", default=str(HERE / "sample_ids.txt"),
+                    help="article ids to classify (month_ids.txt for the whole window)")
     ap.add_argument("--prompt-file")
     ap.add_argument("--budget-usd", type=float, default=1.0)
     ap.add_argument("--max-requests", type=int, default=2000)
     args = ap.parse_args()
 
-    items, missing = load_sample(args.data)
+    items, missing = load_sample(args.data, args.ids)
     print(f"sample: {len(items)} articles found, {len(missing)} missing")
     if not items:
         return 2
