@@ -2,7 +2,9 @@ name: Model compare (eval)
 
 # One-off evaluation: classify a fixed sample of RSS articles with Claude Haiku 5.5
 # (hard $1 cap) and Gemini, same prompt; then the whole month with Haiku, adding the
-# deciding filter and entity/location fields ($12 cap, cumulative). Runs on push to this branch or by hand;
+# deciding filter, entity/location fields and MOTLA tags ($12 cap, cumulative). Runs
+# on push to this branch or by hand. Each job has its own queue, so a new Haiku job
+# never waits on Gemini; a new Gemini job waits for any older one still running.
 # each job retries up to 3 times and commits its progress after every attempt. If a
 # job still fails (or a batch outlasts the step timeout), the run relaunches itself to
 # resume, up to 8 times.
@@ -25,14 +27,13 @@ permissions:
   contents: write
   actions: write      # lets the relaunch job start the next run
 
-concurrency:
-  group: model-compare
-  cancel-in-progress: false
-
 jobs:
   haiku:
     runs-on: ubuntu-latest
     timeout-minutes: 350
+    concurrency:
+      group: model-compare-haiku
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
         with:
@@ -78,10 +79,29 @@ jobs:
   gemini:
     runs-on: ubuntu-latest
     timeout-minutes: 350
+    concurrency:
+      group: model-compare-gemini
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
+      - name: Wait for an older Gemini job to finish
+        # Two Gemini jobs would send duplicate requests and race on gemini.jsonl.
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          while :; do
+            busy=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/model-compare.yml/runs?status=in_progress&branch=$GITHUB_REF_NAME" \
+                     --jq ".workflow_runs[] | select(.id != $GITHUB_RUN_ID) | .id" |
+                   while read -r id; do
+                     gh api "repos/$GITHUB_REPOSITORY/actions/runs/$id/jobs" \
+                       --jq '.jobs[] | select(.name == "gemini" and .status == "in_progress") | .id'
+                   done)
+            [ -z "$busy" ] && break
+            echo "An older Gemini job is still running; checking again in 2 minutes."
+            sleep 120
+          done
       - name: Sync to branch tip
         # A queued run starts from its trigger commit; results pushed since then
         # (including the Haiku spend ledger) must be in the checkout.

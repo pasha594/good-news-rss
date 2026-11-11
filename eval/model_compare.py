@@ -58,10 +58,18 @@ GEMINI_PAUSE_S = 4.5
 
 FIELDS = ("selected", "impactful", "uplifting", "score", "reason")
 # --extras adds these (their instructions come from EVAL_ENTITY_PROMPT).
-EXTRA_FIELDS = ("deciding_filter", "entity_type", "person", "org", "location", "region")
+EXTRA_FIELDS = ("deciding_filter", "entity_type", "person", "org", "location", "region",
+                "virtues", "topics")
 DECIDING = ["pass", "conflict", "headline", "tone", "scope", "source"]
 ENTITY_TYPES = ["PER", "ORG", "NONE"]
 REGIONS = ["NORTH_AMERICA", "LATAM", "EUROPE", "MIDDLE_EAST", "AFRICA", "ASIA", "OTHER"]
+# MOTLA taxonomy tags, for selected articles only.
+VIRTUES = ["community_engagement", "reconciliation", "environmental_stewardship", "diplomacy",
+           "innovation_for_good", "identity", "respect_and_civility",
+           "equity_diversity_inclusion", "solidarity"]
+TOPICS = ["civil_rights", "anti_discrimination", "holocaust_remembrance", "genocide_awareness",
+          "hate_crimes", "religious_freedom", "refugees", "women_and_girls", "anti_bullying",
+          "philanthropy", "heroism", "education", "health_and_medicine"]
 
 
 def make_schema(extras=False):
@@ -73,7 +81,9 @@ def make_schema(extras=False):
                       "entity_type": {"type": "string", "enum": ENTITY_TYPES},
                       "person": {"type": "string"}, "org": {"type": "string"},
                       "location": {"type": "string"},
-                      "region": {"type": "string", "enum": REGIONS}})
+                      "region": {"type": "string", "enum": REGIONS},
+                      "virtues": {"type": "array", "items": {"type": "string", "enum": VIRTUES}},
+                      "topics": {"type": "array", "items": {"type": "string", "enum": TOPICS}}})
     return {
         "type": "object",
         "properties": {"results": {"type": "array", "items": {
@@ -162,6 +172,9 @@ def parse(text, chunk_ids, extras=False):
             got.update({k: str(row[k] or "").strip()[:200] for k in ("person", "org", "location")})
             got["entity_type"] = row["entity_type"] if row["entity_type"] in ENTITY_TYPES else "NONE"
             got["region"] = row["region"] if row["region"] in REGIONS else "OTHER"
+            for k, allowed in (("virtues", VIRTUES), ("topics", TOPICS)):
+                vals = row[k] if isinstance(row[k], list) and got["selected"] else []
+                got[k] = [v for v in allowed if v in vals]     # taxonomy order, deduped
         out[row["id"]] = got
     return out
 
@@ -388,7 +401,8 @@ def main():
     ap.add_argument("--budget-usd", type=float, default=1.0)
     ap.add_argument("--out-name", default="haiku", help="results file stem for the haiku run")
     ap.add_argument("--extras", action="store_true",
-                    help="also return deciding_filter, entity type, person, org, location, region")
+                    help="also return deciding_filter, entity type, person, org, location, "
+                         "region, and MOTLA virtues/topics for selected articles")
     ap.add_argument("--entity-prompt-file")
     ap.add_argument("--max-requests", type=int, default=2000)
     args = ap.parse_args()
