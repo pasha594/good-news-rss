@@ -3,7 +3,9 @@ name: Model compare (eval)
 # One-off evaluation: classify a fixed sample of RSS articles with Claude Haiku 5.5
 # (hard $1 cap) and Gemini, same prompt; then the whole month with Haiku, adding
 # entity/location fields ($12 cap, cumulative). Runs on push to this branch or by hand;
-# each job retries up to 3 times and commits its progress after every attempt.
+# each job retries up to 3 times and commits its progress after every attempt. If a
+# job still fails (or a batch outlasts the step timeout), the run relaunches itself to
+# resume, up to 8 times.
 on:
   push:
     branches: [eval/model-compare]
@@ -14,9 +16,14 @@ on:
       - eval/model_compare/save.sh
       - .github/workflows/model-compare.yml
   workflow_dispatch:
+    inputs:
+      relaunch:
+        description: "Relaunch count (set automatically)"
+        default: "0"
 
 permissions:
   contents: write
+  actions: write      # lets the relaunch job start the next run
 
 concurrency:
   group: model-compare
@@ -105,3 +112,23 @@ jobs:
       - name: Save partial results
         if: always()
         run: bash eval/model_compare/save.sh "gemini final"
+
+  relaunch:
+    # A failed job (all attempts used, or the step timed out with a batch still
+    # processing) resumes in a fresh run: done ids are skipped, pending batches are
+    # collected, and the spend ledger carries over. Not on manual cancel.
+    needs: [haiku, gemini]
+    if: ${{ !cancelled() && (needs.haiku.result == 'failure' || needs.gemini.result == 'failure') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start the next run
+        env:
+          GH_TOKEN: ${{ github.token }}
+          N: ${{ inputs.relaunch || '0' }}
+        run: |
+          if [ "$N" -ge 8 ]; then
+            echo "::error::Gave up after 8 relaunches."
+            exit 1
+          fi
+          gh workflow run model-compare.yml -R "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME" -f relaunch=$((N + 1))
+          echo "Relaunched (#$((N + 1)))."
