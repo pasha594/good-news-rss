@@ -7,3 +7,5 @@ docs/
 worker/.dev.vars
 worker/.wrangler/
 node_modules/
+
+eval/bloomberg_tag/out/

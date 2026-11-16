@@ -1,0 +1,73 @@
+name: Bloomberg tagging (eval)
+
+# One-off: tag another curator's 10k picks with Claude Haiku 5.5 (Batch API, hard $2
+# cap, cumulative via the encrypted ledger). Input and results are committed only
+# AES-encrypted; the passphrase is a repo secret. Logs carry counts only. Resumable:
+# a re-run decrypts the previous results, skips done ids and collects pending batches.
+on:
+  push:
+    branches: [eval/model-compare]
+    paths:
+      - eval/bloomberg_tag.py
+      - eval/bloomberg_tag/input.jsonl.enc
+      - eval/bloomberg_tag/save.sh
+      - eval/bloomberg_tag/rerun
+      - .github/workflows/bloomberg-tag.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bloomberg-tag
+  cancel-in-progress: false
+
+jobs:
+  haiku:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    env:
+      BLOOMBERG_EVAL_PASSPHRASE: ${{ secrets.BLOOMBERG_EVAL_PASSPHRASE }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Sync to branch tip
+        run: |
+          git fetch --depth=1 origin "$GITHUB_REF_NAME"
+          git reset --hard FETCH_HEAD
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet anthropic
+      - name: Decrypt input and earlier results
+        run: |
+          d=eval/bloomberg_tag
+          mkdir -p "$RUNNER_TEMP/bb"
+          openssl enc -d -aes-256-cbc -pbkdf2 -iter 600000 -md sha256 \
+            -pass env:BLOOMBERG_EVAL_PASSPHRASE -in "$d/input.jsonl.enc" -out "$RUNNER_TEMP/bb/input.jsonl"
+          if [ -f "$d/out.tar.gz.enc" ]; then
+            openssl enc -d -aes-256-cbc -pbkdf2 -iter 600000 -md sha256 \
+              -pass env:BLOOMBERG_EVAL_PASSPHRASE -in "$d/out.tar.gz.enc" | tar -xzf - -C "$d"
+          fi
+          echo "input rows: $(wc -l < "$RUNNER_TEMP/bb/input.jsonl")"
+      - name: Tag with Claude Haiku 5.5 (up to 3 attempts)
+        timeout-minutes: 330
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          EVAL_SYSTEM_PROMPT: ${{ secrets.EVAL_SYSTEM_PROMPT }}
+          EVAL_ENTITY_PROMPT: ${{ secrets.EVAL_ENTITY_PROMPT }}
+        run: |
+          for attempt in 1 2 3; do
+            set +e
+            python eval/bloomberg_tag.py --input "$RUNNER_TEMP/bb/input.jsonl" --budget-usd 2
+            rc=$?
+            set -e
+            bash eval/bloomberg_tag/save.sh "attempt $attempt"
+            if [ "$rc" = 0 ] || [ "$rc" = 3 ]; then exit 0; fi
+            echo "Attempt $attempt failed (exit $rc); retrying in 5 minutes."
+            sleep 300
+          done
+          exit 1
+      - name: Save partial results
+        if: always()
+        run: bash eval/bloomberg_tag/save.sh "final"
