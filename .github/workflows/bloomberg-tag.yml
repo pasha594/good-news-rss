@@ -1,6 +1,6 @@
 name: Bloomberg tagging (eval)
 
-# One-off: tag another curator's 10k picks with Claude Haiku 5.5 (Batch API, hard $2
+# One-off: tag another curator's 10k picks (now tag-only, no selection verdict) with Claude Haiku 5.5 (Batch API, hard $2
 # cap, cumulative via the encrypted ledger). Input and results are committed only
 # AES-encrypted; the passphrase is a repo secret. Logs carry counts only. Resumable:
 # a re-run decrypts the previous results, skips done ids and collects pending batches.
@@ -59,7 +59,7 @@ jobs:
         run: |
           for attempt in 1 2 3; do
             set +e
-            python eval/bloomberg_tag.py --input "$RUNNER_TEMP/bb/input.jsonl" --budget-usd 2
+            python eval/bloomberg_tag.py --tag-only --input "$RUNNER_TEMP/bb/input.jsonl" --budget-usd 2
             rc=$?
             set -e
             bash eval/bloomberg_tag/save.sh "attempt $attempt"
