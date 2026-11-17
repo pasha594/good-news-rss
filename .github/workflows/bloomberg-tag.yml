@@ -59,7 +59,7 @@ jobs:
         run: |
           for attempt in 1 2 3; do
             set +e
-            python eval/bloomberg_tag.py --tag-only --input "$RUNNER_TEMP/bb/input.jsonl" --budget-usd 2
+            python eval/bloomberg_tag.py --tag-only --headline-only --input "$RUNNER_TEMP/bb/input.jsonl" --budget-usd 2
             rc=$?
             set -e
             bash eval/bloomberg_tag/save.sh "attempt $attempt"

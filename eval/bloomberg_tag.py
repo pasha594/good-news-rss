@@ -110,13 +110,17 @@ def tag_parse(text, chunk_ids, extras=False):
     return out
 
 
+HEADLINE_ONLY = False     # --headline-only: no description line at all
+
+
 def article_block(n, aid, r):
     link = r.get("webUrl") or ""
     host = urlparse(link).netloc.lower()
     host = host[4:] if host.startswith("www.") else host
     summary = mc.clean(r.get("summary"))[:SUMMARY_CHARS] or "(none)"
+    desc = "" if HEADLINE_ONLY else f"description: {summary}\n"
     return (f"[{n}] id: {aid}\nheadline: {mc.clean(r.get('headline'))}\n"
-            f"description: {summary}\nsource: {r.get('source') or '?'} | host: {host or '?'}")
+            f"{desc}source: {r.get('source') or '?'} | host: {host or '?'}")
 
 
 _parse = mc.parse
@@ -149,6 +153,8 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--tag-only", action="store_true",
                     help="tags only, no selection rubric or verdict (results: haiku_bloomberg_tags)")
+    ap.add_argument("--headline-only", action="store_true",
+                    help="with --tag-only: send the headline without the summary (results: haiku_bloomberg_headline)")
     args = ap.parse_args()
 
     items = []
@@ -162,6 +168,10 @@ def main():
              else os.environ.get("EVAL_ENTITY_PROMPT", ""))
     if len(extra) < 200:
         sys.exit("entity prompt missing: set EVAL_ENTITY_PROMPT or pass --entity-prompt-file")
+    if args.headline_only and not args.tag_only:
+        sys.exit("--headline-only needs --tag-only")
+    global HEADLINE_ONLY
+    HEADLINE_ONLY = args.headline_only
     if args.tag_only:
         prompt = tag_prompt(extra)
     else:
@@ -183,6 +193,7 @@ def main():
               f"~{out_tok / 1e6:.2f}M output; estimate without caching ${est:.2f}")
         return 0
     return mc.run_haiku(items, prompt, args.budget_usd,
+                        "haiku_bloomberg_headline" if args.headline_only else
                         "haiku_bloomberg_tags" if args.tag_only else "haiku_bloomberg", extras=True)
 
 
