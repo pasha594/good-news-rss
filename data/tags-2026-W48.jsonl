@@ -14004,3 +14004,26 @@
 {"id": "1b8f50554193fad64dea299d30d81cfa15be96f3", "virtues": [], "topics": [], "location": {"present": false, "city": "", "country": ""}, "entities": [{"name": "Bill Butcher", "type": "person"}], "enrich_model": "gemini-3.5-flash-lite", "enriched_at": "2026-11-25T04:21:58Z"}
 {"id": "32280c0a5725d5340035f7c3a2a01a9497d89524", "virtues": ["community_engagement"], "topics": [], "location": {"present": true, "city": "Kent", "country": "United Kingdom"}, "entities": [{"name": "Des Crampton", "type": "person"}], "enrich_model": "gemini-3.5-flash-lite", "enriched_at": "2026-11-25T04:21:58Z"}
 {"id": "03fc6f36ceab1246cc995b655395b3fb57132502", "virtues": [], "topics": [], "location": {"present": false, "city": "", "country": ""}, "entities": [], "enrich_model": "gemini-3.5-flash-lite", "enriched_at": "2026-11-25T04:21:58Z"}
+{"id": "d6ea9606e7d240c11871e99aec3284cf2b9e1bd7", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-25T14:18:03Z"}
+{"id": "eab7779fd7f816dacc7e7623ab634fa80131bf2f", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-25T14:18:03Z"}
+{"id": "ce923dd997f504aa50f296caf386741e7409cbb8", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-25T14:18:03Z"}
+{"id": "af3ead07c05e78de9ec46529303788b21af3acbc", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-25T14:18:03Z"}
+{"id": "72e9970737bbf63dba6ff9d7211e4c8501ce0717", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-25T14:18:03Z"}
+{"id": "443f33007cbb133abe48c6aab8dbb1071690f63a", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-25T14:18:03Z"}
+{"id": "4f9868f593ac72176b8477b5e2a4231b1e3b62eb", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-25T14:18:03Z"}
+{"id": "107307554bf2299bad5651a8727c2aa0b1539608", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-25T14:18:03Z"}
+{"id": "0636190c1b807f15bcb88bc9165bc0bfb22d79e0", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-25T14:18:03Z"}
+{"id": "549ee36aadf5af096f7cb1e2ea1e038dbbe6b7f3", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-25T14:18:03Z"}
+{"id": "6f193c9a29981d62bf17839c6b821214550eddcf", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-25T14:18:03Z"}
+{"id": "7ee62f7946c2b170850add14f6d917cdcb3b3f03", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-25T14:18:03Z"}
+{"id": "01c17480a2b7d02ff48721bfba4bd88f6d45acf4", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-25T14:18:03Z"}
+{"id": "995b68157002efec64ad3814a026df71a6536b47", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-25T14:18:03Z"}
+{"id": "6eef29b13b5af8d72237cf4ac541293569fb6bd6", "v": 3, "impactful": false, "uplifting": false, "on_mission": false, "good": 0, "cats": ["world"], "skip": "state_outlet", "model": "rule", "at": "2026-11-25T14:18:03Z"}
+{"spend": "fail", "model": "gemini-3.5-flash-lite", "at": "2026-11-25T14:18:04Z"}
+{"spend": "fail", "model": "gemini-3.1-flash-lite", "at": "2026-11-25T14:18:05Z"}
+{"spend": "fail", "model": "gemini-3.5-flash-lite", "at": "2026-11-25T14:18:21Z"}
+{"spend": "fail", "model": "gemini-3.1-flash-lite", "at": "2026-11-25T14:18:21Z"}
+{"spend": "fail", "model": "gemini-3.5-flash-lite", "at": "2026-11-25T14:18:37Z"}
+{"spend": "fail", "model": "gemini-3.1-flash-lite", "at": "2026-11-25T14:18:39Z"}
+{"spend": "fail", "model": "gemini-3.5-flash-lite", "at": "2026-11-25T14:18:54Z"}
+{"spend": "fail", "model": "gemini-3.1-flash-lite", "at": "2026-11-25T14:18:55Z"}
